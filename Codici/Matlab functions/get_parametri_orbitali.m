@@ -1,8 +1,9 @@
 function [obj_param] = get_parametri_orbitali(r,v, mu)
 
+% k - versore
 k =[0 0 1];
 
-% h - momento angolare specifico  (vettore)
+% h - momento angolare specifico (vettore)
 h = cross(r,v);
 
 % E - Energia specifica
