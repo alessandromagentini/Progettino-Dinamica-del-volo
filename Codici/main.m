@@ -1,6 +1,10 @@
 clear;clc;close all
 
+% Aggiungo il path della cartella delle funciton
 addpath("Matlab functions")
+
+% Flags
+toolbox_flag = 1;
 
 %% Dati iniziali
 r0_vec = [-7368.038574853538, -7231.584293256432, -148.523707822187];            %[km]
@@ -31,12 +35,13 @@ globe = geoglobe(fig);
 geoplot3(globe,lat, lon, alt, 'LineWidth', 2, 'Color', 'r')
 
 % Satellite Communications Toolbox
-deltat_sample = 1;        %[s]
-sc = satelliteScenario(start_time,stop_time,deltat_sample);
-sat_orbit_tb = satellite(sc,sat_param.a*1000,sat_param.e,sat_param.i,sat_param.raan,sat_param.omega,0);
-% PLOT
-v = satelliteScenarioViewer(sc);
-
+if toolbox_flag == 1
+    deltat_sample = 1;        %[s]
+    sc = satelliteScenario(start_time,stop_time,deltat_sample);
+    sat_orbit_tb = satellite(sc,sat_param.a*1000,sat_param.e,sat_param.i,sat_param.raan,sat_param.omega,0);
+    % PLOT
+    v = satelliteScenarioViewer(sc);
+end
 
 
 
