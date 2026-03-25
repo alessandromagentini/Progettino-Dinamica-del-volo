@@ -8,8 +8,8 @@ v0_vec = [4.126512186315761, -3.956371322777358, -0.490613661500991];           
 
 mu_terra = 398600;                                                               %[km^3/s^2]
 
-start_time   = datetime(2026, 3, 20, 12, 00, 00);                                % YYYY-MM-DD-HH-min-sec
-stop_time    = datetime(2026, 3, 20, 15, 00, 00);                                % YYYY-MM-DD-HH-min-sec
+start_time   = datetime(2001, 9, 11, 12, 00, 00);                                % YYYY-MM-DD-HH-min-sec
+stop_time    = datetime(2001, 9, 12, 15, 00, 00);                                % YYYY-MM-DD-HH-min-sec
 delta_t_sat_sample = 3*3600;                                                     %[s]
 
 %% Calcolo parametri orbitali

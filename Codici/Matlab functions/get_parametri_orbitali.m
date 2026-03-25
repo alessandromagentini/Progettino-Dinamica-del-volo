@@ -26,8 +26,12 @@ if E < 0
     % N - Vettore della linea dei nodi
     N = cross(k,h)';
 
-    % i - inclinazione 
+    % i - inclinazione
+    if h(3)>0
     i = acos(h(3)/norm(h));                                                % [rad]
+    else 
+    i = pi - acos(h(3)/norm(h));  %controllare formula appunti             % [rad]
+    end
     i = rad2deg(i);                                                        % [deg]
     % opzionale: aggiungere identificazione orbita prograda/retrograda
 

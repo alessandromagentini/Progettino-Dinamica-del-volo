@@ -1,8 +1,9 @@
 function [obj_param] = get_parametri_orbitali(r,v, mu)
 
+% k - versore
 k =[0 0 1];
 
-% h - momento angolare specifico  (vettore)
+% h - momento angolare specifico (vettore)
 h = cross(r,v);
 
 % E - Energia specifica
@@ -16,17 +17,21 @@ if E < 0
     a = -mu/(2*E);
 
     % e - eccentricità
-    e_vec = cross(v,h)./mu - r./norm(r);
+    e_vec = (cross(v,h)./mu - r./norm(r))';
     e = norm(e_vec);                                                       % e = sqrt(1+(2*norm(h)^2*E)/mu^2);
 
     % T - periodo orbitale
     T = (2*pi/sqrt(mu))*a^(3/2);                                           % [s]
 
     % N - Vettore della linea dei nodi
-    N = cross(k,h);
+    N = cross(k,h)';
 
-    % i - inclinazione 
+    % i - inclinazione
+    if h(3)>0
     i = acos(h(3)/norm(h));                                                % [rad]
+    else 
+    i = pi - acos(h(3)/norm(h));  %controllare formula appunti             % [rad]
+    end
     i = rad2deg(i);                                                        % [deg]
     % opzionale: aggiungere identificazione orbita prograda/retrograda
 
@@ -45,7 +50,7 @@ if E < 0
     if e_vec(3) > 0
         omega = acos(cosomega);                            % [rad]
     else
-        omega = 2*pi - acos(dot(N,e_vec)/(norm(N)*e));                     % [rad]
+        omega = 2*pi - acos(cosomega);                     % [rad]
     end
     omega = rad2deg(omega);                                                % [deg] 
 

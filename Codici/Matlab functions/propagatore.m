@@ -28,11 +28,11 @@ n = round(seconds(stopTime - startTime)/dt);
 M_e = ((2*pi/T) .* dt*(0:n))'; 
 
 %% Inizializzazione
-xi   = zeros(n+1,1);
-TA   = zeros(n+1,1);
+xi        = zeros(n+1,1);
+TA        = zeros(n+1,1);
 r_kepl    = zeros(n+1,3);
 v_kepl    = zeros(n+1,3);
-t    = zeros(n+1,1);
+t         = zeros(n+1,1);
 
 r_eci    = zeros(n+1,3);
 v_eci    = zeros(n+1,3);
