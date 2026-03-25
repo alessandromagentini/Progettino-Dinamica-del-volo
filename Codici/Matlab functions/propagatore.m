@@ -1,4 +1,4 @@
-function [orbit_polar] = propagatore(orbit_param, dt, t_sample)
+function [orbit_polar] = propagatore(orbit_param, dt, t_sample,startTime,stopTime)
 % Funzione che calcola l'orbita a partire dai parametri orbitali nel
 % sistema perifocale e poi restituisce l'orbita in ECI
 
@@ -20,7 +20,7 @@ r_fun = @(TA) (norm(h)^2/mu)/(1 + e*cos(TA));
 % True anomaly
 TA_fun = @(xi) 2*atan(sqrt((1 + e)/(1 - e)) * tan(xi/2));
 
-n = round(((t_sample(2) - t_sample(1)))/dt);
+n = round(seconds(stopTime - startTime)/dt);
 % n = round(T/dt) + 1;  % numero intervalli dt
 
 
@@ -30,12 +30,12 @@ M_e = ((2*pi/T) .* dt*(0:n))';
 %% Inizializzazione
 xi   = zeros(n+1,1);
 TA   = zeros(n+1,1);
-r    = zeros(n+1,3);
-v    = zeros(n+1,3);
+r_kepl    = zeros(n+1,3);
+v_kepl    = zeros(n+1,3);
 t    = zeros(n+1,1);
 
-r_tool    = zeros(n+1,3);
-v_tool    = zeros(n+1,3);
+r_eci    = zeros(n+1,3);
+v_eci    = zeros(n+1,3);
 
 %% Risolutore:
 % t -> M_e -> xi -> TA
@@ -43,7 +43,7 @@ for idx = 1:(n+1)
     xi(idx) = KeplerE(M_e(idx),e);           % Risoluzione equazione di Keplero
     TA(idx) = TA_fun(xi(idx));               % Calcolo True Anomaly
     TA(idx) = rad2deg(TA(idx));              % conversione in [deg]
-    r(idx)  = r_fun(TA(idx));                % Calcolo del raggio
+    r_kepl(idx)  = r_fun(TA(idx));           % Calcolo del raggio
     t(idx)  = idx * dt - dt;                 % tempo trascorso
 
     %% Conversione in ECI:
@@ -52,12 +52,12 @@ for idx = 1:(n+1)
         TA(idx) = 360 + TA(idx);
     end
     [rt, vt] = keplerian2ijk(a, e, i, raan, omega, TA(idx)); %funzione dell'aerospace toolbox temporanea/per verificare
-    r_tool(idx,:) = rt';
-    v_tool(idx,:) = vt';
+    r_eci(idx,:) = rt';
+    v_eci(idx,:) = vt';
 end
 
 %% Organizzazione output
-orbit_polar = struct("r",r, "v",v, "TA",TA, "t",t, "M_e",M_e, "xi",xi, "r_tool",r_tool, "v_tool",v_tool);
+orbit_polar = struct("r_kepl",r_kepl, "v_kepl",v_kepl, "TA",TA, "t",t, "M_e",M_e, "xi",xi, "r_eci",r_eci, "v_eci",v_eci);
 
 end %propagatore
 
