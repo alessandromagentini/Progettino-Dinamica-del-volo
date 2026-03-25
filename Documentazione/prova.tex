@@ -76,10 +76,78 @@
 Il primo progettino relativo al corso di Dinamica del Volo, anno accademico 2025/2026, richiede ad un gruppo di massimo quattro studenti di disegnare una missione di intercettazione di un asteroide posizionato su di un' orbita con inclinazione relativa rispetto al piano equatoriale terrestre.
 
 \section{Analisi del problema}
-In questa sezione verranno descritte le equazioni del moto e i parametri orbitali utilizzati per la missione. Un esempio di equazione in blocco separato è il seguente:
-\[
-\ddot{\vec{r}} + \frac{\mu}{r^3} \vec{r} = 0
-\]
+In questa sezione verranno descritte le equazioni del moto e i parametri orbitali utilizzati per la missione.
+
+\subsection*{Formulario di Dinamica Orbitale: L'Ellisse}
+
+Le seguenti relazioni descrivono la geometria e la cinematica di un'orbita ellittica nel problema dei due corpi:
+
+\begin{itemize}
+    \item \textbf{Geometria dell'orbita:}
+    \begin{align*}
+        a &= \frac{r_a + r_p}{2} \quad \text{(Semiasse maggiore)} \\
+        e &= \frac{r_a - r_p}{r_a + r_p} \quad \text{(Eccentricità)} \\
+        p &= a(1 - e^2) \quad \text{(Parametro della conica)}
+    \end{align*}
+
+    \item \textbf{Equazione della traiettoria (Coordinate polari):}
+    \begin{equation*}
+        r(\theta) = \frac{p}{1 + e \cos \theta}
+    \end{equation*}
+
+    \item \textbf{Energia e Velocità:}
+    \begin{align*}
+        \varepsilon &= -\frac{\mu}{2a} \quad \text{(Energia specifica)} \\
+        v &= \sqrt{\mu \left( \frac{2}{r} - \frac{1}{a} \right)} \quad \text{(Equazione Vis-Viva)}
+    \end{align*}
+
+    \item \textbf{Periodo e Moto Medio:}
+    \begin{align*}
+        T &= 2\pi \sqrt{\frac{a^3}{\mu}} \quad \text{(Periodo orbitale)} \\
+        n &= \sqrt{\frac{\mu}{a^3}} \quad \text{(Moto medio)}
+    \end{align*}
+    Per determinare la posizione del satellite in funzione del tempo $t$, si utilizzano le seguenti relazioni:
+\begin{align*}
+    n &= \sqrt{\frac{\mu}{a^3}} \quad \text{(Moto medio)} \\
+    M &= n(t - t_p) \quad \text{(Anomalia media)} \\
+    M &= E - e \sin E \quad \text{(Equazione di Keplero)}
+\end{align*}
+La conversione tra l'anomalia eccentrica $E$ e l'anomalia vera $\theta$ avviene tramite:
+\begin{equation*}
+    \tan \frac{\theta}{2} = \sqrt{\frac{1+e}{1-e}} \tan \frac{E}{2}
+\end{equation*}
+
+\subsection{Manovre Orbitali ($\Delta V$)}
+Le manovre impulsive per il trasferimento tra orbite o il cambio di piano:
+\begin{itemize}
+    \item \textbf{Trasferimento di Hohmann:}
+    \begin{equation*}
+        \Delta V_{tot} = |v_{per,2} - v_{circ,1}| + |v_{circ,2} - v_{apo,1}|
+    \end{equation*}
+    \item \textbf{Cambio di Inclinazione ($\Delta i$):}
+    \begin{equation*}
+        \Delta V = 2 v \sin\left(\frac{\Delta i}{2}\right)
+    \end{equation*}
+    \item \textbf{Variazione combinata (Veloctà e Inclinazione):}
+    \begin{equation*}
+        \Delta V = \sqrt{v_1^2 + v_2^2 - 2 v_1 v_2 \cos \Delta i}
+    \end{equation*}
+\end{itemize}
+
+\subsection{Parametri Orbitali nel Tempo (Perturbazioni J2)}
+A causa dello schiacciamento polare della Terra ($J_2$), i parametri RAAN ($\Omega$) e l'argomento del perigeo ($\omega$) variano nel tempo:
+\begin{align*}
+    \dot{\Omega} &= -\frac{3}{2} J_2 R_E^2 \sqrt{\mu} a^{-7/2} (1-e^2)^{-2} \cos i \\
+    \dot{\omega} &= \frac{3}{4} J_2 R_E^2 \sqrt{\mu} a^{-7/2} (1-e^2)^{-2} (5\cos^2 i - 1)
+\end{align*}
+
+\subsection{Sfera d'Influenza (SOI)}
+Per missioni interplanetarie (intercettazione asteroide), il raggio della sfera d'influenza del pianeta rispetto al Sole è:
+\begin{equation*}
+    R_{SOI} = D \left( \frac{m_{p}}{M_{Sole}} \right)^{2/5}
+\end{equation*}
+dove $D$ è la distanza tra il pianeta e il Sole.
+\end{itemize}
 \section{Scelta Software specifico}
 Il software specifico è stato scelto attraverso interrogazione dell'AI Claude e Gemini. Il prompt utilizzato è il seguente, riportato in forma integrale:  
 
@@ -128,7 +196,8 @@ La risposta fornita è stata la seguende :
 \section{Analisi dei Risultati}
 Per analizzare i risultati sono stati utilizzati i toll specifici Matlab "aerospace toolbox" e "satellite comunication toolbox"
 \section{Organizzazione del gruppo}
-Il lavoro del gruppo è stato organizzato attorno alla piattaforma GitHub. Si è giunti a questa scelta, preferendola rispetto ad una più tradizionale e diffusa cartella condivisa su un drive online, in quanto permette di gestire meglio e di tenere traccia di tutte le modifiche ai codici. \'E stata creata una repository sulla quale tutti i componenti hanno avuto accesso e collaborato, e si è optato per lavorare tutti su una sola branch visto che complicare la struttura della repository non avrebbe portato ad alcun vantaggio aggiuntivo. 
+Il lavoro del gruppo è stato organizzato attorno alla piattaforma GitHub. Si è giunti a questa scelta, preferendola rispetto ad una più tradizionale e diffusa cartella condivisa su un drive online, in quanto permette di gestire meglio e di tenere traccia di tutte le modifiche ai codici, inoltre non presenta limiti in merito allo spazio di archiviazione. \'E stata creata una repository sulla quale tutti i componenti hanno avuto accesso e collaborato, e si è optato per lavorare tutti su una sola branch visto che complicare la struttura della repository non avrebbe portato ad alcun vantaggio aggiuntivo. 
 I codici, sia GMAT che MATLAB, sono stati messi nella cartella \textsl{Codici}, mentre il codice LaTeX e le immagini sono stati messi nella cartella \textsl{Documentazione}.
+In questa prima fase del progetto i componenti del gruppo Alessandro Magentini e Filippo Michielan si sono dedicati alla parte di programmazione software, in particolare sull'implementazione prima GMAT e poi MATLAB dell'orbita. 
 
 \end{document}

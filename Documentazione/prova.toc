@@ -2,6 +2,9 @@
 \babel@toc {italian}{}\relax 
 \contentsline {section}{\numberline {1}Introduzione}{2}{}%
 \contentsline {section}{\numberline {2}Analisi del problema}{2}{}%
-\contentsline {section}{\numberline {3}Scelta Software specifico}{2}{}%
-\contentsline {section}{\numberline {4}Analisi dei Risultati}{3}{}%
-\contentsline {section}{\numberline {5}Descrizione incarichi partecipanti}{3}{}%
+\contentsline {subsection}{\numberline {2.1}Manovre Orbitali ($\Delta V$)}{3}{}%
+\contentsline {subsection}{\numberline {2.2}Parametri Orbitali nel Tempo (Perturbazioni J2)}{3}{}%
+\contentsline {subsection}{\numberline {2.3}Sfera d'Influenza (SOI)}{3}{}%
+\contentsline {section}{\numberline {3}Scelta Software specifico}{3}{}%
+\contentsline {section}{\numberline {4}Analisi dei Risultati}{4}{}%
+\contentsline {section}{\numberline {5}Organizzazione del gruppo}{5}{}%
