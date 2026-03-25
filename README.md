@@ -2,7 +2,7 @@
 ### Missione di Intercettazione Asteroide
 
 Progetto universitario per il corso di Dinamica del Volo Aerospaziale.
-Sviluppato in MATLAB da un gruppo di 4 persone.
+Sviluppato in MATLAB (e GMAT) da un gruppo di 4 persone.
 
 ---
 
