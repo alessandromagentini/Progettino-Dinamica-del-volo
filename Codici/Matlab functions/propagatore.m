@@ -46,6 +46,8 @@ for idx = 1:(n+1)
     r_kepl(idx)  = r_fun(TA(idx));           % Calcolo del raggio
     t(idx)  = idx * dt - dt;                 % tempo trascorso
 
+    %% da aggiungere: calcolo della velocità
+
     %% Conversione in ECI:
     %% DA FARE?) scrivere la nostra funzione
     if TA(idx) < 0

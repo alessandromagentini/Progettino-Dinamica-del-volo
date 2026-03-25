@@ -79,7 +79,7 @@ Il primo progettino relativo al corso di Dinamica del Volo, anno accademico 2025
 In questa sezione verranno descritte le equazioni del moto e i parametri orbitali utilizzati per la missione.
 
 \section{Algoritmo di Determinazione dei Parametri Orbitali}
-
+\label{sec:formule}
 Partendo dai vettori stato $\vec{r}$ e $\vec{v}$, l'algoritmo calcola i parametri orbitali classici (COE). Si definisce il versore dell'asse $z$ come $\hat{k} = [0, 0, 1]^T$.
 
 \subsection{Costanti del Moto}
@@ -221,7 +221,9 @@ Analizzata la situazione abbiamo scelto di utilizzare MATLAB come
     \label{fig:mio_grafico}
 \end{figure}
 \section{Analisi dei Risultati}
-Per analizzare i risultati sono stati utilizzati i toll specifici Matlab "aerospace toolbox" e "satellite comunication toolbox"
+Per analizzare i risultati sono stati utilizzati i toll specifici Matlab "aerospace toolbox" e "satellite comunication toolbox".
+All'interno del codice MATLAB sono state implementate diverse funzioni: una per il calcolo dei parametri orbitali e una per la propagazione. Quest'ultima, a partire dall'intervallo temporale definito inizialmente, segue le equazioni descritte in Sezione \ref{sec:formule} e calcola l'orbita seguendo l'ordine t - $M_e$ - xi - TA - r. Questa metodologia però, per quanto i risultati siano corretti, non permette una visualizzazione dell'orbita nel sistema ECI, ma soltanto nel sistema NEU (North East Up), in MATLAB lla (Latitude Longitude Altitude), e dunque la visualizzazione dell'orbita è possibile soltanto da un punto di vista fisso con la rotazione terrestre. Quindi, per ottenere l'orbita nel sistema ECI ci siamo appoggiati alle functions del Satellite Comunication Toolbox, in particolare \texttt{satelllite}, che propaga l'orbita, e \texttt{satelliteScenarioViewer} che visualizza l'orbita nella maniera da noi desiderata.
+%DA FINIRE
 \section{Organizzazione del gruppo}
 Il lavoro del gruppo è stato organizzato attorno alla piattaforma GitHub. Si è giunti a questa scelta, preferendola rispetto ad una più tradizionale e diffusa cartella condivisa su un drive online, in quanto permette di gestire meglio e di tenere traccia di tutte le modifiche ai codici, inoltre non presenta limiti in merito allo spazio di archiviazione. \'E stata creata una repository sulla quale tutti i componenti hanno avuto accesso e collaborato, e si è optato per lavorare tutti su una sola branch visto che complicare la struttura della repository non avrebbe portato ad alcun vantaggio aggiuntivo. 
 I codici, sia GMAT che MATLAB, sono stati messi nella cartella \textsl{Codici}, mentre il codice LaTeX e le immagini sono stati messi nella cartella \textsl{Documentazione}.
