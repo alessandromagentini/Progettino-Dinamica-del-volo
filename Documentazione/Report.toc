@@ -1,0 +1,16 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {section}{\numberline {1}Introduzione}{2}{}%
+\contentsline {section}{\numberline {2}Analisi del problema}{2}{}%
+\contentsline {section}{\numberline {3}Algoritmo di Determinazione dei Parametri Orbitali}{2}{}%
+\contentsline {subsection}{\numberline {3.1}Costanti del Moto}{2}{}%
+\contentsline {subsection}{\numberline {3.2}Parametri per Orbita Ellittica ($\varepsilon < 0$)}{2}{}%
+\contentsline {section}{\numberline {4}Propagazione Temporale e Moto di Keplero}{3}{}%
+\contentsline {subsection}{\numberline {4.1}Definizione delle Variabili Temporali}{3}{}%
+\contentsline {subsection}{\numberline {4.2}Risoluzione dell'Equazione di Keplero}{3}{}%
+\contentsline {subsection}{\numberline {4.3}Determinazione della Posizione Orbitale}{3}{}%
+\contentsline {subsection}{\numberline {4.4}Trasformazione di Coordinate (da Kepleriano a ECI)}{3}{}%
+\contentsline {subsection}{\numberline {4.5}Note sull'implementazione}{4}{}%
+\contentsline {section}{\numberline {5}Scelta Software specifico}{4}{}%
+\contentsline {section}{\numberline {6}Analisi dei Risultati}{5}{}%
+\contentsline {section}{\numberline {7}Organizzazione del gruppo}{5}{}%
