@@ -78,76 +78,102 @@ Il primo progettino relativo al corso di Dinamica del Volo, anno accademico 2025
 \section{Analisi del problema}
 In questa sezione verranno descritte le equazioni del moto e i parametri orbitali utilizzati per la missione.
 
-\subsection*{Formulario di Dinamica Orbitale: L'Ellisse}
+\section{Algoritmo di Determinazione dei Parametri Orbitali}
 
-Le seguenti relazioni descrivono la geometria e la cinematica di un'orbita ellittica nel problema dei due corpi:
+Partendo dai vettori stato $\vec{r}$ e $\vec{v}$, l'algoritmo calcola i parametri orbitali classici (COE). Si definisce il versore dell'asse $z$ come $\hat{k} = [0, 0, 1]^T$.
+
+\subsection{Costanti del Moto}
+Il vettore momento angolare specifico $\vec{h}$ e l'energia specifica $\varepsilon$ sono calcolati come:
+\begin{align}
+    \vec{h} &= \vec{r} \times \vec{v} \\
+    \varepsilon &= \frac{v^2}{2} - \frac{\mu}{r}
+\end{align}
+
+\subsection{Parametri per Orbita Ellittica ($\varepsilon < 0$)}
+Se l'energia specifica è negativa, l'orbita è di tipo ellittico. I parametri vengono determinati come segue:
 
 \begin{itemize}
-    \item \textbf{Geometria dell'orbita:}
-    \begin{align*}
-        a &= \frac{r_a + r_p}{2} \quad \text{(Semiasse maggiore)} \\
-        e &= \frac{r_a - r_p}{r_a + r_p} \quad \text{(Eccentricità)} \\
-        p &= a(1 - e^2) \quad \text{(Parametro della conica)}
-    \end{align*}
+    \item \textbf{Semiasse maggiore e Periodo:}
+    \begin{equation}
+        a = -\frac{\mu}{2\varepsilon}, \quad T = \frac{2\pi}{\sqrt{\mu}} a^{3/2}
+    \end{equation}
 
-    \item \textbf{Equazione della traiettoria (Coordinate polari):}
-    \begin{equation*}
-        r(\theta) = \frac{p}{1 + e \cos \theta}
-    \end{equation*}
+    \item \textbf{Vettore Eccentricità:}
+    \begin{equation}
+        \vec{e} = \frac{1}{\mu} \left[ \vec{v} \times \vec{h} \right] - \frac{\vec{r}}{r}, \quad e = \|\vec{e}\|
+    \end{equation}
 
-    \item \textbf{Energia e Velocità:}
-    \begin{align*}
-        \varepsilon &= -\frac{\mu}{2a} \quad \text{(Energia specifica)} \\
-        v &= \sqrt{\mu \left( \frac{2}{r} - \frac{1}{a} \right)} \quad \text{(Equazione Vis-Viva)}
-    \end{align*}
+    \item \textbf{Inclinazione ($i$):}
+    L'inclinazione è l'angolo tra il momento angolare $\vec{h}$ e l'asse $z$:
+    \begin{equation}
+        i = \arccos\left( \frac{h_z}{h} \right)
+    \end{equation}
 
-    \item \textbf{Periodo e Moto Medio:}
-    \begin{align*}
-        T &= 2\pi \sqrt{\frac{a^3}{\mu}} \quad \text{(Periodo orbitale)} \\
-        n &= \sqrt{\frac{\mu}{a^3}} \quad \text{(Moto medio)}
-    \end{align*}
-    Per determinare la posizione del satellite in funzione del tempo $t$, si utilizzano le seguenti relazioni:
-\begin{align*}
-    n &= \sqrt{\frac{\mu}{a^3}} \quad \text{(Moto medio)} \\
-    M &= n(t - t_p) \quad \text{(Anomalia media)} \\
-    M &= E - e \sin E \quad \text{(Equazione di Keplero)}
-\end{align*}
-La conversione tra l'anomalia eccentrica $E$ e l'anomalia vera $\theta$ avviene tramite:
-\begin{equation*}
-    \tan \frac{\theta}{2} = \sqrt{\frac{1+e}{1-e}} \tan \frac{E}{2}
-\end{equation*}
+    \item \textbf{Ascensione Retta del Nodo Ascendente ($\Omega$ - RAAN):}
+    Si definisce il vettore linea dei nodi $\vec{N} = \hat{k} \times \vec{h}$.
+    \begin{equation}
+        \Omega = 
+        \begin{cases} 
+        \arccos\left(\frac{N_x}{N}\right) & \text{se } N_y > 0 \\
+        2\pi - \arccos\left(\frac{N_x}{N}\right) & \text{se } N_y \leq 0
+        \end{cases}
+    \end{equation}
 
-\subsection{Manovre Orbitali ($\Delta V$)}
-Le manovre impulsive per il trasferimento tra orbite o il cambio di piano:
-\begin{itemize}
-    \item \textbf{Trasferimento di Hohmann:}
-    \begin{equation*}
-        \Delta V_{tot} = |v_{per,2} - v_{circ,1}| + |v_{circ,2} - v_{apo,1}|
-    \end{equation*}
-    \item \textbf{Cambio di Inclinazione ($\Delta i$):}
-    \begin{equation*}
-        \Delta V = 2 v \sin\left(\frac{\Delta i}{2}\right)
-    \end{equation*}
-    \item \textbf{Variazione combinata (Veloctà e Inclinazione):}
-    \begin{equation*}
-        \Delta V = \sqrt{v_1^2 + v_2^2 - 2 v_1 v_2 \cos \Delta i}
-    \end{equation*}
+    \item \textbf{Argomento del Pericentro ($\omega$):}
+    L'angolo tra la linea dei nodi $\vec{N}$ e il vettore eccentricità $\vec{e}$:
+    \begin{equation}
+        \omega = 
+        \begin{cases} 
+        \arccos\left(\frac{\vec{N} \cdot \vec{e}}{N e}\right) & \text{se } e_z > 0 \\
+        2\pi - \arccos\left(\frac{\vec{N} \cdot \vec{e}}{N e}\right) & \text{se } e_z \leq 0
+        \end{cases}
+    \end{equation}
 \end{itemize}
 
-\subsection{Parametri Orbitali nel Tempo (Perturbazioni J2)}
-A causa dello schiacciamento polare della Terra ($J_2$), i parametri RAAN ($\Omega$) e l'argomento del perigeo ($\omega$) variano nel tempo:
-\begin{align*}
-    \dot{\Omega} &= -\frac{3}{2} J_2 R_E^2 \sqrt{\mu} a^{-7/2} (1-e^2)^{-2} \cos i \\
-    \dot{\omega} &= \frac{3}{4} J_2 R_E^2 \sqrt{\mu} a^{-7/2} (1-e^2)^{-2} (5\cos^2 i - 1)
-\end{align*}
+\section{Propagazione Temporale e Moto di Keplero}
 
-\subsection{Sfera d'Influenza (SOI)}
-Per missioni interplanetarie (intercettazione asteroide), il raggio della sfera d'influenza del pianeta rispetto al Sole è:
-\begin{equation*}
-    R_{SOI} = D \left( \frac{m_{p}}{M_{Sole}} \right)^{2/5}
-\end{equation*}
-dove $D$ è la distanza tra il pianeta e il Sole.
-\end{itemize}
+Per determinare l'evoluzione temporale della posizione sulla traiettoria, l'algoritmo risolve il problema del tempo di volo partendo dall'anomalia media fino alla determinazione delle coordinate nello spazio ECI (\textit{Earth-Centered Inertial}).
+
+\subsection{Definizione delle Variabili Temporali}
+Dato il periodo orbitale $T$ e un passo temporale di campionamento $dt$, si definisce il numero di intervalli $n = \lfloor T/dt \rfloor + 1$. L'anomalia media $M_e$ per ogni istante $t_k$ è calcolata come:
+\begin{equation}
+    M_e(k) = \frac{2\pi}{T} \cdot t_k, \quad \text{con } t_k = (k-1)dt
+\end{equation}
+
+\subsection{Risoluzione dell'Equazione di Keplero}
+Il passaggio dall'anomalia media $M_e$ all'anomalia eccentrica $E$ (indicata nel codice come $\xi$) richiede la risoluzione della seguente equazione trascendente:
+\begin{equation}
+    f(E) = E - e \sin(E) - M_e = 0
+\end{equation}
+L'algoritmo utilizza un risolutore numerico (\textit{fzero}) con una stima iniziale $E_0$ ottimizzata per migliorare la convergenza:
+\begin{equation}
+    E_0 = 
+    \begin{cases} 
+    M_e + e/2 & \text{se } M_e \leq \pi \\
+    M_e - e/2 & \text{se } M_e > \pi
+    \end{cases}
+\end{equation}
+
+\subsection{Determinazione della Posizione Orbitale}
+Una volta ottenuta l'anomalia eccentrica $E$, si procede al calcolo dell'anomalia vera $\theta$ (TA nel codice) e del raggio orbitale $r$:
+\begin{align}
+    \theta &= 2 \arctan \left( \sqrt{\frac{1+e}{1-e}} \tan\frac{E}{2} \right) \\
+    r(\theta) &= \frac{h^2/\mu}{1 + e \cos \theta}
+\end{align}
+
+\subsection{Trasformazione di Coordinate (da Kepleriano a ECI)}
+L'ultimo passaggio dell'algoritmo consiste nella rotazione dal piano orbitale alla terna inerziale $IJK$ (ECI). Utilizzando i parametri orbitali $i$ (inclinazione), $\Omega$ (RAAN) e $\omega$ (argomento del pericentro), la posizione $\vec{r}_{ECI}$ e la velocità $\vec{v}_{ECI}$ sono ottenute tramite la matrice di rotazione $\mathbf{R}(\Omega, i, \omega)$:
+\begin{align}
+    \vec{r}_{ECI} &= \mathbf{R}_{z}(\Omega) \mathbf{R}_{x}(i) \mathbf{R}_{z}(\omega) \vec{r}_{perifocale} \\
+    \vec{v}_{ECI} &= \mathbf{R}_{z}(\Omega) \mathbf{R}_{x}(i) \mathbf{R}_{z}(\omega) \vec{v}_{perifocale}
+\end{align}
+Dove le componenti nel sistema perifocale dipendono esclusivamente da $r, \theta, \mu, p$.
+
+\subsection{Note sull'implementazione}
+Tutti i valori angolari calcolati in radianti sono stati successivamente convertiti in gradi per facilitare l'analisi dei risultati:
+\begin{equation}
+    \text{valore [deg]} = \text{valore [rad]} \cdot \frac{180}{\pi}
+\end{equation}
 \section{Scelta Software specifico}
 Il software specifico è stato scelto attraverso interrogazione dell'AI Claude e Gemini. Il prompt utilizzato è il seguente, riportato in forma integrale:  
 
@@ -186,6 +212,7 @@ La risposta fornita è stata la seguende :
     Pro: carico limitato su GMAT (solo run di confronto su propagazione e manovre chiave), risultati validati da riferimento esterno, diventa naturalmente la sezione sulle discrepanze teoria, simulazione richiesta dalla metodologia. \\
     Contro: richiede che almeno uno impari GMAT a sufficienza per configurare e interpretare i run, tempi da coordinare con il resto del gruppo.
 \end{quote}
+Analizzata la situazione abbiamo scelto di utilizzare MATLAB come 
 
 \begin{figure}[htbp]
     \centering
@@ -198,6 +225,6 @@ Per analizzare i risultati sono stati utilizzati i toll specifici Matlab "aerosp
 \section{Organizzazione del gruppo}
 Il lavoro del gruppo è stato organizzato attorno alla piattaforma GitHub. Si è giunti a questa scelta, preferendola rispetto ad una più tradizionale e diffusa cartella condivisa su un drive online, in quanto permette di gestire meglio e di tenere traccia di tutte le modifiche ai codici, inoltre non presenta limiti in merito allo spazio di archiviazione. \'E stata creata una repository sulla quale tutti i componenti hanno avuto accesso e collaborato, e si è optato per lavorare tutti su una sola branch visto che complicare la struttura della repository non avrebbe portato ad alcun vantaggio aggiuntivo. 
 I codici, sia GMAT che MATLAB, sono stati messi nella cartella \textsl{Codici}, mentre il codice LaTeX e le immagini sono stati messi nella cartella \textsl{Documentazione}.
-In questa prima fase del progetto i componenti del gruppo Alessandro Magentini e Filippo Michielan si sono dedicati alla parte di programmazione software, in particolare sull'implementazione prima GMAT e poi MATLAB dell'orbita. 
+In questa prima fase del progetto i componenti del gruppo Alessandro Magentini e Filippo Michielan si sono dedicati alla parte di programmazione software, in particolare sull'implementazione prima GMAT e poi MATLAB dell'orbita. Ippolito Luigi e Guglielmini Pietro hanno svolto l'analisi dati e la stesura del report in LaTeX. Il gruppo ha lavorato in maniera sincrona, con incontri in presenza o su piattaforme come google meet e discord, e in modalità asincrona sui programmi specifici. 
 
 \end{document}
