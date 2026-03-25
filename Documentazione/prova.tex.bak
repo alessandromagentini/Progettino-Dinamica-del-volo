@@ -1,0 +1,134 @@
+\documentclass[12pt, a4paper]{article}
+
+% --- PREAMBOLO ---
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry} % Gestione margini
+\geometry{margin=2.5cm}
+
+% Comando per la linea orizzontale nella copertina
+\newcommand{\hr}{\rule{\linewidth}{0.5mm}}
+
+% --- INIZIO DOCUMENTO ---
+\begin{document}
+
+% --- COPERTINA ---
+\begin{titlepage}
+    \centering
+    
+    {\Large \textbf{Università degli Studi di Padova}} \\
+    \vspace{0.3cm}
+    {\large Corso di Laurea in Ingegneria Aerospaziale} \\
+    \vspace{0.3cm}
+    {\normalsize Canale: B} \\
+    
+    \vspace{2.5cm}
+    
+    \hr 
+    \vspace{0.4cm}
+    {\Huge \bfseries Progettino Dinamica del Volo} \\
+    \vspace{0.2cm}
+    {\large Prima Parte: Descrizione Orbita}
+    \vspace{0.4cm}
+    \hr
+    
+    \vspace{3cm}
+   
+    % Spazio vuoto centrale (al posto dell'immagine)
+    \vspace{2cm}
+    
+    \vfill 
+    
+    \begin{minipage}{0.45\textwidth}
+        \begin{flushleft} \large
+            \emph{Autori:}\\
+            Pietro \textbf{Guglielmini} (Matr. 67890)\\
+            Luigi \textbf{Ippolito} (Matr. 2143068)\\
+            Alessandro \textbf{Magentini} (Matr. 12345)\\
+            Filippo \textbf{Michielan} (Matr. 67890)\\
+            
+            
+        \end{flushleft}
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+        \begin{flushright} \large
+            \emph{Docente:} \\
+            Prof. Giacomo \textbf{Colombatti}
+        \end{flushright}
+    \end{minipage}
+    
+    \vspace{1.5cm}
+    {\large \today}
+\end{titlepage}
+
+\newpage
+\tableofcontents 
+\newpage
+
+% --- CONTENUTO ---
+
+\section{Introduzione}
+Il primo progettino relativo al corso di Dinamica del Volo, anno accademico 2025/2026, richiede ad un gruppo di massimo quattro studenti di disegnare una missione di intercettazione di un asteroide posizionato su di un' orbita con inclinazione relativa rispetto al piano equatoriale terrestre.
+
+\section{Analisi del problema}
+In questa sezione verranno descritte le equazioni del moto e i parametri orbitali utilizzati per la missione. Un esempio di equazione in blocco separato è il seguente:
+\[
+\ddot{\vec{r}} + \frac{\mu}{r^3} \vec{r} = 0
+\]
+\section{Scelta Software specifico}
+Il software specifico è stato scelto attraverso interrogazione dell'AI Claude e Gemini. Il prompt utilizzato è il seguente, riportato in forma integrale:  
+
+\begin{quote}
+    \itshape % Rende il font corsivo
+    \textsf{ % Rende il font Sans Serif r
+        ``Devo svolgere un progetto universitario per il corso di Dinamica del Volo Aerospaziale in un gruppo di 4 persone. L'obiettivo è disegnare una missione di intercettazione di un asteroide su orbita inclinata rispetto al piano equatoriale terrestre. I contenuti richiesti includono: parametri orbitali, posizione del satellite ogni 3 ore, plot 3D in sistema ECI, analisi delle perturbazioni, ground track, manovre orbitali e phasing. La metodologia richiede analisi teorica, motivazione degli strumenti usati, rilevazione delle discrepanze tra teoria e simulazione, e identificazione del contributo di ogni membro. Il professore propone come alternative MATLAB o GMAT. Analizza pro e contro di entrambi rispetto a questo specifico progetto, valuta se convenga usarli entrambi in parallelo o in modo complementare. ''
+    }
+\end{quote}
+
+La risposta fornita è stata la seguende :
+
+\begin{quote}
+    \itshape  % Attiva il corsivo per lo stile citazione
+    \sffamily % Attiva il font Sans Serif in modo corretto per testi lunghi
+    
+    \textbf{MATLAB} \\
+    Pro: conosciuto da tutti, lavoro divisibile per moduli (propagatore, perturbazioni, manovre, plot), codice commentato significa documentazione trasparente, facile mostrare contributo individuale e corrispondenza teoria, implementazione. \\
+    Contro: perturbazioni (J2, drag, SRP) e manovre da implementare a mano, validazione dei risultati interamente a carico nostro.
+
+    \medskip 
+
+    \textbf{GMAT} \\
+    Pro: strumento NASA nativo per questo tipo di missione, perturbazioni, ground track, manovre, phasing già integrati e validati, dà peso professionale al report. \\
+    Contro: curva di apprendimento non banale (interfaccia, scripting proprio, debug difficile), corrispondenza teoria, implementazione difficile da documentare, meno flessibile per visualizzazioni personalizzate.
+
+    \medskip
+
+    \textbf{Entrambi in parallelo (2+2 persone)} \\
+    Pro: confronto diretto tra i due approcci, ognuno lavora con lo strumento preferito. \\
+    Contro: overhead di coordinamento alto per convergere su un unico report coerente, sforzo molto non bilanciato tra i due sottogruppi (chi usa MATLAB avanza molto più velocemente), nessun vantaggio metodologico esplicito richiesto dal prof.
+
+    \medskip
+
+    \textbf{MATLAB principale + GMAT per validazione} \\
+    Pro: carico limitato su GMAT (solo run di confronto su propagazione e manovre chiave), risultati validati da riferimento esterno, diventa naturalmente la sezione sulle discrepanze teoria, simulazione richiesta dalla metodologia. \\
+    Contro: richiede che almeno uno impari GMAT a sufficienza per configurare e interpretare i run, tempi da coordinare con il resto del gruppo.
+\end{quote}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{orbita.png}
+    \caption{Rappresentazione dell'orbita di missione} % Testo pulito senza estensioni o underscore
+    \label{fig:mio_grafico}
+\end{figure}
+\section{Analisi dei Risultati}
+Per analizzare i risultati sono stati utilizzati i toll specifici Matlab "aerospace toolbox" e "satellite comunication toolbox"
+\section{Organizzazione del gruppo}
+Il lavoro del gruppo è stato organizzato attorno alla piattaforma GitHub. Si è giunti a questa scelta, preferendola rispetto ad una più tradizionale e diffusa cartella condivisa su un drive online, in quanto permette di gestire meglio e di tenere traccia di tutte le modifiche ai codici. \'E stata creata una repository sulla quale tutti i componenti hanno avuto accesso e collaborato, e si è optato per lavorare tutti su una sola branch visto che complicare la struttura della repository non avrebbe portato ad alcun vantaggio aggiuntivo. 
+I codici, sia GMAT che MATLAB, sono stati messi nella cartella \textsl{Codici}, mentre il codice LaTeX e le immagini sono stati messi nella cartella \textsl{Documentazione}.
+
+\end{document}
