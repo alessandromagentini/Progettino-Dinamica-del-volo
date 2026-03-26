@@ -1,8 +1,6 @@
-function [orbit_polar] = propagatore(orbit_param, dt, t_sample,startTime,stopTime)
+function [orbit_polar] = propagatore(orbit_param, dt, t_sample, startTime, stopTime)
 % Funzione che calcola l'orbita a partire dai parametri orbitali nel
 % sistema perifocale e poi restituisce l'orbita in ECI
-
-%% Da restituire valori t_sample %%
 
 %% Preparazione variabili
 a         = orbit_param.a;
@@ -21,7 +19,7 @@ r_fun = @(TA) (norm(h)^2/mu)/(1 + e*cos(TA));
 TA_fun = @(xi) 2*atan(sqrt((1 + e)/(1 - e)) * tan(xi/2));
 
 n = round(seconds(stopTime - startTime)/dt);
-% n = round(T/dt) + 1;  % numero intervalli dt
+% n = round(T/dt) + 1;  % numero intervalli dt su un periodo T dell'orbita
 
 
 %% Calcolo M_e - anomalia media per ogni dt
@@ -30,23 +28,29 @@ M_e = ((2*pi/T) .* dt*(0:n))';
 %% Inizializzazione
 xi        = zeros(n+1,1);
 TA        = zeros(n+1,1);
-r_kepl    = zeros(n+1,3);
+r_kepl    = zeros(n+1,3);         
 v_kepl    = zeros(n+1,3);
 t         = zeros(n+1,1);
+fpa       = zeros(n+1,1);
+v_ort     = zeros(n+1,1);
+v_rad     = zeros(n+1,1);
 
 r_eci    = zeros(n+1,3);
 v_eci    = zeros(n+1,3);
 
 %% Risolutore:
 % t -> M_e -> xi -> TA
-for idx = 1:(n+1)
-    xi(idx) = KeplerE(M_e(idx),e);           % Risoluzione equazione di Keplero
-    TA(idx) = TA_fun(xi(idx));               % Calcolo True Anomaly
-    TA(idx) = rad2deg(TA(idx));              % conversione in [deg]
-    r_kepl(idx)  = r_fun(TA(idx));           % Calcolo del raggio
-    t(idx)  = idx * dt - dt;                 % tempo trascorso
-
-    %% da aggiungere: calcolo della velocità
+for idx = 1:(n+1)                         %eventualmente si porebbe mettere un parfor
+    xi(idx) = KeplerE(M_e(idx),e);                                         % Anomalia Eccentrica
+    TA(idx) = TA_fun(xi(idx));                                             % Calcolo True Anomaly
+    TA(idx) = rad2deg(TA(idx));                                            % conversione in [deg]
+    r_kepl(idx)  = r_fun(TA(idx));                                         % Calcolo del raggio in [m]
+    t(idx)       = idx * dt - dt;                                          % tempo trascorso in [s]
+    fpa(idx) = atan((e*sin(TA(idx)))/(1 + e*cos(TA(idx))));                % Flight path angle
+    
+    v_ort(idx)  = mu/h * (1 + e*cos(TA(idx)));                             % Velocità ortogonale
+    v_rad(idx)  = mu/h * e * sin(TA(idx));                                 % Velocità radiale
+    v_kepl(idx) = norm([v_ort(idx) v_rad(idx)]);                           % Velocità risultante
 
     %% Conversione in ECI:
     %% DA FARE?) scrivere la nostra funzione
@@ -57,9 +61,27 @@ for idx = 1:(n+1)
     r_eci(idx,:) = rt';
     v_eci(idx,:) = vt';
 end
+t_date = (startTime:seconds(dt):stopTime)';                                % date istanti temporali 
+
+%% Salvo i dati richiesti                                                  %%?r_kepl o r_eci?%%
+samples_date = (startTime:seconds(t_sample):stopTime)';
+n_samples = length(samples_date);
+r_samples = zeros(n_samples, 3);
+tol_sec = 0.01; %tolleranza temporale per la ricerca dei valori desiderati
+for k = 1:n_samples
+    deltat_sample = (k - 1) * t_sample;  %tempo intervallo tra inizio istante da salvare                               
+    idx = find(abs(t - deltat_sample) < tol_sec, 1);
+    if ~isempty(idx) % Se trovato, copio i dati originali
+        r_samples(k,:) = r_eci(idx, :);                                   
+    else % Se NON trovato (il find restituisce vuoto), faccio interpolazione solo per questo specifico istante mancante
+        r_samples(k,:) = interp1(t, r_eci, deltat_sample, 'spline');
+    end
+end
 
 %% Organizzazione output
-orbit_polar = struct("r_kepl",r_kepl, "v_kepl",v_kepl, "TA",TA, "t",t, "M_e",M_e, "xi",xi, "r_eci",r_eci, "v_eci",v_eci);
+samples = struct("date",samples_date, "position",r_samples);
+orbit_polar = struct("r_kepl",r_kepl, "v_ort",v_ort, "v_rad",v_rad, "v_kepl",v_kepl, ...
+                     "TA",TA, "t",t,"t_date",t_date,"dt",dt, "M_e",M_e, "xi",xi, "r_eci",r_eci, "v_eci",v_eci, "fpa",fpa, "samples",samples);
 
 end %propagatore
 
