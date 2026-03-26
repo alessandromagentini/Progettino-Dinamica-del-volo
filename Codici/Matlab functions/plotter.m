@@ -50,7 +50,16 @@ if plot_eci == 1
 
     % Plot samples
     plot3(sat_orbit.samples.position(:,1), sat_orbit.samples.position(:,2), sat_orbit.samples.position(:,3), ...
-          'ro', 'MarkerSize', 5, 'MarkerFaceColor', 'r', 'DisplayName', 'Samples (3h)');
+        'ro', 'MarkerSize', 5, 'MarkerFaceColor', 'r', 'DisplayName', 'Samples (3h)');
+    r_samp = sat_orbit.samples.position;
+    t_samp_date = sat_orbit.samples.date; 
+    for k = 1:size(r_samp, 1) % marker temporale dei samples
+        label_text = sprintf('  #%d (%s)', k, datestr(t_samp_date(k), 'HH:MM'));
+        text(r_samp(k,1) + 200, r_samp(k,2) + 200, r_samp(k,3), label_text, ...
+            'FontSize', 8, ...
+            'Color', 'k', ...
+            'FontWeight', 'bold');
+    end
 
     % --- AGGIUNTA VERSORI ASSI ECI ---
     L = R_terra * 1.5; % Lunghezza delle frecce

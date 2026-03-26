@@ -7,7 +7,7 @@ addpath("Matlab functions")
 groundtrack3_flag        = 0;      % per geoplot 3D della ground track
 grundtrack2_flag         = 0;      % per geoplot 2D della ground track
 plot_eci_flag            = 1;      % per plot (non globe) in ECI
-toolbox_flag             = 1;      % per utilizzo satellite communication toolbox
+toolbox_flag             = 0;      % per utilizzo satellite communication toolbox
 
 %% Dati iniziali
 r0_vec = [-7368.038574853538, -7231.584293256432, -148.523707822187];             %[Km]
@@ -25,7 +25,7 @@ delta_t_sat_sample = 3*3600;                                                    
 
 %% Calcolo orbita 
 %1) Custom
-dt = 1;                                                                          %[s]
+dt = 1;                                                                           %[s]
 [sat_orbit] = propagatore(sat_param,dt,delta_t_sat_sample,start_time,stop_time);  %% Da restituire valori t_sample
 % PLOT
 plotter(sat_param,sat_orbit,grundtrack2_flag,groundtrack3_flag,plot_eci_flag)
