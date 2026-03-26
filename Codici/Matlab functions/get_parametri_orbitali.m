@@ -84,7 +84,7 @@ if E < 0    % orbita ellittica/circolare
     % omega - argomento di pericentro
     cosomega = dot(N,e_vec)/(norm(N)*e); 
     cosomega = max(-1, min(1, cosomega));                                  % forza in [-1, 1] per evitare errori numerici
-    if e_vec(3) > 0
+    if e_vec(3) >= 0
         omega = acos(cosomega);                                            %[rad]
     else
         omega = 2*pi - acos(cosomega);                                     %[rad]

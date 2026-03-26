@@ -6,8 +6,9 @@ addpath("Matlab functions")
 % Flags
 groundtrack3_flag        = 0;      % per geoplot 3D della ground track
 grundtrack2_flag         = 0;      % per geoplot 2D della ground track
-plot_eci_flag            = 1;      % per plot (non globe) in ECI
-toolbox_flag             = 0;      % per utilizzo satellite communication toolbox
+plot_eci_flag            = 0;      % per plot (non globe) in ECI
+satellite_tb_flag        = 0;      % per utilizzo satellite communication toolbox
+simulink_flag            = 0;      % per utilizzo del modello simulink
 
 %% Dati iniziali
 r0_vec = [-7368.038574853538, -7231.584293256432, -148.523707822187];             %[Km]
@@ -30,9 +31,8 @@ dt = 1;                                                                         
 % PLOT
 plotter(sat_param,sat_orbit,grundtrack2_flag,groundtrack3_flag,plot_eci_flag)
 
-
 %2) Satellite Communications Toolbox
-if toolbox_flag == 1
+if satellite_tb_flag == 1
     deltat_sample = 1;        %[s]
     sc = satelliteScenario(start_time,stop_time,deltat_sample);
     sat_orbit_tb = satellite(sc,sat_param.a,sat_param.e,sat_param.i,sat_param.raan,sat_param.omega,0);
@@ -41,6 +41,22 @@ if toolbox_flag == 1
     v = satelliteScenarioViewer(sc);
 end
 
+%3) Simulink model with aerospace toolbox
+if simulink_flag ==1
+    mission_duration = seconds(stop_time - start_time);
+    
+    % Simulazione
+    simOut = sim("modello_simulink");
 
+    % Salvo i dati
+    posData  = simOut.yout{1}.Values;
+    velData  = simOut.yout{2}.Values;
+    timeData = simOut.yout{3}.Values;
 
-
+    sc = satelliteScenario(start_time, stop_time, 1);
+    sat = satellite(sc, posData, velData, "CoordinateFrame", "ecef");
+    
+    % PLOT
+    % groundTrack(sat);
+    play(sc);
+end
