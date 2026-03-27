@@ -18,18 +18,23 @@ mu_terra = 398600;                                                              
 
 start_time   = datetime(2001, 9, 11, 12, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
 stop_time    = datetime(2001, 9, 12, 15, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
+stop_time    = datetime(2001, 9, 11, 18, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
 delta_t_sat_sample = 3*3600;                                                      %[s]
 
 %% Calcolo parametri orbitali
 [sat_param] = get_parametri_orbitali(r0_vec,v0_vec,mu_terra);
 
-
 %% Calcolo orbita 
 %1) Custom
-dt = 1;                                                                           %[s]
-[sat_orbit] = propagatore(sat_param,dt,delta_t_sat_sample,start_time,stop_time);  %% Da restituire valori t_sample
-% PLOT
-plotter(sat_param,sat_orbit,grundtrack2_flag,groundtrack3_flag,plot_eci_flag)
+if groundtrack3_flag == 1 || groundtrack2_flag ==1
+    dt = 1;                                                                           %[s]
+    [sat_orbit] = propagatore(sat_param,dt,delta_t_sat_sample,start_time,stop_time);  %% Da restituire valori t_sample
+
+    % PLOT
+    plotter(sat_param,sat_orbit,groundtrack3_flag,groundtrack2_flag,plot_eci_flag)
+else 
+    sat_orbit.TA = 0;
+end
 
 %2) Satellite Communications Toolbox
 if satellite_tb_flag == 1
@@ -57,6 +62,6 @@ if simulink_flag ==1
     sat = satellite(sc, posData, velData, "CoordinateFrame", "ecef");
     
     % PLOT
-    % groundTrack(sat);
+    groundTrack(sat);
     play(sc);
 end

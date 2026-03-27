@@ -63,7 +63,7 @@ for idx = 1:(n+1)                         %eventualmente si porebbe mettere un p
 end
 t_date = (startTime:seconds(dt):stopTime)';                                % date istanti temporali 
 
-%% Salvo i dati richiesti                                                  %%?r_kepl o r_eci?%%
+%% Salvo i dati richiesti                                                  
 samples_date = (startTime:seconds(t_sample):stopTime)';
 n_samples = length(samples_date);
 r_samples = zeros(n_samples, 3);

@@ -35,7 +35,7 @@ if plot_eci == 1
           'Color', [0 0.4470 0.7410], 'LineWidth', 2);
 
     % Plot parametri orbitali
-    e_dir = sat_param.e_vec / norm(sat_param.e_vec);
+    e_dir = sat_param.e_vec / sat_param.e;
     r_peri_vec = e_dir * (sat_param.rp); 
     r_apo_vec  = -e_dir * (sat_param.ra);
     % Marker per Pericentro (Magenta) e Apocentro (Arancione)

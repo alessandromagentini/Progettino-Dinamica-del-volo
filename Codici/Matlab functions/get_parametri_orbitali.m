@@ -41,7 +41,7 @@ E = (norm(v)^2)/2 - mu/norm(r);                                            %[km^
 % Identifica forma dell'orbita tramite E e calcola i parametri orbitali
 if E < 0    % orbita ellittica/circolare
     % a - semiasse maggiore
-    a = -mu/(2*E);                                                         %[m]
+    a = -mu/(2*E);                                                         %[km]
 
     % e - eccentricità
     e_vec = (cross(v,h)./mu - r./norm(r))';
@@ -65,11 +65,7 @@ if E < 0    % orbita ellittica/circolare
     N = cross(k,h)';
 
     % i - inclinazione
-    if h(3)>0
     i = acos(h(3)/norm(h));                                                %[rad]
-    else 
-    i = pi - acos(h(3)/norm(h));  %controllare formula appunti             %[rad]
-    end
     i = rad2deg(i);                                                        %[deg]
     % opzionale: aggiungere identificazione orbita prograda/retrograda
 
