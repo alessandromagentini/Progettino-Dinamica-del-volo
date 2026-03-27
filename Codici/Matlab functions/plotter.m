@@ -13,7 +13,7 @@ alt = lla(:,3);
 if groundtrack3_flag == 1
     fig = uifigure;
     globe = geoglobe(fig);
-    geoplot3(globe,lat, lon, alt, 'LineWidth', 2, 'Color', 'r')            % alt = 0 per avere la ground track "effettiva"
+    geoplot3(globe,lat, lon, 0, 'LineWidth', 2, 'Color', 'r')            % alt = 0 per avere la ground track "effettiva"
 end
 if grundtrack2_flag == 1
     figure();
