@@ -4,11 +4,11 @@ clear;clc;close all
 addpath("Matlab functions")
 
 % Flags
-groundtrack3_flag        = 0;      % per geoplot 3D della ground track
-grundtrack2_flag         = 0;      % per geoplot 2D della ground track
-plot_eci_flag            = 0;      % per plot (non globe) in ECI
-satellite_tb_flag        = 0;      % per utilizzo satellite communication toolbox
-simulink_flag            = 0;      % per utilizzo del modello simulink
+groundtrack3_flag        = 1;      % per geoplot 3D della ground track
+grundtrack2_flag         = 1;      % per geoplot 2D della ground track
+plot_eci_flag            = 1;      % per plot (non globe) in ECI
+satellite_tb_flag        = 1;      % per utilizzo satellite communication toolbox
+simulink_flag            = 1      % per utilizzo del modello simulink
 
 %% Dati iniziali
 r0_vec = [-7368.038574853538, -7231.584293256432, -148.523707822187];             %[Km]
