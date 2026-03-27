@@ -4,38 +4,39 @@ clear;clc;close all
 addpath("Matlab functions")
 
 % Flags
-groundtrack3_flag        = 1;      % per geoplot 3D della ground track
+groundtrack3_flag        = 0;      % per geoplot 3D della ground track
 groundtrack2_flag        = 0;      % per geoplot 2D della ground track
 plot_eci_flag            = 0;      % per plot (non globe) in ECI
 satellite_tb_flag        = 0;      % per utilizzo satellite communication toolbox
-simulink_flag            = 1;      % per utilizzo del modello simulink
-confronta_risultati_flag = 1;      % per verifica dei risulati
+simulink_flag            = 0;      % per plot del modello simulink
+analisi_risultati_flag   = 1;      % per verifica dei risulati
 
 %% Dati iniziali
 r0_vec = [-7368.038574853538, -7231.584293256432, -148.523707822187];             %[Km]
 v0_vec = [4.126512186315761, -3.956371322777358, -0.490613661500991];             %[Km/s]
 
-mu_terra = 398600;                                                                %[km^3/s^2]
+mu_terra = 398600.4418;                                                           %[km^3/s^2]
 
 start_time   = datetime(2001, 9, 11, 12, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
-stop_time    = datetime(2001, 9, 11, 15, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
+stop_time    = datetime(2001, 9, 13, 12, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
+mission_duration = seconds(stop_time - start_time);                               %[s]
 delta_t_sat_sample = 3*3600;                                                      %[s]
 
 %% Calcolo parametri orbitali
+fprintf("Calcolo dei parametri orbitali...")
 [sat_param] = get_parametri_orbitali(r0_vec,v0_vec,mu_terra);
+fprintf(" completato!\n")
 
 %% Calcolo orbita 
 %1) Custom
-if groundtrack3_flag == 1 || groundtrack2_flag ==1
-    dt = 1;                                                                           %[s]
-    [sat_orbit] = propagatore(sat_param,dt,delta_t_sat_sample,start_time,stop_time);  %% Da restituire valori t_sample
-
-    % PLOT
+dt = 1;                                                                           %[s]
+fprintf("Propagazione dell'orbita con function custom ...")
+[sat_orbit] = propagatore(sat_param,dt,delta_t_sat_sample,start_time,stop_time); 
+fprintf(" completato!\n")
+if groundtrack3_flag == 1 || groundtrack2_flag ==1     % PLOT
     plotter(sat_param,sat_orbit,groundtrack3_flag,groundtrack2_flag,plot_eci_flag)
-    res.sat_orbit = sat_orbit;
-else 
-    sat_orbit.TA = 0;
 end
+res.sat_orbit = sat_orbit;
 
 %2) Satellite Communications Toolbox
 if satellite_tb_flag == 1
@@ -48,27 +49,26 @@ if satellite_tb_flag == 1
 end
 
 %3) Simulink model with aerospace toolbox
-if simulink_flag ==1
-    mission_duration = seconds(stop_time - start_time);
-    
-    % Simulazione
-    simOut = sim("modello_simulink");
+% Simulazione
+fprintf("Propagazione dell'orbita con simulink e aerospace toolbox...")
+simOut = sim("modello_simulink");
+fprintf(" completato!\n")
 
-    % Salvo i dati
-    posData  = simOut.yout{1}.Values;
-    velData  = simOut.yout{2}.Values;
-    timeData = simOut.yout{3}.Values;
+% Salvo i dati
+posData  = simOut.yout{1}.Values;
+velData  = simOut.yout{2}.Values;
+timeData = simOut.yout{3}.Values;
 
-    sc_aero_tb = satelliteScenario(start_time, stop_time, 1);
-    sat_orbit_aero_tb = satellite(sc_aero_tb, posData, velData, "CoordinateFrame", "ecef");
-    
-    % PLOT
+sc_aero_tb = satelliteScenario(start_time, stop_time, 1);
+sat_orbit_aero_tb = satellite(sc_aero_tb, posData, velData, "CoordinateFrame", "ecef");
+
+res.aerotb_res = struct("pos",posData,"vel",velData,"time",timeData);
+
+if simulink_flag == 1 % PLOT
     groundTrack(sat_orbit_aero_tb);
     play(sc_aero_tb);
-
-    res.aerotb_res = struct("pos",posData,"vel",velData,"time",timeData);
 end
 
-if confronta_risultati_flag == 1
-    confronta_risultati(res)
+if analisi_risultati_flag == 1
+    analisi_risultati(res)
 end
