@@ -8,7 +8,9 @@
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{geometry} % Gestione margini
+\usepackage{media9}
+\usepackage{graphicx}
+\usepackage{geometry}
 \geometry{margin=2.5cm}
 
 % Comando per la linea orizzontale nella copertina
@@ -16,31 +18,44 @@
 
 % --- INIZIO DOCUMENTO ---
 \begin{document}
-
-% --- COPERTINA ---
 \begin{titlepage}
     \centering
     
-    {\Large \textbf{Università degli Studi di Padova}} \\
-    \vspace{0.3cm}
-    {\large Corso di Laurea in Ingegneria Aerospaziale} \\
-    \vspace{0.3cm}
-    {\normalsize Canale: B} \\
+    \begin{minipage}{0.20\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{immagine dii}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.55\textwidth}
+        \centering
+        {\Large \textbf{Università degli Studi di Padova}} \\
+        \vspace{0.3cm}
+        {\large Corso di Laurea in Ingegneria Aerospaziale} \\
+        \vspace{0.3cm}
+        {\normalsize Canale: B}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.20\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Logo Università Padova} 
+    \end{minipage}
+
+    \vspace{1cm}
     
-    \vspace{2.5cm}
-    
-    \hr 
-    \vspace{0.4cm}
+    \hrule 
+    \vspace{0.6cm}
     {\Huge \bfseries Progettino Dinamica del Volo} \\
-    \vspace{0.2cm}
-    {\large Prima Parte: Descrizione Orbita}
     \vspace{0.4cm}
-    \hr
+    {\large Prima Parte: Descrizione Orbita}
+    \vspace{0.6cm}
+    \hrule
     
-    \vspace{3cm}
-   
-    % Spazio vuoto centrale (al posto dell'immagine)
     \vspace{2cm}
+ 
+    \includegraphics[width=0.8\textwidth]{"immagine simulink 1day"} 
+    
+    \vfill 
+   
     
     \vfill 
     
@@ -112,16 +127,18 @@ La risposta fornita è stata la seguende :
     Pro: carico limitato su GMAT (solo run di confronto su propagazione e manovre chiave), risultati validati da riferimento esterno, diventa naturalmente la sezione sulle discrepanze teoria, simulazione richiesta dalla metodologia. \\
     Contro: richiede che almeno uno impari GMAT a sufficienza per configurare e interpretare i run, tempi da coordinare con il resto del gruppo.
 \end{quote}
-Analizzata la situazione abbiamo scelto di utilizzare MATLAB come 
+Analizzata la situazione abbiamo scelto di utilizzare MATLAB come software principale per l'analisi dell'orbita mentre GMAT è stato utilizzato come confronto e validazione dei dati ottenuti. 
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{orbita.png}
-    \caption{Rappresentazione dell'orbita di missione} % Testo pulito senza estensioni o underscore
+    \caption{Rappresentazione dell'orbita di missione} 
     \label{fig:mio_grafico}
 \end{figure}
-\section{Analisi del problema}
-In questa sezione verranno descritte le equazioni del moto e i parametri orbitali utilizzati per la missione.
+\section{Analisi del problema e Implementazione codice}
+Il primo passaggio dello studio è stato analizzare l'orbita attraverso GMAT per avere una base sulla quale verificare i dati ricavati successivamente. Una volta ottenuto questo primo riscontro siamo passati ad implementare il codice MATLAB. Primo passo è stato implementare da noi un codice in grado di descrivere e rappresentare l'orbita richiesta. Per analizzare i risultati sono stati utilizzati i toll specifici Matlab "aerospace toolbox" e "satellite comunication toolbox".
+All'interno del codice MATLAB sono state implementate diverse funzioni: una per il calcolo dei parametri orbitali e una per la propagazione. Quest'ultima, a partire dall'intervallo temporale definito inizialmente, segue le equazioni descritte in Sezione \ref{sec:formule} e calcola l'orbita seguendo l'ordine t - $M_e$ - xi - TA - r. Questa metodologia però, per quanto i risultati siano corretti, non permette una visualizzazione dell'orbita nel sistema ECI, ma soltanto nel sistema NEU (North East Up), in MATLAB lla (Latitude Longitude Altitude), e dunque la visualizzazione dell'orbita è possibile soltanto da un punto di vista fisso con la rotazione terrestre. Quindi, per ottenere l'orbita nel sistema ECI ci siamo appoggiati alle functions del Satellite Comunication Toolbox affiancato al Aerospace Toolbox, in particolare \texttt{satelllite}, che propaga l'orbita, e \texttt{satelliteScenarioViewer} che visualizza l'orbita nella maniera da noi desiderata.
+Nello specifico il modello implementato dall'Aerospace Toolbox esegue un modello simulink. 
 
 \section{Algoritmo di Determinazione dei Parametri Orbitali}
 \label{sec:formule}
@@ -221,9 +238,7 @@ Tutti i valori angolari calcolati in radianti sono stati successivamente convert
 \end{equation}
 
 \section{Analisi dei Risultati}
-Per analizzare i risultati sono stati utilizzati i toll specifici Matlab "aerospace toolbox" e "satellite comunication toolbox".
-All'interno del codice MATLAB sono state implementate diverse funzioni: una per il calcolo dei parametri orbitali e una per la propagazione. Quest'ultima, a partire dall'intervallo temporale definito inizialmente, segue le equazioni descritte in Sezione \ref{sec:formule} e calcola l'orbita seguendo l'ordine t - $M_e$ - xi - TA - r. Questa metodologia però, per quanto i risultati siano corretti, non permette una visualizzazione dell'orbita nel sistema ECI, ma soltanto nel sistema NEU (North East Up), in MATLAB lla (Latitude Longitude Altitude), e dunque la visualizzazione dell'orbita è possibile soltanto da un punto di vista fisso con la rotazione terrestre. Quindi, per ottenere l'orbita nel sistema ECI ci siamo appoggiati alle functions del Satellite Comunication Toolbox, in particolare \texttt{satelllite}, che propaga l'orbita, e \texttt{satelliteScenarioViewer} che visualizza l'orbita nella maniera da noi desiderata.
-%DA FINIRE
+
 \section{Organizzazione del gruppo}
 Il lavoro del gruppo è stato organizzato attorno alla piattaforma GitHub. Si è giunti a questa scelta, preferendola rispetto ad una più tradizionale e diffusa cartella condivisa su un drive online, in quanto permette di gestire meglio e di tenere traccia di tutte le modifiche ai codici, inoltre non presenta limiti in merito allo spazio di archiviazione. \'E stata creata una repository sulla quale tutti i componenti hanno avuto accesso e collaborato, e si è optato per lavorare tutti su una sola branch visto che complicare la struttura della repository non avrebbe portato ad alcun vantaggio aggiuntivo. 
 I codici, sia GMAT che MATLAB, sono stati messi nella cartella \textsl{Codici}, mentre il codice LaTeX e le immagini sono stati messi nella cartella \textsl{Documentazione}.
