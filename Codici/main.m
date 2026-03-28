@@ -18,7 +18,7 @@ v0_vec = [4.126512186315761, -3.956371322777358, -0.490613661500991];           
 mu_terra = 398600.4418;                                                           %[km^3/s^2]
 
 start_time   = datetime(2001, 9, 11, 12, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
-stop_time    = datetime(2001, 9, 11, 18, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
+stop_time    = datetime(2001, 9, 11, 24, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
 mission_duration = seconds(stop_time - start_time);                               %[s]
 delta_t_sat_sample = 3*3600;                                                      %[s]
 
@@ -55,22 +55,14 @@ simOut = sim("modello_simulink");
 fprintf(" completato!\n")
 
 % Salvo i dati
-posData_ecef  = simOut.yout{1}.Values;
-velData_ecef  = simOut.yout{2}.Values;
+posData_icrf  = simOut.yout{1}.Values;
+velData_icrf  = simOut.yout{2}.Values;
 timeData      = simOut.yout{3}.Values;
 
-% Conversione da ECEF a ECI
-posData_eci = zeros(length(timeData), 3);
-velData_eci = zeros(length(timeData), 3);
-for idx = 1:length(timeData.Data)
-    posData_eci(idx,:) = ecef2eci(timeData.Data(idx,:),posData_ecef.Data(idx,:));
-    velData_eci(idx,:) = ecef2eci(timeData.Data(idx,:),velData_ecef.Data(idx,:));
-end
 sc_aero_tb = satelliteScenario(start_time, stop_time, 1);
-sat_orbit_aero_tb = satellite(sc_aero_tb, posData_ecef, velData_ecef, "CoordinateFrame", "ecef");
+sat_orbit_aero_tb = satellite(sc_aero_tb, posData_icrf, velData_icrf, "CoordinateFrame", "ecef");
 
-res.aerotb_res = struct("pos_ecef",posData_ecef, "vel_ecef",velData_ecef, ...
-                        "pos_eci",posData_eci, "vel_eci",velData_eci, "time",timeData);
+res.aerotb_res = struct("pos_eci",posData_icrf, "vel_eci",velData_icrf, "time",timeData);
 
 if simulink_flag == 1 % PLOT
     groundTrack(sat_orbit_aero_tb);

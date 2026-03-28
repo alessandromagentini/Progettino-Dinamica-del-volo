@@ -13,20 +13,43 @@ cr = custom_data.r_eci;
 cv = custom_data.v_eci;
 ct = custom_data.t;     
 
-tbr = aero_toolbox.pos_eci(3:end,:);
-tbv = aero_toolbox.vel_eci(3:end,:);
+tbr = aero_toolbox.pos_eci.Data(3:end,:); % i primi step dell'integratore hanno passo troppo vicino a 0
+tbv = aero_toolbox.vel_eci.Data(3:end,:); 
 tbt = seconds(datetime(aero_toolbox.time.Data(3:end,:)) - start_time);
 
 tbr_interp = interp1(tbt, tbr, ct, 'spline');
 tbv_interp = interp1(tbt, tbv, ct, 'spline');
 
+%% Estrazione dati GMAT
+addpath("..\Codici\GMAT")
+if exist("Kep_param.csv","file")
+    gmat_data = readtable("Kep_param.csv");%#ok<NASGU>
+    t_gmat    = gmat_data.SAT_ElapsedSecs;
+    e_gmat    = gmat_data.SAT_Earth_ECC;
+    RA_gmat   = gmat_data.SAT_EarthMJ2000Eq_RA;
+    TA_gmat   = gmat_data.SAT_Earth_TA;
+    raan_gmat = gmat_data.SAT_EarthMJ2000Eq_RAAN;
+    i_gmat    = gmat_data.SAT_EarthMJ2000Eq_INC;
+    aop_gmat  = gmat_data.SAT_EarthMJ2000Eq_AOP;
+
+    % Limito l'intervallo gmat allo stesso dei calcoli fatti in matlab
+    [~, idx_gmat_end] = min(abs(t_gmat - ct(end)));
+    t_gmat = t_gmat(1:idx_gmat_end);
+    i_gmat = i_gmat(1:idx_gmat_end);
+    raan_gmat = raan_gmat(1:idx_gmat_end);
+
+    i_gmat_interp        = interp1(t_gmat,i_gmat,ct,'spline');
+    raan_gmat_interp     = interp1(t_gmat,raan_gmat,ct,'spline');
+end
+
+% Calcolo degli scarti tra toolbox e custom
 delta_pos = sqrt(sum((cr + tbr_interp).^2, 2));
 delta_vel = sqrt(sum((cv + tbv_interp).^2, 2));
 
 scartor_percentuale = (delta_pos ./ norm(tbr_interp)) * 100;
 scartov_percentuale = (delta_vel ./ norm(tbv_interp)) * 100;
 
-% Andamento dei parametri orbitali
+% Andamento dei parametri orbitali toolbox
 i = zeros(length(tbr_interp),1); raan  = zeros(length(tbr_interp),1); T = zeros(length(tbr_interp),1);
 for idx = 1:length(tbr_interp)
     param = get_parametri_orbitali(tbr_interp(idx,:)/1000,tbv_interp(idx,:)/1000, mu_terra);
@@ -91,23 +114,27 @@ title('Scostamento v Percentuale')
 figure('Name','Andamento parametri orbitali','NumberTitle', 'off')
 % i
 subplot(2,1,1)
-plot(ct/3600,i,'LineWidth', 1.5, 'Color', "r")
+plot(ct/3600,i,'LineWidth', 1.5, 'Color', "b") %toolbox
 hold on
-plot(ct/3600, ones(length(i),1)*sat_param.i,'LineWidth', 1.5, 'Color',"m")
+plot(ct/3600, ones(length(i),1)*sat_param.i,'LineWidth', 1.5, 'Color',"g") %Custom
+hold on
+plot(ct/3600, i_gmat_interp,'LineWidth', 1.5, 'Color',[1, 0.5, 0])  %GMAT
 grid on
 ylabel('i [deg]')
 xlabel('Tempo [ore]')
-legend("Aerospace toolbox", "Propagatore custom")
+legend("Aerospace toolbox", "Propagatore custom","GMAT")
 title('andamento inclinazione')
 
 % raan
 subplot(2,1,2)
-plot(ct/3600,raan,'LineWidth', 1.5, 'Color', "b")
+plot(ct/3600,raan,'LineWidth', 1.5, 'Color', "b") %toolbox
 hold on
-plot(ct/3600,ones(length(i),1)*sat_param.raan,'LineWidth', 1.5, 'Color', "g")
+plot(ct/3600,ones(length(i),1)*sat_param.raan,'LineWidth', 1.5, 'Color', "g") %Custom
+hold on
+plot(ct/3600, raan_gmat_interp,'LineWidth', 1.5, 'Color',[1, 0.5, 0])  %GMAT
 grid on
 ylabel('raan [deg]')
 xlabel('Tempo [ore]')
-legend("Aerospace toolbox", "Propagatore custom")
+legend("Aerospace toolbox", "Propagatore custom","GMAT")
 title('andamento raan')
 
