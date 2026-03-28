@@ -13,8 +13,8 @@ cr = custom_data.r_eci;
 cv = custom_data.v_eci;
 ct = custom_data.t;     
 
-tbr = aero_toolbox.pos.Data(3:end,:);
-tbv = aero_toolbox.vel.Data(3:end,:);
+tbr = aero_toolbox.pos_eci(3:end,:);
+tbv = aero_toolbox.vel_eci(3:end,:);
 tbt = seconds(datetime(aero_toolbox.time.Data(3:end,:)) - start_time);
 
 tbr_interp = interp1(tbt, tbr, ct, 'spline');
@@ -27,7 +27,7 @@ scartor_percentuale = (delta_pos ./ norm(tbr_interp)) * 100;
 scartov_percentuale = (delta_vel ./ norm(tbv_interp)) * 100;
 
 % Andamento dei parametri orbitali
-i = zeros(length(tbr_interp),1); raan  = zeros(length(tbr_interp),1); 
+i = zeros(length(tbr_interp),1); raan  = zeros(length(tbr_interp),1); T = zeros(length(tbr_interp),1);
 for idx = 1:length(tbr_interp)
     param = get_parametri_orbitali(tbr_interp(idx,:)/1000,tbv_interp(idx,:)/1000, mu_terra);
     i(idx) = param.i;
