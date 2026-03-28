@@ -18,7 +18,7 @@ v0_vec = [4.126512186315761, -3.956371322777358, -0.490613661500991];           
 mu_terra = 398600.4418;                                                           %[km^3/s^2]
 
 start_time   = datetime(2001, 9, 11, 12, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
-stop_time    = datetime(2001, 9, 13, 12, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
+stop_time    = datetime(2001, 9, 18, 12, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
 mission_duration = seconds(stop_time - start_time);                               %[s]
 delta_t_sat_sample = 3*3600;                                                      %[s]
 
@@ -30,10 +30,10 @@ fprintf(" completato!\n")
 %% Calcolo orbita 
 %1) Custom
 dt = 1;                                                                           %[s]
-fprintf("Propagazione dell'orbita con function custom ...")
+fprintf("Propagazione dell'orbita con function custom...")
 [sat_orbit] = propagatore(sat_param,dt,delta_t_sat_sample,start_time,stop_time); 
 fprintf(" completato!\n")
-if groundtrack3_flag == 1 || groundtrack2_flag ==1     % PLOT
+if groundtrack3_flag == 1 || groundtrack2_flag == 1     % PLOT
     plotter(sat_param,sat_orbit,groundtrack3_flag,groundtrack2_flag,plot_eci_flag)
 end
 res.sat_orbit = sat_orbit;
@@ -70,5 +70,5 @@ if simulink_flag == 1 % PLOT
 end
 
 if analisi_risultati_flag == 1
-    analisi_risultati(res)
+    analisi_risultati(sat_param,res)
 end

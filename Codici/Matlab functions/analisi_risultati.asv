@@ -39,49 +39,34 @@ end
 
 % Plot scostamenti tra i modelli
 figure('Name', 'Confronto Propagatori', 'NumberTitle', 'off')
-% Subplot 1: Scarto Assoluto posizione
+% Subplot 1: Scarto Assoluto
 subplot(2,2,1)
 plot(ct/3600, delta_pos/1000, 'LineWidth', 1.5, 'Color', "r")
-hold on
-pr = polyfit(ct, delta_pos/1000, 1); 
-r_reg = polyval(pr, ct);
-plot(ct/3600, r_reg, 'g--', 'LineWidth', 2)
+delta_trend = movmean(delta_pos,)
 grid on
 ylabel('Scostamento Posizione [km]')
 xlabel('Tempo [ore]')
 title('Differenza Assoluta')
 
-% Subplot 2: Scarto Percentuale posizione
+% Subplot 2: Scarto Percentuale
 subplot(2,2,2)
 plot(ct/3600, scartor_percentuale, 'LineWidth', 1.5, 'Color', "b")
-hold on
-percr = polyfit(ct, scartor_percentuale, 1); 
-r_perc_reg = polyval(percr, ct);
-plot(ct/3600, r_perc_reg, 'g--', 'LineWidth', 2)
 grid on
 ylabel('Scostamento [%]')
 xlabel('Tempo [ore]')
 title('Scostamento r Percentuale')
 
-% Subplot 3: Scarto Assoluto velocità
+% Subplot 3: Scarto Assoluto
 subplot(2,2,3)
 plot(ct/3600, delta_vel/1000, 'LineWidth', 1.5, 'Color', "r")
-hold on
-pv = polyfit(ct, delta_vel/1000, 1); 
-v_reg = polyval(pv, ct);
-plot(ct/3600, v_reg, 'g--', 'LineWidth', 2)
 grid on
 ylabel('Scostamento Velocità [km/s]')
 xlabel('Tempo [ore]')
 title('Differenza Assoluta')
 
-% Subplot 4: Scarto Percentuale velocità
+% Subplot 4: Scarto Percentuale
 subplot(2,2,4)
 plot(ct/3600, scartov_percentuale, 'LineWidth', 1.5, 'Color', "b")
-hold on
-percv = polyfit(ct, scartov_percentuale, 1); 
-v_perc_reg = polyval(percv, ct);
-plot(ct/3600, v_perc_reg, 'g--', 'LineWidth', 2)
 grid on
 ylabel('Scostamento [%]')
 xlabel('Tempo [ore]')
