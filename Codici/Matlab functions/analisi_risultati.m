@@ -23,14 +23,14 @@ tbv_interp = interp1(tbt, tbv, ct, 'spline');
 %% Estrazione dati GMAT
 addpath("..\Codici\GMAT")
 if exist("Kep_param.csv","file")
-    gmat_data = readtable("Kep_param.csv");%#ok<NASGU>
+    gmat_data = readtable("Kep_param.csv");%#ok
     t_gmat    = gmat_data.SAT_ElapsedSecs;
     e_gmat    = gmat_data.SAT_Earth_ECC;
-    RA_gmat   = gmat_data.SAT_EarthMJ2000Eq_RA;
+    RA_gmat   = gmat_data.SAT_EarthICRF_RA;
     TA_gmat   = gmat_data.SAT_Earth_TA;
-    raan_gmat = gmat_data.SAT_EarthMJ2000Eq_RAAN;
-    i_gmat    = gmat_data.SAT_EarthMJ2000Eq_INC;
-    aop_gmat  = gmat_data.SAT_EarthMJ2000Eq_AOP;
+    raan_gmat = gmat_data.SAT_EarthICRF_RAAN;
+    i_gmat    = gmat_data.SAT_EarthICRF_INC;
+    aop_gmat  = gmat_data.SAT_EarthICRF_AOP;
 
     % Limito l'intervallo gmat allo stesso dei calcoli fatti in matlab
     [~, idx_gmat_end] = min(abs(t_gmat - ct(end)));
