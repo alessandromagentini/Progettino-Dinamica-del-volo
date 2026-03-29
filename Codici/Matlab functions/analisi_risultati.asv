@@ -41,7 +41,7 @@ if exist("Kep_param.csv","file")
 
     i_gmat_interp        = interp1(t_gmat,i_gmat,ct,"spline");
     raan_gmat_interp     = interp1(t_gmat,raan_gmat,ct,"spline");
-    aop_gmat_interp      = interp1(t_gmat,aop_gmat,ct,"spline");
+    aop_gmat_interp      = interp1(t_gmat,aop_gmat,ct,"spline")
 end
 
 % Calcolo degli scarti tra toolbox e custom
@@ -142,7 +142,7 @@ legend("Aerospace toolbox", "Propagatore custom","GMAT")
 title('andamento raan')
 
 % Argomento di perigeo
-subplot(3,1,3)
+subplot(3,1,2)
 plot(ct/3600,omega,'LineWidth', 1.5, 'Color', "b") %toolbox
 hold on
 plot(ct/3600,ones(length(i),1)*sat_param.omega,'LineWidth', 1.5, 'Color', "g") %Custom
@@ -152,5 +152,5 @@ grid on
 ylabel('AoP [deg]')
 xlabel('Tempo [ore]')
 legend("Aerospace toolbox", "Propagatore custom","GMAT")
-title('andamento AoP')
+title('andamento raan')
 
