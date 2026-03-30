@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.23)  30 MAR 2026 22:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.23)  30 MAR 2026 22:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -388,75 +388,78 @@ File: orbita.png Graphic file (type png)
 Package pdftex.def Info: orbita.png  used on input line 132.
 (pdftex.def)             Requested size: 364.19667pt x 195.40619pt.
  [3 <./orbita.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 149--150
+
+ []
+
 <confronto propagatori.png, id=40, 655.69969pt x 396.7322pt>
 File: confronto propagatori.png Graphic file (type png)
 <use confronto propagatori.png>
-Package pdftex.def Info: confronto propagatori.png  used on input line 147.
+Package pdftex.def Info: confronto propagatori.png  used on input line 156.
 (pdftex.def)             Requested size: 364.19667pt x 220.35847pt.
-
-Overfull \hbox (41.20346pt too wide) in paragraph at lines 146--148
-\T1/cmr/m/n/12 Dall'analisi da-ti si os-ser-va [] 
- []
-
-[4 <./confronto propagatori.png>]
-Overfull \hbox (8.9764pt too wide) in paragraph at lines 162--163
+[4]
+Overfull \hbox (8.9764pt too wide) in paragraph at lines 173--174
 []\T1/cmtt/m/n/12 GMAT \T1/cmr/m/n/12 https://etd.gsfc.nasa.gov/capabilities/ca
 pabilities-listing/general-mission-analysis-
  []
 
 
-Overfull \hbox (34.54807pt too wide) in paragraph at lines 166--167
+Overfull \hbox (34.54807pt too wide) in paragraph at lines 177--178
 []\T1/cmtt/m/n/12 Aerospace Blockset \T1/cmr/m/n/12 https://it.mathworks.com/he
 lp/releases/R2025b/aeroblks/index.html; 
  []
 
 
-Overfull \hbox (24.71994pt too wide) in paragraph at lines 167--168
+Overfull \hbox (24.71994pt too wide) in paragraph at lines 178--179
 []\T1/cmtt/m/n/12 Aerospace Toolbox \T1/cmr/m/n/12 https://it.mathworks.com/hel
 p/releases/R2025b/aerotbx/index.html; 
  []
 
 
-Overfull \hbox (10.07489pt too wide) in paragraph at lines 168--169
+Overfull \hbox (10.07489pt too wide) in paragraph at lines 179--180
 []\T1/cmtt/m/n/12 DSP System Toolbox \T1/cmr/m/n/12 https://it.mathworks.com/he
 lp/releases/R2025b/dsp/index.html; 
  []
 
 
-Overfull \hbox (100.60977pt too wide) in paragraph at lines 169--170
+Overfull \hbox (100.60977pt too wide) in paragraph at lines 180--181
 []\T1/cmtt/m/n/12 Ephemeris data for aerospace Toolbox \T1/cmr/m/n/12 https://i
 t.mathworks.com/matlabcentral/fileexchange/46671-
  []
 
 
-Overfull \hbox (103.26735pt too wide) in paragraph at lines 171--172
+Overfull \hbox (103.26735pt too wide) in paragraph at lines 182--183
 []\T1/cmtt/m/n/12 Satellite Communication \T1/cmr/m/n/12 Tool-box https://it.ma
 thworks.com/help/releases/R2025b/satcom/index.html; 
  []
 
 
-Overfull \hbox (12.43546pt too wide) in paragraph at lines 172--173
+Overfull \hbox (12.43546pt too wide) in paragraph at lines 183--184
 []\T1/cmtt/m/n/12 Singla Processing Toolbox \T1/cmr/m/n/12 ma-th-works.com/help
 /releases/R2025b/signal/index.html; 
  []
 
 
-Overfull \hbox (41.58247pt too wide) in paragraph at lines 173--174
+Overfull \hbox (41.58247pt too wide) in paragraph at lines 184--185
 []\T1/cmtt/m/n/12 Communication Toolbox \T1/cmr/m/n/12 https://it.mathworks.com
 /help/releases/R2025b/comm/index.html; 
  []
 
-[5] (Report 1.aux)
+[5 <./confronto propagatori.png>] (Report 1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 6298 strings out of 467871
- 107345 string characters out of 5418376
- 546873 words of memory out of 5000000
- 35102 multiletter control sequences out of 15000+600000
+ 6294 strings out of 467871
+ 107221 string characters out of 5418376
+ 547873 words of memory out of 5000000
+ 35098 multiletter control sequences out of 15000+600000
  642696 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,8n,70p,1350b,271s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -476,9 +479,9 @@ uigi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C
 :/Users/luigi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
 8.pfb><C:/Users/luigi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmsy8.pfb>
-Output written on "Report 1.pdf" (6 pages, 3959767 bytes).
+Output written on "Report 1.pdf" (6 pages, 3962075 bytes).
 PDF statistics:
- 455 PDF objects out of 1000 (max. 8388607)
+ 460 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  32 words of extra memory for PDF output out of 10000 (max. 10000000)
 

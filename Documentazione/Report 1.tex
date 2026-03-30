@@ -76,7 +76,7 @@
 
     \noindent
     {\large \today}
-\par} % Chiude il blocco raggedright
+\par}
 \end{titlepage}
 
 \newpage
@@ -143,9 +143,20 @@ Il lavoro svolto non è stato privo di difficoltà ed errori. La scelta di utili
 In seguito, l'implementazione del codice ha richiesto una lunga correzione causata da un errore nella scrittura originale del propagatore. Grazie ad un controllo incrociato tra GMAT e MATLAB, abbiamo notato come la True Anomaly di partenza in MATLAB non corrispondesse a quella risultata da GMAT, il quale presentava un valore di partenza di 189.499\degree. Infatti, avevamo assunto la posizione iniziale al perigeo invece di quella che doveva essere ricavata a partire dai dati iniziali, ovvero 189.499\degree.  Per risolvere tale incoerenza è stato necessario rivedere il codice, ovviando anche ad un ulteriore incoerenza dei tempi in quanto la struttura del codice di basava sull'assunzione errata.  
 
 \section{Analisi dei Risultati}
-Dall'analisi dati si osserva
-   \includegraphics[width=0.8\textwidth]{"confronto propagatori"} 
+
 \subsection{Confronto Propagatori}
+\subsubsection{i}
+Il confronto tra i propagatori mostra una notevole aderenza tra i dati GMAT e MATLAB aerospace, entrambi infatti includono perturbazioni orbitali come J2, Luna, Sole e Giove. Al contrario il propagatore custom (linea verde) presenta una linea piatta in quanto è basato su un sistema a due corpi Kepleriano. \\
+\subsubsection{RAAN}
+Aerospace Toolbox e GMAT mostrano la precessione del nodo, la quale varia da 35\degree a 33,5\degree, dimostrazione dell'effetto della perturbazione J2 su un'orbita prograda. 
+\subsubsection{AoP}
+GMAT e Aerospace Toolbox presentano entrambi un comportamento\\
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{confronto propagatori.png}
+    \caption{Confronto propagatori} 
+    \label{fig:confronto propagatori}
+\end{figure}
 
 
 \section{Organizzazione del gruppo}
