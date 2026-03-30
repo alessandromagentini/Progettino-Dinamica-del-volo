@@ -11,10 +11,10 @@ mu        = orbit_param.mu;
 i         = orbit_param.i;
 raan      = orbit_param.raan;
 omega     = orbit_param.omega;
-TA0       = orbit_param.TA0;
-xi0       = orbit_param.xi0;
-M_e0      = orbit_param.M_e0;
-t0   
+TA0       = deg2rad(orbit_param.TA0);
+xi0       = deg2rad(orbit_param.xi0);
+M_e0      = deg2rad(orbit_param.M_e0);
+t0        = orbit_param.t0;
 
 %% Funzioni
 % r
@@ -26,15 +26,15 @@ n = round(seconds(stopTime - startTime)/dt);
 % n = round(T/dt) + 1;  % numero intervalli dt su un periodo T dell'orbita
 
 %% Inizializzazione
-xi        = zeros(n+1,1);
-TA        = zeros(n+1,1);
+xi        = zeros(n+1,1); xi(1) = xi0;
+TA        = zeros(n+1,1); TA(1) = TA0;
 r_kepl    = zeros(n+1,3);         
 v_kepl    = zeros(n+1,3);
 t         = zeros(n+1,1);
 fpa       = zeros(n+1,1);
 v_ort     = zeros(n+1,1);
 v_rad     = zeros(n+1,1);
-M_e       = zeros(n+1,1);
+M_e       = zeros(n+1,1); M_e(1) = M_e0;
 
 r_eci    = zeros(n+1,3);
 v_eci    = zeros(n+1,3);
@@ -47,7 +47,7 @@ for idx = 1:(n+1)                         %eventualmente si porebbe mettere un p
     xi(idx) = KeplerE(M_e(idx),e);                                         % Anomalia Eccentrica
     TA(idx) = TA_fun(xi(idx));                                             % Calcolo True Anomaly
     TA(idx) = rad2deg(TA(idx));                                            % conversione in [deg]
-    r_kepl(idx)  = r_fun(TA(idx));                                         % Calcolo del raggio in [m]
+    r_kepl(idx)  = r_fun(deg2rad(TA(idx)));                                % Calcolo del raggio in [m]
     fpa(idx) = atan((e*sin(TA(idx)))/(1 + e*cos(TA(idx))));                % Flight path angle
     
     v_ort(idx)  = mu/h * (1 + e*cos(TA(idx)));                             % Velocità ortogonale
@@ -69,7 +69,7 @@ t_date = (startTime:seconds(dt):stopTime)';                                % dat
 samples_date = (startTime:seconds(t_sample):stopTime)';
 n_samples = length(samples_date);
 r_samples = zeros(n_samples, 3);
-tol_sec = 0.01; %tolleranza temporale per la ricerca dei valori desiderati
+tol_sec = 0.5; %tolleranza temporale per la ricerca dei valori desiderati
 for k = 1:n_samples
     deltat_sample = (k - 1) * t_sample;  %tempo intervallo tra inizio istante da salvare                               
     idx = find(abs(t - deltat_sample) < tol_sec, 1);
@@ -77,6 +77,7 @@ for k = 1:n_samples
         r_samples(k,:) = r_eci(idx, :);                                   
     else % Se NON trovato (il find restituisce vuoto), faccio interpolazione solo per questo specifico istante mancante
         r_samples(k,:) = interp1(t, r_eci, deltat_sample, 'spline');
+        fprintf("\n sample %d interpolato \n valore calcolato: %.3f", k, norm(r_samples(k,:)))
     end
 end
 

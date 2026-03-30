@@ -90,7 +90,7 @@ if E < 0    % orbita ellittica/circolare
     % TA iniziale
     TA0 = acos(dot(e_vec,r)/(e*norm(r))); 
     % Risolvo l'ambiguità del arcocos (metodo semplice)
-    dr = norm(r) - norm(r + v*0.0000001);
+    dr = norm(r) - norm(r + v*1e-10);
     if dr > 0 
         TA0  = 2*pi - TA0;
     end

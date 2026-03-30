@@ -8,7 +8,7 @@ groundtrack3_flag        = 0;      % per geoplot 3D della ground track
 groundtrack2_flag        = 0;      % per geoplot 2D della ground track
 plot_eci_flag            = 0;      % per plot (non globe) in ECI
 satellite_tb_flag        = 0;      % per utilizzo satellite communication toolbox
-simulink_flag            = 0;      % per plot del modello simulink
+simulink_flag            = 1;      % per plot del modello simulink
 analisi_risultati_flag   = 1;      % per verifica dei risulati
 
 %% Dati iniziali
@@ -20,7 +20,7 @@ mu_terra = 398600.4418;                                                         
 start_time   = datetime(2026, 3, 26, 18, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
 stop_time    = datetime(2026, 3, 27,  6, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
 mission_duration = seconds(stop_time - start_time);                               %[s]
-delta_t_sat_sample = 3*3600;                                                      %[s]
+delta_t_sat_sample = 15 * 60;                                                     %[s]
 
 %% Calcolo parametri orbitali
 fprintf("Calcolo dei parametri orbitali...")

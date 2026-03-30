@@ -140,7 +140,7 @@ All'interno del codice MATLAB sono state implementate diverse funzioni: una per 
 
 \section{Osservazioni}
 Il lavoro svolto non è stato privo di difficoltà ed errori. La scelta di utilizzare un numero notevole di programmi e le loro estensioni ha inizialmente rallentato i lavori % e la collaborazione tra i membri.
-In seguito, l'implementazione del codice ha richiesto una lunga correzione causata da un errore nella scrittura originale del propagatore. Grazie ad un controllo incrociato tra GMAT e MATLAB, abbiamo notato come la True Anomaly di partenza in MATLAB non corrispondesse a quella risultata da GMAT, il quale presentava un valore di partenza di 189.499\degree. Infatti, avevamo assunto la posizione iniziale al perigeo invece di quella che doveva essere ricavata a partire dai dati iniziali, ovvero 189.499\degree.  Per risolvere tale incoerenza è stato necessario rivedere il codice, ovviando anche ad un ulteriore incoerenza dei tempi in quanto la struttura del codice di basava sull'assunzione errata.  
+In seguito, l'implementazione del codice ha richiesto una lunga correzione causata da un errore nella scrittura originale del propagatore. Grazie ad un controllo incrociato tra GMAT e MATLAB, abbiamo notato come la True Anomaly di partenza in MATLAB non corrispondesse a quella risultata da GMAT, il quale presentava un valore di partenza di 189.499\degree. Infatti, avevamo assunto la posizione iniziale al perigeo invece di quella che doveva essere ricavata a partire dai dati iniziali, ovvero 189.499\degree.  Per risolvere tale incoerenza è stato necessario rivedere il codice, ovviando anche ad un ulteriore incoerenza dei tempi in quanto la struttura del codice di basava .  
 
 \section{Analisi dei Risultati}
 inclinazione e raan 
@@ -149,10 +149,6 @@ inclinazione e raan
 Il lavoro del gruppo è stato organizzato attorno alla piattaforma GitHub, scelta che abbiamo preferito rispetto ad una più tradizionale e diffusa cartella condivisa su un drive online, in quanto permette di gestire meglio e di tenere traccia di tutte le modifiche ai codici, inoltre non presenta limiti in quanto a spazio di archiviazione. \'E stata creata una repository alla quale tutti i componenti del gruppo hanno avuto accesso permettendo di collaborare, e si è optato per lavorare tutti su una sola branch visto che complicare la struttura della repository non avrebbe portato ad alcun vantaggio aggiuntivo. 
 I file sono stati gestititi in due cartelle separate: per i codici (sia GMAT che MATLAB) è stata creata l'apposita cartella \textsl{Codici}, mentre il codice LaTeX e le immagini sono stati inseriti nella cartella \textsl{Documentazione}.
 In questa prima fase del progetto i componenti del gruppo Alessandro Magentini e Filippo Michielan si sono dedicati alla parte di programmazione software, in particolare all'implementazione prima GMAT e poi MATLAB dell'orbita, mentre Ippolito Luigi e Guglielmini Pietro hanno svolto l'analisi dati e la stesura del report in LaTeX. Il gruppo ha lavorato in maniera sincrona  con incontri in presenza e su piattaforme online come google meet e discord, ma anche asincrona sui programmi specifici. 
-
-% link GitHub
-https://github.com/alessandromagentini/Progettino-Dinamica-del-volo
-
 \section{sitografia}
 GMAT
 \begin{itemize} [leftmargin=10pt, rightmargin=5pt]

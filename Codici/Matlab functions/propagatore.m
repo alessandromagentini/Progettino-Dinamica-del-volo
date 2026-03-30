@@ -45,8 +45,7 @@ for idx = 1:(n+1)                         %eventualmente si porebbe mettere un p
     t(idx) = t0 + (idx * dt - dt);                                         % tempo trascorso in [s]
     M_e(idx) = 2*pi/T * t(idx);                                            % Anomalia media
     xi(idx) = KeplerE(M_e(idx),e);                                         % Anomalia Eccentrica
-    TA(idx) = TA_fun(xi(idx));                                             % Calcolo True Anomaly
-    TA(idx) = rad2deg(TA(idx));                                            % conversione in [deg]
+    TA(idx) = TA_fun(xi(idx));                                             % Calcolo True Anomaly                                          % conversione in [deg]
     r_kepl(idx)  = r_fun(TA(idx));                                         % Calcolo del raggio in [m]
     fpa(idx) = atan((e*sin(TA(idx)))/(1 + e*cos(TA(idx))));                % Flight path angle
     
@@ -57,9 +56,9 @@ for idx = 1:(n+1)                         %eventualmente si porebbe mettere un p
     %% Conversione in ECI:
     %% DA FARE?) scrivere la nostra funzione
     if TA(idx) < 0
-        TA(idx) = 360 + TA(idx);
+        TA(idx) = 2*pi + TA(idx);
     end
-    [rt, vt] = keplerian2ijk(a, e, i, raan, omega, TA(idx)); %funzione dell'aerospace toolbox temporanea/per verificare
+    [rt, vt] = keplerian2ijk(a, e, i, raan, omega, rad2deg(TA(idx))); %funzione dell'aerospace toolbox temporanea/per verificare
     r_eci(idx,:) = rt';
     v_eci(idx,:) = vt';
 end
@@ -69,21 +68,20 @@ t_date = (startTime:seconds(dt):stopTime)';                                % dat
 samples_date = (startTime:seconds(t_sample):stopTime)';
 n_samples = length(samples_date);
 r_samples = zeros(n_samples, 3);
-tol_sec = 0.01; %tolleranza temporale per la ricerca dei valori desiderati
+t_start_sim = t(1); 
 for k = 1:n_samples
-    deltat_sample = (k - 1) * t_sample;  %tempo intervallo tra inizio istante da salvare                               
-    idx = find(abs(t - deltat_sample) < tol_sec, 1);
-    if ~isempty(idx) % Se trovato, copio i dati originali
+    tempo_cercato = t_start_sim + (k - 1) * t_sample;  
+    [scostamento, idx] = min(abs(t - tempo_cercato));
+    if scostamento < 1e-3
         r_samples(k,:) = r_eci(idx, :);                                   
-    else % Se NON trovato (il find restituisce vuoto), faccio interpolazione solo per questo specifico istante mancante
-        r_samples(k,:) = interp1(t, r_eci, deltat_sample, 'spline');
+    else 
+        r_samples(k,:) = interp1(t, r_eci, tempo_cercato, 'linear');
     end
 end
-
 %% Organizzazione output
 samples = struct("date",samples_date, "position",r_samples);
 orbit_polar = struct("r_kepl",r_kepl, "v_ort",v_ort, "v_rad",v_rad, "v_kepl",v_kepl, ...
-                     "TA",TA, "t",t,"t_date",t_date,"dt",dt, "M_e",M_e, "xi",xi, "r_eci",r_eci, "v_eci",v_eci, "fpa",fpa, "samples",samples);
+                     "TA",rad2deg(TA), "t",t,"t_date",t_date,"dt",dt, "M_e",rad2deg(M_e), "xi",rad2deg(xi), "r_eci",r_eci, "v_eci",v_eci, "fpa",fpa, "samples",samples);
 
 end %propagatore
 
