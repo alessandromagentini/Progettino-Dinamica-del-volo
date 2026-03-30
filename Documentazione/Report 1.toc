@@ -6,3 +6,4 @@
 \contentsline {section}{\numberline {4}Osservazioni}{4}{}%
 \contentsline {section}{\numberline {5}Analisi dei Risultati}{4}{}%
 \contentsline {section}{\numberline {6}Organizzazione del gruppo}{4}{}%
+\contentsline {section}{\numberline {7}sitografia}{4}{}%

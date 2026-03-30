@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.23)  30 MAR 2026 15:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.23)  30 MAR 2026 15:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -185,12 +185,22 @@ File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen159
 \Gin@req@width=\dimen160
-) (C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+)
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\labelindent=\skip54
+\enit@outerparindent=\dimen161
+\enit@toks=\toks25
+\enit@inbox=\box55
+\enit@count@id=\count301
+\enitdp@description=\count302
+)
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 )
 (C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/media9\media9.sty
 Package: media9 2025/06/24 v1.30 acrobat-9/X compatible media
-\g_mix_pkgresizeflag_int=\count301
+\g_mix_pkgresizeflag_int=\count303
 
 (C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/media9\pdfbase.sty
 Package: pdfbase 2024/09/16 v0.59 driver independent access to low-level PDF fe
@@ -199,26 +209,26 @@ atures
 (C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count302
+\l__color_backend_stack_int=\count304
 )
-\g_pbs_page_int=\count303
-\g_pbs_oc_int=\count304
+\g_pbs_page_int=\count305
+\g_pbs_oc_int=\count306
 )
 (C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/ocgx2\ocgbase.sty
 Package: ocgbase 2024/09/15 v0.24 support package for ocgx2.sty
 )
-\l_mix_poster_box=\box55
-\g_mix_wd_dim=\dimen161
-\g_mix_ht_dim=\dimen162
-\g_mix_dp_dim=\dimen163
-\g_mix_rmcnt_int=\count305
-\l_mix_viewcnt_int=\count306
-\g@mix@page@int=\count307
-\g_mix_resizeflag_int=\count308
-\l_mix_lineno_int=\count309
-\l_mix_pbtn_box=\box56
-\g_mix_mbtncnt_int=\count310
-\mix@btn@dim=\dimen164
+\l_mix_poster_box=\box56
+\g_mix_wd_dim=\dimen162
+\g_mix_ht_dim=\dimen163
+\g_mix_dp_dim=\dimen164
+\g_mix_rmcnt_int=\count307
+\l_mix_viewcnt_int=\count308
+\g@mix@page@int=\count309
+\g_mix_resizeflag_int=\count310
+\l_mix_lineno_int=\count311
+\l_mix_pbtn_box=\box57
+\g_mix_mbtncnt_int=\count312
+\mix@btn@dim=\dimen165
 )
 (C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/gensymb\gensymb.sty
 Package: gensymb 2022/10/17 v1.0.2 (KJH)
@@ -232,54 +242,54 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
-\Gm@cnth=\count311
-\Gm@cntv=\count312
-\c@Gm@tempcnt=\count313
-\Gm@bindingoffset=\dimen165
-\Gm@wd@mp=\dimen166
-\Gm@odd@mp=\dimen167
-\Gm@even@mp=\dimen168
-\Gm@layoutwidth=\dimen169
-\Gm@layoutheight=\dimen170
-\Gm@layouthoffset=\dimen171
-\Gm@layoutvoffset=\dimen172
-\Gm@dimlist=\toks25
+\Gm@cnth=\count313
+\Gm@cntv=\count314
+\c@Gm@tempcnt=\count315
+\Gm@bindingoffset=\dimen166
+\Gm@wd@mp=\dimen167
+\Gm@odd@mp=\dimen168
+\Gm@even@mp=\dimen169
+\Gm@layoutwidth=\dimen170
+\Gm@layoutheight=\dimen171
+\Gm@layouthoffset=\dimen172
+\Gm@layoutvoffset=\dimen173
+\Gm@dimlist=\toks26
 
 (C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
 (Report 1.aux)
 \openout1 = `"Report 1.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Info: Redefining \it@ocap on input line 21.
-LaTeX Info: Redefining \it@ccap on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Info: Redefining \it@ocap on input line 23.
+LaTeX Info: Redefining \it@ccap on input line 23.
 
 (C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count314
-\scratchdimen=\dimen173
-\scratchbox=\box57
-\nofMPsegments=\count315
-\nofMParguments=\count316
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count317
-\MPscratchDim=\dimen174
-\MPnumerator=\count318
-\makeMPintoPDFobject=\count319
-\everyMPtoPDFconversion=\toks27
+\scratchcounter=\count316
+\scratchdimen=\dimen174
+\scratchbox=\box58
+\nofMPsegments=\count317
+\nofMParguments=\count318
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count319
+\MPscratchDim=\dimen175
+\MPnumerator=\count320
+\makeMPintoPDFobject=\count321
+\everyMPtoPDFconversion=\toks28
 )
 (C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -291,15 +301,15 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Info: Redefining \celsius on input line 21.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 21.
+LaTeX Info: Redefining \celsius on input line 23.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 23.
 
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 21.
-Package gensymb Info: Using \Omega for \ohm on input line 21.
+LaTeX Info: Redefining \ohm on input line 23.
+Package gensymb Info: Using \Omega for \ohm on input line 23.
 
 Package gensymb Warning: Not defining \micro.
 
@@ -340,14 +350,14 @@ Package gensymb Warning: Not defining \micro.
 <immagine dii.jpg, id=1, 200.75pt x 200.75pt>
 File: immagine dii.jpg Graphic file (type jpg)
 <use immagine dii.jpg>
-Package pdftex.def Info: immagine dii.jpg  used on input line 27.
+Package pdftex.def Info: immagine dii.jpg  used on input line 29.
 (pdftex.def)             Requested size: 91.04742pt x 91.05038pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
 
 (C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
 
 
 (C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -356,12 +366,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <Logo Università Padova.png, id=2, 1204.5pt x 1204.5pt>
 File: Logo Università Padova.png Graphic file (type png)
 <use Logo Università Padova.png>
-Package pdftex.def Info: Logo Università Padova.png  used on input line 41.
+Package pdftex.def Info: Logo Università Padova.png  used on input line 43.
 (pdftex.def)             Requested size: 91.04742pt x 91.032pt.
 <orbita.png, id=4, 998.9822pt x 536.0025pt>
 File: orbita.png Graphic file (type png)
 <use orbita.png>
-Package pdftex.def Info: orbita.png  used on input line 56.
+Package pdftex.def Info: orbita.png  used on input line 58.
 (pdftex.def)             Requested size: 364.19667pt x 195.40619pt.
 
 [1
@@ -375,13 +385,61 @@ ii.jpg> <./Logo Università Padova.png> <./orbita.png>] (Report 1.toc)
 [1] [2]
 File: orbita.png Graphic file (type png)
 <use orbita.png>
-Package pdftex.def Info: orbita.png  used on input line 130.
+Package pdftex.def Info: orbita.png  used on input line 132.
 (pdftex.def)             Requested size: 364.19667pt x 195.40619pt.
 
 
-LaTeX Warning: Reference `sec:formule' on page 3 undefined on input line 136.
+LaTeX Warning: Reference `sec:formule' on page 3 undefined on input line 138.
 
-[3] [4] (Report 1.aux)
+[3]
+Overfull \hbox (8.9764pt too wide) in paragraph at lines 155--156
+[]\T1/cmtt/m/n/12 GMAT \T1/cmr/m/n/12 https://etd.gsfc.nasa.gov/capabilities/ca
+pabilities-listing/general-mission-analysis-
+ []
+
+
+Overfull \hbox (34.54807pt too wide) in paragraph at lines 159--160
+[]\T1/cmtt/m/n/12 Aerospace Blockset \T1/cmr/m/n/12 https://it.mathworks.com/he
+lp/releases/R2025b/aeroblks/index.html; 
+ []
+
+
+Overfull \hbox (24.71994pt too wide) in paragraph at lines 160--161
+[]\T1/cmtt/m/n/12 Aerospace Toolbox \T1/cmr/m/n/12 https://it.mathworks.com/hel
+p/releases/R2025b/aerotbx/index.html; 
+ []
+
+
+Overfull \hbox (10.07489pt too wide) in paragraph at lines 161--162
+[]\T1/cmtt/m/n/12 DSP System Toolbox \T1/cmr/m/n/12 https://it.mathworks.com/he
+lp/releases/R2025b/dsp/index.html; 
+ []
+
+
+Overfull \hbox (100.60977pt too wide) in paragraph at lines 162--163
+[]\T1/cmtt/m/n/12 Ephemeris data for aerospace Toolbox \T1/cmr/m/n/12 https://i
+t.mathworks.com/matlabcentral/fileexchange/46671-
+ []
+
+[4]
+Overfull \hbox (103.26735pt too wide) in paragraph at lines 164--165
+[]\T1/cmtt/m/n/12 Satellite Communication \T1/cmr/m/n/12 Tool-box https://it.ma
+thworks.com/help/releases/R2025b/satcom/index.html; 
+ []
+
+
+Overfull \hbox (12.43546pt too wide) in paragraph at lines 165--166
+[]\T1/cmtt/m/n/12 Singla Processing Toolbox \T1/cmr/m/n/12 ma-th-works.com/help
+/releases/R2025b/signal/index.html; 
+ []
+
+
+Overfull \hbox (41.58247pt too wide) in paragraph at lines 166--167
+[]\T1/cmtt/m/n/12 Communication Toolbox \T1/cmr/m/n/12 https://it.mathworks.com
+/help/releases/R2025b/comm/index.html; 
+ []
+
+[5] (Report 1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -392,13 +450,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5946 strings out of 467871
- 100940 string characters out of 5418376
- 539169 words of memory out of 5000000
- 34754 multiletter control sequences out of 15000+600000
+ 6280 strings out of 467871
+ 106770 string characters out of 5418376
+ 547873 words of memory out of 5000000
+ 35084 multiletter control sequences out of 15000+600000
  642696 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,8n,70p,1011b,268s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 63i,8n,70p,1011b,271s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\luigi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl
 1200.pk> <C:\Users\luigi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ectt1200.pk> <C:\Users\luigi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -415,9 +473,9 @@ uigi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C
 :/Users/luigi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
 8.pfb><C:/Users/luigi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmsy8.pfb>
-Output written on "Report 1.pdf" (5 pages, 822385 bytes).
+Output written on "Report 1.pdf" (6 pages, 831678 bytes).
 PDF statistics:
- 416 PDF objects out of 1000 (max. 8388607)
+ 444 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  22 words of extra memory for PDF output out of 10000 (max. 10000000)
 
