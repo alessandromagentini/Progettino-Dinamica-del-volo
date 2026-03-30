@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.25)  30 MAR 2026 10:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.23)  30 MAR 2026 15:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,9 +6,9 @@ entering extended mode
 (Report 1.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
 File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count275
@@ -23,12 +23,12 @@ File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 \belowcaptionskip=\skip50
 \bibindent=\dimen148
 )
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
 )
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
 Package: babel 2025/12/11 v25.17 The multilingual framework for LuaLaTeX, pdfLa
 TeX and XeLaTeX
 \babel@savecnt=\count283
@@ -49,7 +49,7 @@ on input line 2101.
 \U@D=\dimen149
 \l@unhyphenated=\language79
 
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count284
 Package babel Info: Configuration files are deprecated, as
@@ -59,46 +59,47 @@ Package babel Info: Configuration files are deprecated, as
 *************************************
 * Local config file bblopts.cfg used
 *
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/it\babe
-l-italian.tex)
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/it\babel
+-italian.tex)
 Package babel Info: Importing font and identification data for italian
 (babel)             from babel-it.ini. Reported on input line 4320.
 
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/babel-italian\italian.
-ldf
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/babel-italian\italian.l
+df
 Language: italian 2026/01/13 v.1.5.02 Italian support for the babel system
 \it@lettering=\count285
 \it@doublequoteactive=\count286
 \it@ISOcompliance=\count287
 ))
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count288
-) (C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+)
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 )
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip51
 
 For additional information on amsmath, use the `?' option.
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
 Package: amstext 2024/11/17 v2.01 AMS text
 
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks19
 \ex@=\dimen150
 ))
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen151
 )
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count289
@@ -149,61 +150,61 @@ LaTeX Info: Redefining \Relbar on input line 970.
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
 )
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-))
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+)) (C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.st
+y
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks24
 )
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
 )
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.
-cfg
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 106.
 
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.de
-f
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen159
 \Gin@req@width=\dimen160
-) (C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+) (C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
-) (C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/media9\media9.sty
+)
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/media9\media9.sty
 Package: media9 2025/06/24 v1.30 acrobat-9/X compatible media
 \g_mix_pkgresizeflag_int=\count301
 
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/media9\pdfbase.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/media9\pdfbase.sty
 Package: pdfbase 2024/09/16 v0.59 driver independent access to low-level PDF fe
 atures
 
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pd
-ftex.def
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count302
 )
 \g_pbs_page_int=\count303
 \g_pbs_oc_int=\count304
 )
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/ocgx2\ocgbase.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/ocgx2\ocgbase.sty
 Package: ocgbase 2024/09/15 v0.24 support package for ocgx2.sty
 )
 \l_mix_poster_box=\box55
@@ -219,13 +220,16 @@ Package: ocgbase 2024/09/15 v0.24 support package for ocgx2.sty
 \g_mix_mbtncnt_int=\count310
 \mix@btn@dim=\dimen164
 )
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/gensymb\gensymb.sty
+Package: gensymb 2022/10/17 v1.0.2 (KJH)
+)
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2026/03/07 v6.0 Page Geometry
 
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
 \Gm@cnth=\count311
@@ -241,29 +245,29 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 \Gm@layoutvoffset=\dimen172
 \Gm@dimlist=\toks25
 
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)
-) (Report 1.aux)
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(Report 1.aux)
 \openout1 = `"Report 1.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Info: Redefining \it@ocap on input line 20.
-LaTeX Info: Redefining \it@ccap on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Info: Redefining \it@ocap on input line 21.
+LaTeX Info: Redefining \it@ccap on input line 21.
 
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.m
-kii
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count314
 \scratchdimen=\dimen173
@@ -277,16 +281,28 @@ kii
 \makeMPintoPDFobject=\count319
 \everyMPtoPDFconversion=\toks27
 )
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-
-base.sty
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.
-cfg
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
+LaTeX Info: Redefining \celsius on input line 21.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 21.
+
+
+
+Package gensymb Warning: Not defining \perthousand.
+
+LaTeX Info: Redefining \ohm on input line 21.
+Package gensymb Info: Using \Omega for \ohm on input line 21.
+
+Package gensymb Warning: Not defining \micro.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -324,34 +340,34 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 <immagine dii.jpg, id=1, 200.75pt x 200.75pt>
 File: immagine dii.jpg Graphic file (type jpg)
 <use immagine dii.jpg>
-Package pdftex.def Info: immagine dii.jpg  used on input line 26.
+Package pdftex.def Info: immagine dii.jpg  used on input line 27.
 (pdftex.def)             Requested size: 91.04742pt x 91.05038pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
 
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
 
 
-(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+(C:\Users\luigi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 <Logo Università Padova.png, id=2, 1204.5pt x 1204.5pt>
 File: Logo Università Padova.png Graphic file (type png)
 <use Logo Università Padova.png>
-Package pdftex.def Info: Logo Università Padova.png  used on input line 40.
+Package pdftex.def Info: Logo Università Padova.png  used on input line 41.
 (pdftex.def)             Requested size: 91.04742pt x 91.032pt.
 <orbita.png, id=4, 998.9822pt x 536.0025pt>
 File: orbita.png Graphic file (type png)
 <use orbita.png>
-Package pdftex.def Info: orbita.png  used on input line 55.
+Package pdftex.def Info: orbita.png  used on input line 56.
 (pdftex.def)             Requested size: 364.19667pt x 195.40619pt.
 
 [1
 
-{C:/Users/Pietro/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./immagine 
-dii.jpg> <./Logo Università Padova.png> <./orbita.png>] (Report 1.toc)
+{C:/Users/luigi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./immagine d
+ii.jpg> <./Logo Università Padova.png> <./orbita.png>] (Report 1.toc)
 \tf@toc=\write3
 \openout3 = `"Report 1.toc"'.
 
@@ -359,50 +375,49 @@ dii.jpg> <./Logo Università Padova.png> <./orbita.png>] (Report 1.toc)
 [1] [2]
 File: orbita.png Graphic file (type png)
 <use orbita.png>
-Package pdftex.def Info: orbita.png  used on input line 134.
+Package pdftex.def Info: orbita.png  used on input line 130.
 (pdftex.def)             Requested size: 364.19667pt x 195.40619pt.
- [3] [4] [5] [6] (Report 1.aux)
+
+
+LaTeX Warning: Reference `sec:formule' on page 3 undefined on input line 136.
+
+[3] [4] (Report 1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 5922 strings out of 467870
- 100587 string characters out of 5417871
- 544169 words of memory out of 5000000
- 34729 multiletter control sequences out of 15000+600000
- 648090 words of font info for 89 fonts, out of 8000000 for 9000
+ 5946 strings out of 467871
+ 100940 string characters out of 5418376
+ 539169 words of memory out of 5000000
+ 34754 multiletter control sequences out of 15000+600000
+ 642696 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,10n,70p,1011b,260s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecs
-l1200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
-600\ecti1200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
-/ec/dpi600\tcrm1200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/j
-knappen/ec/dpi600\ectt1200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/l
-jfour/jknappen/ec/dpi600\ecso1200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecsi1200.pk> <C:\Users\Pietro\AppData\Local\MiK
-TeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Pietro\AppData\Lo
-cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Pietro\App
-Data\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1440.pk> <C:\Users\Pie
-tro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Us
-ers\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk>
- <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1
-440.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecbx1728.pk><C:/Users/Pietro/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmbx12.pfb><C:/Users/Pietro/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmex10.pfb><C:/Users/Pietro/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Pietro/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Pietro/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Pietro/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/User
-s/Pietro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-<C:/Users/Pietro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-msy10.pfb><C:/Users/Pietro/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmsy8.pfb>
-Output written on "Report 1.pdf" (7 pages, 927870 bytes).
+ 63i,8n,70p,1011b,268s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\luigi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl
+1200.pk> <C:\Users\luigi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ectt1200.pk> <C:\Users\luigi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecso1200.pk> <C:\Users\luigi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecsi1200.pk> <C:\Users\luigi\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\luigi\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\luigi\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecti1440.pk> <C:\Users\luigi\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\luigi\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\luigi\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\luigi\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/l
+uigi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C
+:/Users/luigi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
+8.pfb><C:/Users/luigi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb>
+Output written on "Report 1.pdf" (5 pages, 822385 bytes).
 PDF statistics:
- 536 PDF objects out of 1000 (max. 8388607)
+ 416 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  22 words of extra memory for PDF output out of 10000 (max. 10000000)
 
