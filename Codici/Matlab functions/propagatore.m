@@ -11,6 +11,10 @@ mu        = orbit_param.mu;
 i         = orbit_param.i;
 raan      = orbit_param.raan;
 omega     = orbit_param.omega;
+TA0       = deg2rad(orbit_param.TA0);
+xi0       = deg2rad(orbit_param.xi0);
+M_e0      = deg2rad(orbit_param.M_e0);
+t0        = orbit_param.t0;
 
 %% Funzioni
 % r
@@ -21,19 +25,16 @@ TA_fun = @(xi) 2*atan(sqrt((1 + e)/(1 - e)) * tan(xi/2));
 n = round(seconds(stopTime - startTime)/dt);
 % n = round(T/dt) + 1;  % numero intervalli dt su un periodo T dell'orbita
 
-
-%% Calcolo M_e - anomalia media per ogni dt
-M_e = ((2*pi/T) .* dt*(0:n))'; 
-
 %% Inizializzazione
-xi        = zeros(n+1,1);
-TA        = zeros(n+1,1);
+xi        = zeros(n+1,1); xi(1) = xi0;
+TA        = zeros(n+1,1); TA(1) = TA0;
 r_kepl    = zeros(n+1,3);         
 v_kepl    = zeros(n+1,3);
 t         = zeros(n+1,1);
 fpa       = zeros(n+1,1);
 v_ort     = zeros(n+1,1);
 v_rad     = zeros(n+1,1);
+M_e       = zeros(n+1,1); M_e(1) = M_e0;
 
 r_eci    = zeros(n+1,3);
 v_eci    = zeros(n+1,3);
@@ -41,11 +42,12 @@ v_eci    = zeros(n+1,3);
 %% Risolutore:
 % t -> M_e -> xi -> TA
 for idx = 1:(n+1)                         %eventualmente si porebbe mettere un parfor
+    t(idx) = t0 + (idx * dt - dt);                                         % tempo trascorso in [s]
+    M_e(idx) = 2*pi/T * t(idx);                                            % Anomalia media
     xi(idx) = KeplerE(M_e(idx),e);                                         % Anomalia Eccentrica
     TA(idx) = TA_fun(xi(idx));                                             % Calcolo True Anomaly
     TA(idx) = rad2deg(TA(idx));                                            % conversione in [deg]
     r_kepl(idx)  = r_fun(TA(idx));                                         % Calcolo del raggio in [m]
-    t(idx)       = idx * dt - dt;                                          % tempo trascorso in [s]
     fpa(idx) = atan((e*sin(TA(idx)))/(1 + e*cos(TA(idx))));                % Flight path angle
     
     v_ort(idx)  = mu/h * (1 + e*cos(TA(idx)));                             % Velocità ortogonale

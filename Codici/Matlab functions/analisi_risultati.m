@@ -11,7 +11,7 @@ start_time = custom_data.t_date(1);
 
 cr = custom_data.r_eci; 
 cv = custom_data.v_eci;
-ct = custom_data.t;     
+ct = custom_data.t - custom_data.t(1);     
 
 tbr = aero_toolbox.pos_eci.Data(3:end,:); % i primi step dell'integratore hanno passo troppo vicino a 0
 tbv = aero_toolbox.vel_eci.Data(3:end,:); 
@@ -38,6 +38,7 @@ if exist("Kep_param.csv","file")
     i_gmat = i_gmat(1:idx_gmat_end);
     raan_gmat = raan_gmat(1:idx_gmat_end);
     aop_gmat = aop_gmat(1:idx_gmat_end);
+    % Associo i valori trami
 
     i_gmat_interp        = interp1(t_gmat,i_gmat,ct,"spline");
     raan_gmat_interp     = interp1(t_gmat,raan_gmat,ct,"spline");
@@ -52,7 +53,8 @@ scartor_percentuale = (delta_pos ./ norm(tbr_interp)) * 100;
 scartov_percentuale = (delta_vel ./ norm(tbv_interp)) * 100;
 
 % Andamento dei parametri orbitali toolbox
-i = zeros(length(tbr_interp),1); raan  = zeros(length(tbr_interp),1); T = zeros(length(tbr_interp),1);
+i = zeros(length(tbr_interp),1); raan  = zeros(length(tbr_interp),1);
+T = zeros(length(tbr_interp),1); omega = zeros(length(tbr_interp),1);
 for idx = 1:length(tbr_interp)
     param = get_parametri_orbitali(tbr_interp(idx,:)/1000,tbv_interp(idx,:)/1000, mu_terra);
     i(idx) = param.i;

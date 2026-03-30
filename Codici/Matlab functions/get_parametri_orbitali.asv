@@ -89,11 +89,10 @@ if E < 0    % orbita ellittica/circolare
     
     % TA iniziale
     TA0 = acos(dot(e_vec,r)/(e*norm(r))); 
-    % Risolvo l'ambiguità del arcocos (metodo semplice)
-    dr = norm(r) - norm(r + v*0.0000001);
+    % Risolvo l'ambiguità del arcocos
+    dr = r - norm(r + v*0.0000001);
     if dr > 0 
-        TA0  = 2*pi - TA0;
-    end
+        TA0  = 2*pi
 
     % Anomalia eccentrica iniziale
     xi0 = 2*atan(sqrt((1 + e)/(1 - e)) * tan(TA0/2));
@@ -106,7 +105,7 @@ if E < 0    % orbita ellittica/circolare
     obj_param = struct("r0_vec",r, "v0_vec",v, "h_vec",h, "E",E, ...
                        "a",a*1000, "rp",rp, "ra",ra, "e_vec",e_vec, "e",e, ...
                        "T",T, "i",i, "raan",raan, "omega",omega, ...
-                       "TA0",rad2deg(TA0), "xi0",rad2deg(xi0), "M_e0",rad2deg(M_e0), "t0",t0, ...
+                       "TA0",rad2deg(TA0), "xi0",xi0, "M_e0",M_e0, "t0",t0, ...
                        "mu",mu, "type",type);
 
 elseif E == 0   % orbita parabolica
@@ -123,14 +122,11 @@ elseif E == 0   % orbita parabolica
     obj_param = struct("r0_vec",r, "v0_vec",v, "h_vec",h, "E",E, ...
         "rp",rp, "e_vec",e_vec, "e",e,"mu",mu, "type",type);
 
-    error("orbita parabolica")
-
 else  % orbita iperbolica
     type = "hyperbolic";
 
     % da completare
     obj_param = NaN;
-    error("orbita iperbolica")
 end
 
 

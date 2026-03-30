@@ -8,7 +8,7 @@ groundtrack3_flag        = 0;      % per geoplot 3D della ground track
 groundtrack2_flag        = 0;      % per geoplot 2D della ground track
 plot_eci_flag            = 0;      % per plot (non globe) in ECI
 satellite_tb_flag        = 0;      % per utilizzo satellite communication toolbox
-simulink_flag            = 1;      % per plot del modello simulink
+simulink_flag            = 0;      % per plot del modello simulink
 analisi_risultati_flag   = 1;      % per verifica dei risulati
 
 %% Dati iniziali
@@ -33,7 +33,7 @@ dt = 1;                                                                         
 fprintf("Propagazione dell'orbita con function custom...")
 [sat_orbit] = propagatore(sat_param,dt,delta_t_sat_sample,start_time,stop_time); 
 fprintf(" completato!\n")
-if groundtrack3_flag == 1 || groundtrack2_flag == 1     % PLOT
+if groundtrack3_flag == 1 || groundtrack2_flag == 1 || plot_eci_flag == 1  % PLOT
     plotter(sat_param,sat_orbit,groundtrack3_flag,groundtrack2_flag,plot_eci_flag)
 end
 res.sat_orbit = sat_orbit;
@@ -65,7 +65,7 @@ sat_orbit_aero_tb = satellite(sc_aero_tb, posData_icrf, velData_icrf, "Coordinat
 res.aerotb_res = struct("pos_eci",posData_icrf, "vel_eci",velData_icrf, "time",timeData);
 
 if simulink_flag == 1 % PLOT
-    groundTrack(sat_orbit_aero_tb);
+    % groundTrack(sat_orbit_aero_tb);
     play(sc_aero_tb);
 end
 
