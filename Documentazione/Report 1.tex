@@ -16,7 +16,7 @@
 \usepackage{geometry}
 \geometry{margin=2.5cm}
 
-% Comando per la linea orizzontale nella copertina
+
 \newcommand{\hr}{\rule{\linewidth}{0.5mm}}
 
 % --- INIZIO DOCUMENTO ---
@@ -55,12 +55,12 @@
     
     \vspace{2cm}
  
-    \includegraphics[width=0.8\textwidth]{"orbita"} 
+    \includegraphics[width=0.8\textwidth]{"foto copertina"} 
     
     \vfill 
    
     
-    {\raggedright % Inizia un blocco allineato a sinistra
+    {\raggedright 
     \noindent
     \begin{minipage}{0.55\textwidth}
         \begin{flushleft} \large
@@ -91,8 +91,8 @@ Il primo progettino relativo al corso di Dinamica del Volo, anno accademico 2025
 Il software specifico è stato scelto attraverso interrogazione dell'AI Claude e Gemini. Il prompt utilizzato è il seguente, riportato in forma integrale:  
 
 \begin{quote}
-    \itshape % Rende il font corsivo
-    \textsf{ % Rende il font Sans Serif r
+    \itshape 
+    \textsf{ 
         ``Devo svolgere un progetto universitario per il corso di Dinamica del Volo Aerospaziale in un gruppo di 4 persone. L'obiettivo è disegnare una missione di intercettazione di un asteroide su orbita inclinata rispetto al piano equatoriale terrestre. I contenuti richiesti includono: parametri orbitali, posizione del satellite ogni 3 ore, plot 3D in sistema ECI, analisi delle perturbazioni, ground track, manovre orbitali e phasing. La metodologia richiede analisi teorica, motivazione degli strumenti usati, rilevazione delle discrepanze tra teoria e simulazione, e identificazione del contributo di ogni membro. Il professore propone come alternative MATLAB o GMAT. Analizza pro e contro di entrambi rispetto a questo specifico progetto, valuta se convenga usarli entrambi in parallelo o in modo complementare. ''
     }
 \end{quote}
@@ -100,8 +100,8 @@ Il software specifico è stato scelto attraverso interrogazione dell'AI Claude e
 La risposta fornita è stata la seguende :
 
 \begin{quote}
-    \itshape  % Attiva il corsivo per lo stile citazione
-    \sffamily % Attiva il font Sans Serif in modo corretto per testi lunghi
+    \itshape  
+    \sffamily 
     
     \textbf{MATLAB} \\
     Pro: conosciuto da tutti, lavoro divisibile per moduli (propagatore, perturbazioni, manovre, plot), codice commentato significa documentazione trasparente, facile mostrare contributo individuale e corrispondenza teoria, implementazione. \\
@@ -139,11 +139,14 @@ All'interno del codice MATLAB sono state implementate diverse funzioni: una per 
 
 
 \section{Osservazioni}
-Il lavoro svolto non è stato privo di difficoltà ed errori. La scelta di utilizzare un numero notevole di programmi e le loro estensioni ha inizialmente rallentato i lavori % e la collaborazione tra i membri.
+Il lavoro svolto non è stato privo di difficoltà ed errori. La scelta di utilizzare un numero notevole di programmi e le loro estensioni ha inizialmente rallentato i lavori.
 In seguito, l'implementazione del codice ha richiesto una lunga correzione causata da un errore nella scrittura originale del propagatore. Grazie ad un controllo incrociato tra GMAT e MATLAB, abbiamo notato come la True Anomaly di partenza in MATLAB non corrispondesse a quella risultata da GMAT, il quale presentava un valore di partenza di 189.499\degree. Infatti, avevamo assunto la posizione iniziale al perigeo invece di quella che doveva essere ricavata a partire dai dati iniziali, ovvero 189.499\degree.  Per risolvere tale incoerenza è stato necessario rivedere il codice, ovviando anche ad un ulteriore incoerenza dei tempi in quanto la struttura del codice di basava sull'assunzione errata.  
 
 \section{Analisi dei Risultati}
-inclinazione e raan 
+Dall'analisi dati si osserva
+   \includegraphics[width=0.8\textwidth]{"confronto propagatori"} 
+\subsection{Confronto Propagatori}
+
 
 \section{Organizzazione del gruppo}
 Il lavoro del gruppo è stato organizzato attorno alla piattaforma GitHub, scelta che abbiamo preferito rispetto ad una più tradizionale e diffusa cartella condivisa su un drive online, in quanto permette di gestire meglio e di tenere traccia di tutte le modifiche ai codici, inoltre non presenta limiti in quanto a spazio di archiviazione. \'E stata creata una repository alla quale tutti i componenti del gruppo hanno avuto accesso permettendo di collaborare, e si è optato per lavorare tutti su una sola branch visto che complicare la struttura della repository non avrebbe portato ad alcun vantaggio aggiuntivo. 

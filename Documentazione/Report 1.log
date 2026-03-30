@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.23)  30 MAR 2026 15:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.23)  30 MAR 2026 22:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -368,73 +368,80 @@ File: Logo Università Padova.png Graphic file (type png)
 <use Logo Università Padova.png>
 Package pdftex.def Info: Logo Università Padova.png  used on input line 43.
 (pdftex.def)             Requested size: 91.04742pt x 91.032pt.
-<orbita.png, id=4, 998.9822pt x 536.0025pt>
-File: orbita.png Graphic file (type png)
-<use orbita.png>
-Package pdftex.def Info: orbita.png  used on input line 58.
-(pdftex.def)             Requested size: 364.19667pt x 195.40619pt.
+<foto copertina.png, id=4, 817.55438pt x 511.9125pt>
+File: foto copertina.png Graphic file (type png)
+<use foto copertina.png>
+Package pdftex.def Info: foto copertina.png  used on input line 58.
+(pdftex.def)             Requested size: 364.19667pt x 228.0464pt.
 
 [1
 
 {C:/Users/luigi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./immagine d
-ii.jpg> <./Logo Università Padova.png> <./orbita.png>] (Report 1.toc)
+ii.jpg> <./Logo Università Padova.png> <./foto copertina.png>] (Report 1.toc)
 \tf@toc=\write3
 \openout3 = `"Report 1.toc"'.
 
-
-[1] [2]
+ [1] [2]
+<orbita.png, id=31, 998.9822pt x 536.0025pt>
 File: orbita.png Graphic file (type png)
 <use orbita.png>
 Package pdftex.def Info: orbita.png  used on input line 132.
 (pdftex.def)             Requested size: 364.19667pt x 195.40619pt.
+ [3 <./orbita.png>]
+<confronto propagatori.png, id=40, 655.69969pt x 396.7322pt>
+File: confronto propagatori.png Graphic file (type png)
+<use confronto propagatori.png>
+Package pdftex.def Info: confronto propagatori.png  used on input line 147.
+(pdftex.def)             Requested size: 364.19667pt x 220.35847pt.
 
+Overfull \hbox (41.20346pt too wide) in paragraph at lines 146--148
+\T1/cmr/m/n/12 Dall'analisi da-ti si os-ser-va [] 
+ []
 
-LaTeX Warning: Reference `sec:formule' on page 3 undefined on input line 138.
-
-[3]
-Overfull \hbox (8.9764pt too wide) in paragraph at lines 155--156
+[4 <./confronto propagatori.png>]
+Overfull \hbox (8.9764pt too wide) in paragraph at lines 162--163
 []\T1/cmtt/m/n/12 GMAT \T1/cmr/m/n/12 https://etd.gsfc.nasa.gov/capabilities/ca
 pabilities-listing/general-mission-analysis-
  []
 
 
-Overfull \hbox (34.54807pt too wide) in paragraph at lines 159--160
+Overfull \hbox (34.54807pt too wide) in paragraph at lines 166--167
 []\T1/cmtt/m/n/12 Aerospace Blockset \T1/cmr/m/n/12 https://it.mathworks.com/he
 lp/releases/R2025b/aeroblks/index.html; 
  []
 
 
-Overfull \hbox (24.71994pt too wide) in paragraph at lines 160--161
+Overfull \hbox (24.71994pt too wide) in paragraph at lines 167--168
 []\T1/cmtt/m/n/12 Aerospace Toolbox \T1/cmr/m/n/12 https://it.mathworks.com/hel
 p/releases/R2025b/aerotbx/index.html; 
  []
 
 
-Overfull \hbox (10.07489pt too wide) in paragraph at lines 161--162
+Overfull \hbox (10.07489pt too wide) in paragraph at lines 168--169
 []\T1/cmtt/m/n/12 DSP System Toolbox \T1/cmr/m/n/12 https://it.mathworks.com/he
 lp/releases/R2025b/dsp/index.html; 
  []
 
 
-Overfull \hbox (100.60977pt too wide) in paragraph at lines 162--163
+Overfull \hbox (100.60977pt too wide) in paragraph at lines 169--170
 []\T1/cmtt/m/n/12 Ephemeris data for aerospace Toolbox \T1/cmr/m/n/12 https://i
 t.mathworks.com/matlabcentral/fileexchange/46671-
  []
 
-[4]
-Overfull \hbox (103.26735pt too wide) in paragraph at lines 164--165
+
+Overfull \hbox (103.26735pt too wide) in paragraph at lines 171--172
 []\T1/cmtt/m/n/12 Satellite Communication \T1/cmr/m/n/12 Tool-box https://it.ma
 thworks.com/help/releases/R2025b/satcom/index.html; 
  []
 
 
-Overfull \hbox (12.43546pt too wide) in paragraph at lines 165--166
+Overfull \hbox (12.43546pt too wide) in paragraph at lines 172--173
 []\T1/cmtt/m/n/12 Singla Processing Toolbox \T1/cmr/m/n/12 ma-th-works.com/help
 /releases/R2025b/signal/index.html; 
  []
 
 
-Overfull \hbox (41.58247pt too wide) in paragraph at lines 166--167
+Overfull \hbox (41.58247pt too wide) in paragraph at lines 173--174
 []\T1/cmtt/m/n/12 Communication Toolbox \T1/cmr/m/n/12 https://it.mathworks.com
 /help/releases/R2025b/comm/index.html; 
  []
@@ -444,19 +451,15 @@ Overfull \hbox (41.58247pt too wide) in paragraph at lines 166--167
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 6280 strings out of 467871
- 106770 string characters out of 5418376
- 547873 words of memory out of 5000000
- 35084 multiletter control sequences out of 15000+600000
+ 6298 strings out of 467871
+ 107345 string characters out of 5418376
+ 546873 words of memory out of 5000000
+ 35102 multiletter control sequences out of 15000+600000
  642696 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,8n,70p,1011b,271s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 63i,8n,70p,1350b,271s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\luigi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl
 1200.pk> <C:\Users\luigi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ectt1200.pk> <C:\Users\luigi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -473,9 +476,9 @@ uigi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C
 :/Users/luigi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
 8.pfb><C:/Users/luigi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmsy8.pfb>
-Output written on "Report 1.pdf" (6 pages, 831678 bytes).
+Output written on "Report 1.pdf" (6 pages, 3959767 bytes).
 PDF statistics:
- 444 PDF objects out of 1000 (max. 8388607)
+ 455 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 22 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 32 words of extra memory for PDF output out of 10000 (max. 10000000)
 

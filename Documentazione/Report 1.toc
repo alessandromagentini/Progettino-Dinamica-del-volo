@@ -5,5 +5,6 @@
 \contentsline {section}{\numberline {3}Analisi del problema e Implementazione codice}{3}{}%
 \contentsline {section}{\numberline {4}Osservazioni}{4}{}%
 \contentsline {section}{\numberline {5}Analisi dei Risultati}{4}{}%
+\contentsline {subsection}{\numberline {5.1}Confronto Propagatori}{4}{}%
 \contentsline {section}{\numberline {6}Organizzazione del gruppo}{4}{}%
-\contentsline {section}{\numberline {7}sitografia}{4}{}%
+\contentsline {section}{\numberline {7}sitografia}{5}{}%
