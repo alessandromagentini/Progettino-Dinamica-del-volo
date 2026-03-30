@@ -248,6 +248,7 @@ sat4_d4.EulerAngleSequence = '321';
 
 
 
+
 %----------------------------------------
 %---------- ForceModels
 %----------------------------------------
@@ -386,9 +387,9 @@ DefaultDC.Algorithm = NewtonRaphson;
 
 Create OrbitView DefaultOrbitView;
 DefaultOrbitView.SolverIterations = Current;
-DefaultOrbitView.UpperLeft = [ 0.06411764705882353 0.0297029702970297 ];
+DefaultOrbitView.UpperLeft = [ 0.06352941176470588 0.02846534653465347 ];
 DefaultOrbitView.Size = [ 0.4994117647058823 0.4566831683168317 ];
-DefaultOrbitView.RelativeZOrder = 42;
+DefaultOrbitView.RelativeZOrder = 50;
 DefaultOrbitView.Maximized = false;
 DefaultOrbitView.Add = {SAT, Earth};
 DefaultOrbitView.CoordinateSystem = EarthMJ2000Eq;
@@ -418,9 +419,9 @@ DefaultOrbitView.EnableConstellations = On;
 
 Create GroundTrackPlot DefaultGroundTrackPlot;
 DefaultGroundTrackPlot.SolverIterations = Current;
-DefaultGroundTrackPlot.UpperLeft = [ 0.07411764705882352 0.4443069306930693 ];
+DefaultGroundTrackPlot.UpperLeft = [ 0.07352941176470588 0.4430693069306931 ];
 DefaultGroundTrackPlot.Size = [ 0.5 0.4727722772277227 ];
-DefaultGroundTrackPlot.RelativeZOrder = 46;
+DefaultGroundTrackPlot.RelativeZOrder = 24;
 DefaultGroundTrackPlot.Maximized = false;
 DefaultGroundTrackPlot.Add = {SAT};
 DefaultGroundTrackPlot.DataCollectFrequency = 1;
@@ -437,7 +438,7 @@ Keplerian_Param.UpperLeft = [ 0.09235294117647058 0.1955445544554456 ];
 Keplerian_Param.Size = [ 0.5976470588235294 0.7933168316831684 ];
 Keplerian_Param.RelativeZOrder = 113;
 Keplerian_Param.Maximized = true;
-Keplerian_Param.Filename = 'C:\Users\aless\Desktop\Progettino-Dinamica-del-volo\Codici\GMAT\Kep_param.csv';
+Keplerian_Param.Filename = 'C:\Users\filip\OneDrive\Desktop\Progettino-Dinamica-del-volo\Codici\GMAT\Kep_param.csv';
 Keplerian_Param.Precision = 16;
 Keplerian_Param.Add = {SAT.Earth.ECC, SAT.ElapsedSecs, SAT.EarthMJ2000Eq.RA, SAT.Earth.TA, SAT.EarthMJ2000Eq.RAAN, SAT.EarthMJ2000Eq.INC, SAT.EarthMJ2000Eq.AOP, SAT.EarthICRF.AOP, SAT.EarthICRF.INC, SAT.EarthICRF.RAAN, SAT.EarthICRF.RA, SAT.UTCGregorian};
 Keplerian_Param.WriteHeaders = true;
@@ -451,9 +452,9 @@ Keplerian_Param.AppendToExistingFile = false;
 
 Create XYPlot INC_SAT;
 INC_SAT.SolverIterations = Current;
-INC_SAT.UpperLeft = [ 0.4564705882352941 0.1695544554455446 ];
+INC_SAT.UpperLeft = [ 0.4558823529411765 0.1683168316831683 ];
 INC_SAT.Size = [ 0.4988235294117647 0.4467821782178218 ];
-INC_SAT.RelativeZOrder = 58;
+INC_SAT.RelativeZOrder = 38;
 INC_SAT.Maximized = false;
 INC_SAT.XVariable = SAT.ElapsedSecs;
 INC_SAT.YVariables = {SAT.EarthMJ2000Eq.INC};
@@ -462,9 +463,9 @@ INC_SAT.ShowPlot = true;
 
 Create XYPlot RAAN_SAT;
 RAAN_SAT.SolverIterations = Current;
-RAAN_SAT.UpperLeft = [ 0.4576470588235294 0.448019801980198 ];
+RAAN_SAT.UpperLeft = [ 0.4570588235294117 0.4467821782178218 ];
 RAAN_SAT.Size = [ 0.4988235294117647 0.448019801980198 ];
-RAAN_SAT.RelativeZOrder = 54;
+RAAN_SAT.RelativeZOrder = 34;
 RAAN_SAT.Maximized = false;
 RAAN_SAT.XVariable = SAT.ElapsedSecs;
 RAAN_SAT.YVariables = {SAT.EarthMJ2000Eq.RAAN};
@@ -473,50 +474,14 @@ RAAN_SAT.ShowPlot = true;
 
 Create XYPlot AOP_SAT;
 AOP_SAT.SolverIterations = Current;
-AOP_SAT.UpperLeft = [ 0.4564705882352941 0 ];
+AOP_SAT.UpperLeft = [ 0.4558823529411765 0 ];
 AOP_SAT.Size = [ 0.4988235294117647 0.448019801980198 ];
-AOP_SAT.RelativeZOrder = 50;
+AOP_SAT.RelativeZOrder = 29;
 AOP_SAT.Maximized = false;
 AOP_SAT.XVariable = SAT.ElapsedSecs;
 AOP_SAT.YVariables = {SAT.EarthMJ2000Eq.AOP};
 AOP_SAT.ShowGrid = true;
 AOP_SAT.ShowPlot = true;
-
-Create ReportFile Confronto;
-Confronto.SolverIterations = Current;
-Confronto.UpperLeft = [ 0.1476470588235294 0.3106435643564356 ];
-Confronto.Size = [ 0.5964705882352941 0.7920792079207921 ];
-Confronto.RelativeZOrder = 114;
-Confronto.Maximized = true;
-Confronto.Filename = 'Confronto.txt';
-Confronto.Precision = 16;
-Confronto.Add = {sat2_d0.ElapsedDays, sat2_d0.EarthMJ2000Eq.AOP, sat3_3b.EarthMJ2000Eq.AOP, sat4_d4.EarthMJ2000Eq.AOP, sat2_d0.EarthMJ2000Eq.INC, sat3_3b.EarthMJ2000Eq.INC, sat4_d4.EarthMJ2000Eq.INC, sat2_d0.EarthMJ2000Eq.RAAN, sat3_3b.EarthMJ2000Eq.RAAN, sat4_d4.EarthMJ2000Eq.RAAN};
-Confronto.WriteHeaders = true;
-Confronto.LeftJustify = On;
-Confronto.ZeroFill = Off;
-Confronto.FixedWidth = true;
-Confronto.Delimiter = ' ';
-Confronto.ColumnWidth = 23;
-Confronto.WriteReport = true;
-Confronto.AppendToExistingFile = true;
-
-Create ReportFile ReportFile1;
-ReportFile1.SolverIterations = Current;
-ReportFile1.UpperLeft = [ 0 0 ];
-ReportFile1.Size = [ 0 0 ];
-ReportFile1.RelativeZOrder = 0;
-ReportFile1.Maximized = false;
-ReportFile1.Filename = 'ReportFile1.txt';
-ReportFile1.Precision = 16;
-ReportFile1.Add = {DefaultSC.A1ModJulian, DefaultSC.EarthMJ2000Eq.X};
-ReportFile1.WriteHeaders = true;
-ReportFile1.LeftJustify = On;
-ReportFile1.ZeroFill = Off;
-ReportFile1.FixedWidth = true;
-ReportFile1.Delimiter = ' ';
-ReportFile1.ColumnWidth = 23;
-ReportFile1.WriteReport = true;
-ReportFile1.AppendToExistingFile = false;
 
 
 %----------------------------------------
@@ -528,5 +493,3 @@ Propagate '3h' deg4_3body(SAT) {SAT.ElapsedSecs = 10800, OrbitColor = [253 37 32
 Propagate '6h' deg4_3body(SAT) {SAT.ElapsedSecs = 10800, OrbitColor = [3 252 53]};
 Propagate '9h' deg4_3body(SAT) {SAT.ElapsedSecs = 10800, OrbitColor = [33 55 252]};
 Propagate '12h' deg4_3body(SAT) {SAT.ElapsedSecs = 10800, OrbitColor = [34 235 251]};
-PenUp DefaultOrbitView;
-Propagate deg0(sat2_d0) only3body(sat3_3b) deg4(sat4_d4) {sat2_d0.ElapsedDays = 15, sat3_3b.ElapsedDays = 15, sat4_d4.ElapsedDays = 15};

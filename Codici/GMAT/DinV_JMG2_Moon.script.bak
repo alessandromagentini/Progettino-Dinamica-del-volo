@@ -247,6 +247,7 @@ sat4_d4.EulerAngleSequence = '321';
 
 
 
+
 %----------------------------------------
 %---------- ForceModels
 %----------------------------------------
@@ -385,9 +386,9 @@ DefaultDC.Algorithm = NewtonRaphson;
 
 Create OrbitView DefaultOrbitView;
 DefaultOrbitView.SolverIterations = Current;
-DefaultOrbitView.UpperLeft = [ 0.06470588235294118 0.03008423586040914 ];
-DefaultOrbitView.Size = [ 0.4994117647058823 0.4560770156438027 ];
-DefaultOrbitView.RelativeZOrder = 306;
+DefaultOrbitView.UpperLeft = [ 0.06411764705882353 0.0297029702970297 ];
+DefaultOrbitView.Size = [ 0.4994117647058823 0.4566831683168317 ];
+DefaultOrbitView.RelativeZOrder = 42;
 DefaultOrbitView.Maximized = false;
 DefaultOrbitView.Add = {SAT, Earth};
 DefaultOrbitView.CoordinateSystem = EarthMJ2000Eq;
@@ -417,9 +418,9 @@ DefaultOrbitView.EnableConstellations = On;
 
 Create GroundTrackPlot DefaultGroundTrackPlot;
 DefaultGroundTrackPlot.SolverIterations = Current;
-DefaultGroundTrackPlot.UpperLeft = [ 0.07470588235294118 0.4452466907340554 ];
-DefaultGroundTrackPlot.Size = [ 0.5 0.4729241877256318 ];
-DefaultGroundTrackPlot.RelativeZOrder = 310;
+DefaultGroundTrackPlot.UpperLeft = [ 0.07411764705882352 0.4443069306930693 ];
+DefaultGroundTrackPlot.Size = [ 0.5 0.4727722772277227 ];
+DefaultGroundTrackPlot.RelativeZOrder = 46;
 DefaultGroundTrackPlot.Maximized = false;
 DefaultGroundTrackPlot.Add = {SAT};
 DefaultGroundTrackPlot.DataCollectFrequency = 1;
@@ -436,9 +437,9 @@ Keplerian_Param.UpperLeft = [ 0.09235294117647058 0.1955445544554456 ];
 Keplerian_Param.Size = [ 0.5976470588235294 0.7933168316831684 ];
 Keplerian_Param.RelativeZOrder = 113;
 Keplerian_Param.Maximized = true;
-Keplerian_Param.Filename = 'C:\Users\aless\Desktop\Progettino-Dinamica-del-volo\Codici\GMAT\Kep_param.csv';
+Keplerian_Param.Filename = 'C:\Users\filip\OneDrive\Desktop\Progettino-Dinamica-del-volo\Codici\GMAT\Kep_param.csv';
 Keplerian_Param.Precision = 16;
-Keplerian_Param.Add = {SAT.Earth.ECC, SAT.ElapsedSecs, SAT.EarthMJ2000Eq.RA, SAT.Earth.TA, SAT.EarthMJ2000Eq.RAAN, SAT.EarthMJ2000Eq.INC, SAT.EarthMJ2000Eq.AOP, SAT.EarthICRF.AOP, SAT.EarthICRF.INC, SAT.EarthICRF.RAAN, SAT.EarthICRF.RA};
+Keplerian_Param.Add = {SAT.Earth.ECC, SAT.ElapsedSecs, SAT.EarthMJ2000Eq.RA, SAT.Earth.TA, SAT.EarthMJ2000Eq.RAAN, SAT.EarthMJ2000Eq.INC, SAT.EarthMJ2000Eq.AOP, SAT.EarthICRF.AOP, SAT.EarthICRF.INC, SAT.EarthICRF.RAAN, SAT.EarthICRF.RA, SAT.UTCGregorian};
 Keplerian_Param.WriteHeaders = true;
 Keplerian_Param.LeftJustify = On;
 Keplerian_Param.ZeroFill = Off;
@@ -450,9 +451,9 @@ Keplerian_Param.AppendToExistingFile = false;
 
 Create XYPlot INC_SAT;
 INC_SAT.SolverIterations = Current;
-INC_SAT.UpperLeft = [ 0.4570588235294117 0.170878459687124 ];
-INC_SAT.Size = [ 0.4988235294117647 0.4464500601684717 ];
-INC_SAT.RelativeZOrder = 322;
+INC_SAT.UpperLeft = [ 0.4564705882352941 0.1695544554455446 ];
+INC_SAT.Size = [ 0.4988235294117647 0.4467821782178218 ];
+INC_SAT.RelativeZOrder = 58;
 INC_SAT.Maximized = false;
 INC_SAT.XVariable = SAT.ElapsedSecs;
 INC_SAT.YVariables = {SAT.EarthMJ2000Eq.INC};
@@ -461,9 +462,9 @@ INC_SAT.ShowPlot = true;
 
 Create XYPlot RAAN_SAT;
 RAAN_SAT.SolverIterations = Current;
-RAAN_SAT.UpperLeft = [ 0.4582352941176471 0.4488567990373045 ];
-RAAN_SAT.Size = [ 0.4988235294117647 0.4476534296028881 ];
-RAAN_SAT.RelativeZOrder = 318;
+RAAN_SAT.UpperLeft = [ 0.4576470588235294 0.448019801980198 ];
+RAAN_SAT.Size = [ 0.4988235294117647 0.448019801980198 ];
+RAAN_SAT.RelativeZOrder = 54;
 RAAN_SAT.Maximized = false;
 RAAN_SAT.XVariable = SAT.ElapsedSecs;
 RAAN_SAT.YVariables = {SAT.EarthMJ2000Eq.RAAN};
@@ -472,9 +473,9 @@ RAAN_SAT.ShowPlot = true;
 
 Create XYPlot AOP_SAT;
 AOP_SAT.SolverIterations = Current;
-AOP_SAT.UpperLeft = [ 0.4570588235294117 0.001203369434416366 ];
-AOP_SAT.Size = [ 0.4988235294117647 0.4476534296028881 ];
-AOP_SAT.RelativeZOrder = 314;
+AOP_SAT.UpperLeft = [ 0.4564705882352941 0 ];
+AOP_SAT.Size = [ 0.4988235294117647 0.448019801980198 ];
+AOP_SAT.RelativeZOrder = 50;
 AOP_SAT.Maximized = false;
 AOP_SAT.XVariable = SAT.ElapsedSecs;
 AOP_SAT.YVariables = {SAT.EarthMJ2000Eq.AOP};
