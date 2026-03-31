@@ -121,10 +121,31 @@ Analizzata la situazione abbiamo scelto di utilizzare MATLAB come software princ
 Il primo passaggio dello studio è stato analizzare l'orbita attraverso GMAT \parencite{DocumentazioneGMAT} in modo tale da avere una base sulla quale verificare i dati ricavati successivamente. Una volta ottenuto questo primo riscontro siamo passati ad implementare il codice MATLAB, codice in grado di descrivere e rappresentare l'orbita richiesta. Per analizzare i risultati sono stati utilizzati i toll specifici Matlab "aerospace toolbox" \cite{AerospaceBlockset,AerospaceToolbox} e "satellite comunication toolbox" \cite{SatelliteCommunication,CommunicationToolbox}. %Alla fine possiamo mettere tutta la lista dei toolbox utilizzati
 All'interno del codice MATLAB sono state implementate diverse funzioni: una per il calcolo dei parametri orbitali, una per la propagazione, una per i plot delle orbite e una per il plot dei risultati (compresi quelli ottenuti da GMAT). Il propagatore scritto da noi, a partire dall'intervallo temporale definito inizialmente, calcola l'orbita seguendo l'ordine t - $M_e$ - xi - TA - r. Questa metodologia però, nonostante fornisca risultati corretti, non permette una visualizzazione dell'orbita nel sistema ECI, ma soltanto nel sistema NEU (North East Up) in MATLAB lla (Latitude Longitude Altitude) \cite{MappingToolbox}, dunque la visualizzazione dell'orbita è possibile soltanto da un punto di vista fisso con la rotazione terrestre. Per ottenere l'orbita nel sistema ECI, quindi, ci siamo appoggiati alle functions del Satellite Comunication Toolbox \cite{SatelliteCommunication} affiancato al Aerospace Toolbox \cite{AerospaceToolbox}, la prima usa la function \texttt{satellite}, che propaga l'orbita, e \texttt{satelliteScenarioViewer} che la visualizza nella maniera da noi desiderata; mentre il modello implementato dall'Aerospace Toolbox esegue un codice simulink \cite{Simulink,DSPSystemToolbox} in cui viene utilizzato il blocco del toolbox \texttt{Orbit Propagator}, che permette anche la considerazione di effetti perturbativi in quanto si basa sulla risoluzione per via numerica (integrazione).
 
-\subsection{Plot dell'orbita} % inserire ECI o ICRF
+\subsection{Plot dell'orbita} %ggiungere richiamo alle figure orbite
+In copertina abbiamo deciso di inserire il plot ottenuto su MATLAB, a partire dai risultati del nostro propagatore e che ci è stato utile per validare visivamente la correttezza del nostro codice, ma che ai fini del progetto risulta di bassa utilità. Per questo motivo nelle figure XXX abbiamo riportato il plot dell'orbita propagata (con perturbazioni) con GMAT e il Toolbox \citep{AerospaceToolbox}. Per ragioni di semplicità tecnica soltanto il plot di GMAT è in sistema di riferimento ECI. Mentre quello del Toolbox ha come uniche impostazioni di base i sistemi di riferimento ECEF o ICRF; dunque, dal momento che il nostro periodo di osservazione è breve, abbiamo deciso di presentare il plot in ICRF, ed effettivamente anche i due plot sono visivamente quasi indistinguibili.
+
+%INSERIRE IMMAGINI PLOT A CONFRONTO
 
 \subsection{Risultati campionamento}
-All'interno del codice il campionamento viene fatto a partire dei risultati ottenuti. Se l'istante temporale è già stato calcolato il risultato viene solo salvato, altrimenti il codice ricava il valore tramite interpolazione. Nella tabella di seguito sono riportati i risultati % QUALI e da descrive!!
+All'interno del codice il campionamento viene fatto a partire dei risultati ottenuti. Se l'istante temporale è già stato calcolato il risultato viene solo salvato, altrimenti il codice ricava il valore tramite interpolazione. Nella tabella di seguito sono riportati i risultati 
+
+\begin{table}[h]
+\centering
+\caption{Risultati campionamento Propagatore Custom vs Aerospace Toolbox}
+\begin{tabular}{|c|ccc|ccc|}
+\hline
+\textbf{Data (26/3/2026)} & \multicolumn{3}{c|}{\textbf{Propagatore Custom}} & \multicolumn{3}{c|}{\textbf{Aerospace Toolbox}} \\ \cline{2-7} 
+ & \textit{x} & \textit{y} & \textit{z} & \textit{x} & \textit{y} & \textit{z} \\ \hline
+% Rimosso l'ampersand extra dopo 18:00
+18:00 & -7.68e6 & -6.92e6 & -1.10e5 & -7.37e6 & -7.23e6 & -1.50e5 \\ \hline
+18:30 & 2.23e6 & -8.99e6 & -7.56e5 & 2.70e6 & -8.79e6 & -7.64e5 \\ \hline
+19:00 & 7.61e6 & 1.41e6 & -2.80e5  & 7.43e6 & 2.01e6 & -2.27e5 \\ \hline
+19:30 & -2.76e6 & 7.95e6 & 7.09e5 & -3.35e6 & 7.80e6 & 7.27e5 \\ \hline
+20:00 & -1.00e7 & -5.60e4 & 5.00e5 & -1.01e7 & -5.93e5 & 4.58e5 \\ \hline
+20:30 & -5.39e6 & -8.55e6 & -3.50e5 & -4.91e6 & -8.89e6 & -3.95e5 \\ \hline
+21:00 & 5.01e6 & -7.20e6 & -7.67e5 & 5.44e6 & -6.75e6 & -7.57e5 \\ \hline
+\end{tabular}
+\end{table}
 
 
 \section{Osservazioni}

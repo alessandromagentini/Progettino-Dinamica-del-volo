@@ -18,9 +18,9 @@ v0_vec = [4.126512186315761, -3.956371322777358, -0.490613661500991];           
 mu_terra = 398600.4418;                                                           %[km^3/s^2]
 
 start_time   = datetime(2026, 3, 26, 18, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
-stop_time    = datetime(2026, 3, 27, 6, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
+stop_time    = datetime(2026, 3, 26, 21, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
 mission_duration = seconds(stop_time - start_time);                               %[s]
-delta_t_sat_sample = 15 * 60;                                                     %[s]
+delta_t_sat_sample = 30 * 60;                                                     %[s]
 
 %% Calcolo parametri orbitali
 fprintf("Calcolo dei parametri orbitali...")
@@ -61,6 +61,21 @@ timeData      = simOut.yout{3}.Values;
 
 sc_aero_tb = satelliteScenario(start_time, stop_time, 600);
 sat_orbit_aero_tb = satellite(sc_aero_tb, posData_icrf, velData_icrf, "CoordinateFrame", "ecef");
+
+%% Salvo i saples richiesti                                                  
+samples_date = (start_time:seconds(delta_t_sat_sample):stop_time)';
+n_samples = length(samples_date);
+r_samples_tb = zeros(n_samples, 3);
+t_start_sim = timeData.Time(1); 
+for k = 1:n_samples
+    tempo_cercato = t_start_sim + (k - 1) * delta_t_sat_sample;  
+    [scostamento, idx] = min(abs(timeData.Time - tempo_cercato));
+    if scostamento < 1e-3
+        r_samples_tb(k,:) = posData_icrf.Data(idx, :);                                   
+    else 
+        r_samples_tb(k,:) = interp1(timeData.Time, posData_icrf.Data, tempo_cercato, 'linear');
+    end
+end
 
 res.aerotb_res = struct("pos_eci",posData_icrf, "vel_eci",velData_icrf, "time",timeData);
 
