@@ -172,13 +172,13 @@ Infine, il comportamento dell'Argomento del Perigeo (AoP) nel grafico suggerisce
 
 \subsection{Analisi scarti}
 I seguenti grafici rappresentano l'analisi degli scarti (residui) tra il propagatore ad alta fedeltà di MATLAB (pressochè identico a quello GMAT che per questo abbiamo deciso di tralsciare) e il modello semplificato (kepleriano). Essi quantificano l'errore accumulato in termini di posizione (r) e velocità (v).
-     \subsection{Analisi della Deriva}
+     \subsubsection{Analisi della Deriva}
      Tutti i grafici mostrano, come ci si può aspettare, un trend di crescita lineare (rappresentato dalla linea tratteggiata verde), con lo scostamento che passa in sole 12 ore da circa 450 km a oltre 850 km e lo scarto sulla velocità da circa 0.3 km/s a 0.55 km/s   (media). Ciò è dovuto alla "degradazione" del modello kepleriano, che, non includendo le perturbazioni, provoca uno sfasamento: il satellite "reale" si trova fisicamente in un punto dello spazio sempre più lontano da quello previsto dal modello semplice.
 
-     \subsection{Componente Oscillatoria}
+     \subsubsection{Componente Oscillatoria}
      Le curve solide, in rosso per i valori assoluti e in blu per i percentuali, presentano un'oscillazione sinusoidale molto marcata con 8 cicli completi in 12 ore. Questo indica un periodo orbitale di circa 1.5 ore (90 minuti), tipico di un satellite in Low Earth Orbit (LEO). Le oscillazioni indicano che lo scarto non cresce in modo uniforme e l'errore massimo si verifica in determinati punti dell'orbita (probabilmente vicino alle zone di massimo schiacciamento equatoriale), mentre si riduce leggermente quando il satellite attraversa zone dove l'approssimazione sferica è meno errata.
 
-     \subsection{Analisi degli Scostamenti Percentuali}
+     \subsubsection{Analisi degli Scostamenti Percentuali}
      L'analisi dello scostamento percentuale è fondamentale per capire la gravità dell'errore in relazione alle grandezze totali, ma come si può notare l'errore percentuale è estremamente basso in termini relativi (tra lo 0.03\% e lo 0.09\%). Dai grafici apprendiamo che lo scostamento percentuale della velocità cresce con una pendenza leggermente maggiore rispetto a quello della posizione, indice del fatto che l'approssimazione kepleriana fallisce più rapidamente nel predire l'energia cinetica del satellite rispetto alla sua coordinata spaziale.
 
 \begin{figure}[htbp]

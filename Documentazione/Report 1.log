@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.25)  31 MAR 2026 14:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.25)  31 MAR 2026 14:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -569,4 +569,394 @@ c.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menuleng
+\Fld@menulength=\count438
+\Field@Width=\dimen172
+\Fld@charsize=\dimen173
+Package hyperref Info: Hyper figures OFF on input line 6078.
+Package hyperref Info: Link nesting OFF on input line 6083.
+Package hyperref Info: Hyper index ON on input line 6086.
+Package hyperref Info: backreferencing OFF on input line 6093.
+Package hyperref Info: Link coloring ON on input line 6096.
+Package hyperref Info: Link coloring with OCG OFF on input line 6103.
+Package hyperref Info: PDF/A mode OFF on input line 6108.
+\Hy@abspage=\count439
+\c@Item=\count440
+\c@Hfootnote=\count441
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
+\Fld@listcount=\count442
+\c@bookmark@seq@number=\count443
+
+(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfi
+lecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+
+(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\unique
+counter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
+)
+\Hy@SectionHShift=\skip77
+)
+(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/xurl\xurl.sty
+Package: xurl 2022/01/09 v 0.10 modify URL breaks
+
+xurl: Set penalties for biblatex
+)
+
+Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
+(biblatex)                Loading 'csquotes' recommended.
+
+\@quotelevel=\count444
+\@quotereset=\count445
+(Report 1.aux)
+\openout1 = `"Report 1.aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Info: Redefining \it@ocap on input line 35.
+LaTeX Info: Redefining \it@ccap on input line 35.
+LaTeX Info: Redefining \celsius on input line 35.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 35.
+
+
+
+Package gensymb Warning: Not defining \perthousand.
+
+LaTeX Info: Redefining \ohm on input line 35.
+Package gensymb Info: Using \Omega for \ohm on input line 35.
+
+Package gensymb Warning: Not defining \micro.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=702.78308pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-38.1381pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.m
+kii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count446
+\scratchdimen=\dimen174
+\scratchbox=\box56
+\nofMPsegments=\count447
+\nofMParguments=\count448
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count449
+\MPscratchDim=\dimen175
+\MPnumerator=\count450
+\makeMPintoPDFobject=\count451
+\everyMPtoPDFconversion=\toks29
+)
+(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-
+base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.
+cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package biblatex Info: Trying to load language 'italian'...
+Package biblatex Info: ... file 'italian.lbx' found.
+
+(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\italian.l
+bx
+File: italian.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout3 = `"Report 1.bcf"'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file '"Report 1".bbl' not found.
+
+No file "Report 1".bbl.
+Package biblatex Info: Reference section=0 on input line 35.
+Package biblatex Info: Reference segment=0 on input line 35.
+(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
+
+(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+
+(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx
+))
+Package hyperref Info: Link coloring ON on input line 35.
+ (Report 1.out) (Report 1.out)
+\@outlinefile=\write4
+\openout4 = `"Report 1.out"'.
+
+<./immagini e video/immagine_dii.jpg, id=47, 200.75pt x 200.75pt>
+File: ./immagini e video/immagine_dii.jpg Graphic file (type jpg)
+<use ./immagini e video/immagine_dii.jpg>
+Package pdftex.def Info: ./immagini e video/immagine_dii.jpg  used on input lin
+e 41.
+(pdftex.def)             Requested size: 91.04742pt x 91.05038pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
+
+
+(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
+
+
+(C:\Users\Pietro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+<./immagini e video/Logo_Università_Padova.png, id=48, 1204.5pt x 1204.5pt>
+File: ./immagini e video/Logo_Università_Padova.png Graphic file (type png)
+<use ./immagini e video/Logo_Università_Padova.png>
+Package pdftex.def Info: ./immagini e video/Logo_Università_Padova.png  used o
+n input line 55.
+(pdftex.def)             Requested size: 91.04742pt x 91.032pt.
+<./immagini e video/foto_copertina.png, id=50, 817.55438pt x 511.9125pt>
+File: ./immagini e video/foto_copertina.png Graphic file (type png)
+<use ./immagini e video/foto_copertina.png>
+Package pdftex.def Info: ./immagini e video/foto_copertina.png  used on input l
+ine 70.
+(pdftex.def)             Requested size: 364.19667pt x 228.0464pt.
+
+[1
+
+{C:/Users/Pietro/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./immagini 
+e video/immagine_dii.jpg> <./immagini e video/Logo_Università_Padova.png> <./i
+mmagini e video/foto_copertina.png>] (Report 1.toc)
+\tf@toc=\write5
+\openout5 = `"Report 1.toc"'.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.96 \newpage
+              [1]
+
+LaTeX Warning: Citation 'Claude' on page 2 undefined on input line 103.
+
+
+LaTeX Warning: Citation 'Gemini' on page 2 undefined on input line 103.
+
+[2]
+<./immagini e video/orbita.png, id=86, 998.9822pt x 536.0025pt>
+File: ./immagini e video/orbita.png Graphic file (type png)
+<use ./immagini e video/orbita.png>
+Package pdftex.def Info: ./immagini e video/orbita.png  used on input line 142.
+
+(pdftex.def)             Requested size: 364.19667pt x 195.40619pt.
+
+
+LaTeX Warning: Citation 'DocumentazioneGMAT' on page 3 undefined on input line 
+147.
+
+
+LaTeX Warning: Citation 'AerospaceBlockset' on page 3 undefined on input line 1
+47.
+
+
+LaTeX Warning: Citation 'AerospaceToolbox' on page 3 undefined on input line 14
+7.
+
+
+LaTeX Warning: Citation 'SatelliteCommunication' on page 3 undefined on input l
+ine 147.
+
+
+LaTeX Warning: Citation 'CommunicationToolbox' on page 3 undefined on input lin
+e 147.
+
+
+LaTeX Warning: Citation 'MappingToolbox' on page 3 undefined on input line 148.
+
+
+
+LaTeX Warning: Citation 'SatelliteCommunication' on page 3 undefined on input l
+ine 148.
+
+
+LaTeX Warning: Citation 'AerospaceToolbox' on page 3 undefined on input line 14
+8.
+
+
+LaTeX Warning: Citation 'Simulink' on page 3 undefined on input line 148.
+
+
+LaTeX Warning: Citation 'DSPSystemToolbox' on page 3 undefined on input line 14
+8.
+
+
+Overfull \hbox (67.2296pt too wide) in paragraph at lines 147--149
+\T1/cmr/m/n/12 Il pri-mo pas-sag-gio del-lo stu-dio � sta-to ana-liz-za-re l'or
+-bi-ta at-tra-ver-so GMAT [[]]
+ []
+
+
+Overfull \hbox (129.27126pt too wide) in paragraph at lines 147--149
+[]\T1/cmr/m/n/12 ] e "sa-tel-li-te co-mu-ni-ca-tion tool-box" [[], []].
+ []
+
+[3 <./immagini e video/orbita.png>]
+<./immagini e video/confronto_propagatori.png, id=96, 655.69969pt x 396.7322pt>
+
+File: ./immagini e video/confronto_propagatori.png Graphic file (type png)
+<use ./immagini e video/confronto_propagatori.png>
+Package pdftex.def Info: ./immagini e video/confronto_propagatori.png  used on 
+input line 168.
+(pdftex.def)             Requested size: 364.19667pt x 220.35847pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--172
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--172
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--172
+
+ []
+
+[4]
+<./immagini e video/grafici_scarti.png, id=103, 808.52063pt x 455.45157pt>
+File: ./immagini e video/grafici_scarti.png Graphic file (type png)
+<use ./immagini e video/grafici_scarti.png>
+Package pdftex.def Info: ./immagini e video/grafici_scarti.png  used on input l
+ine 186.
+(pdftex.def)             Requested size: 364.19667pt x 205.15979pt.
+ [5 <./immagini e video/confronto_propagatori.png>]
+
+LaTeX Warning: Citation 'RepositoryGitHub' on page 6 undefined on input line 19
+3.
+
+[6 <./immagini e video/grafici_scarti.png>]
+
+LaTeX Warning: Empty bibliography on input line 198.
+
+(Report 1.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+Package rerunfilecheck Warning: File `"Report 1".out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Report 1".out':
+(rerunfilecheck)             Before: 9C9E0234CBBD0DFBE2FFB84798D148C2;1877
+(rerunfilecheck)             After:  9676020F79572E97001E8EC10B8382E8;1907.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                "Report 1"
+(biblatex)                and rerun LaTeX afterwards.
+
+Package logreq Info: Writing requests to '"Report 1".run.xml'.
+\openout1 = `"Report 1.run.xml"'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 19382 strings out of 467870
+ 337731 string characters out of 5417871
+ 1183219 words of memory out of 5000000
+ 48022 multiletter control sequences out of 15000+600000
+ 642696 words of font info for 72 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 63i,7n,67p,1498b,1821s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{subsection.5.5} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.5.4} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.5.3} has been referenced but does not ex
+ist, replaced by a fixed one
+
+ <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl1
+200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ectt1200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
+c/dpi600\ecso1200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
+appen/ec/dpi600\ecsi1200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljf
+our/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts
+/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Pietro\AppData\Local\MiKTe
+X\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1440.pk> <C:\Users\Pietro\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Pietro\AppDa
+ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Pietr
+o\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\User
+s\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C
+:/Users/Pietro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmm
+i12.pfb><C:/Users/Pietro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmmi8.pfb><C:/Users/Pietro/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmr8.pfb><C:/Users/Pietro/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmsy8.pfb>
+Output written on "Report 1.pdf" (7 pages, 4025355 bytes).
+PDF statistics:
+ 540 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
+ 119 words of extra memory for PDF output out of 10000 (max. 10000000)
+
