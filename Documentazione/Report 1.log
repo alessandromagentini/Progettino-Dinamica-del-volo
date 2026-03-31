@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.25)  31 MAR 2026 14:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.25)  31 MAR 2026 14:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -794,102 +794,105 @@ LaTeX Warning: Citation 'Claude' on page 2 undefined on input line 103.
 
 LaTeX Warning: Citation 'Gemini' on page 2 undefined on input line 103.
 
-[2]
-<./immagini e video/orbita.png, id=86, 998.9822pt x 536.0025pt>
+<./immagini e video/orbita.png, id=80, 998.9822pt x 536.0025pt>
 File: ./immagini e video/orbita.png Graphic file (type png)
 <use ./immagini e video/orbita.png>
-Package pdftex.def Info: ./immagini e video/orbita.png  used on input line 142.
+Package pdftex.def Info: ./immagini e video/orbita.png  used on input line 116.
 
 (pdftex.def)             Requested size: 364.19667pt x 195.40619pt.
 
-
-LaTeX Warning: Citation 'DocumentazioneGMAT' on page 3 undefined on input line 
-147.
-
-
-LaTeX Warning: Citation 'AerospaceBlockset' on page 3 undefined on input line 1
-47.
+LaTeX Warning: Citation 'DocumentazioneGMAT' on page 2 undefined on input line 
+121.
 
 
-LaTeX Warning: Citation 'AerospaceToolbox' on page 3 undefined on input line 14
-7.
+LaTeX Warning: Citation 'AerospaceBlockset' on page 2 undefined on input line 1
+21.
 
 
-LaTeX Warning: Citation 'SatelliteCommunication' on page 3 undefined on input l
-ine 147.
+LaTeX Warning: Citation 'AerospaceToolbox' on page 2 undefined on input line 12
+1.
 
 
-LaTeX Warning: Citation 'CommunicationToolbox' on page 3 undefined on input lin
-e 147.
+LaTeX Warning: Citation 'SatelliteCommunication' on page 2 undefined on input l
+ine 121.
 
 
-LaTeX Warning: Citation 'MappingToolbox' on page 3 undefined on input line 148.
+LaTeX Warning: Citation 'CommunicationToolbox' on page 2 undefined on input lin
+e 121.
+
+
+LaTeX Warning: Citation 'MappingToolbox' on page 2 undefined on input line 122.
 
 
 
-LaTeX Warning: Citation 'SatelliteCommunication' on page 3 undefined on input l
-ine 148.
+LaTeX Warning: Citation 'SatelliteCommunication' on page 2 undefined on input l
+ine 122.
 
 
-LaTeX Warning: Citation 'AerospaceToolbox' on page 3 undefined on input line 14
-8.
+LaTeX Warning: Citation 'AerospaceToolbox' on page 2 undefined on input line 12
+2.
 
 
-LaTeX Warning: Citation 'Simulink' on page 3 undefined on input line 148.
+LaTeX Warning: Citation 'Simulink' on page 2 undefined on input line 122.
 
 
-LaTeX Warning: Citation 'DSPSystemToolbox' on page 3 undefined on input line 14
-8.
+LaTeX Warning: Citation 'DSPSystemToolbox' on page 2 undefined on input line 12
+2.
 
 
-Overfull \hbox (67.2296pt too wide) in paragraph at lines 147--149
+Overfull \hbox (67.2296pt too wide) in paragraph at lines 121--123
 \T1/cmr/m/n/12 Il pri-mo pas-sag-gio del-lo stu-dio è sta-to ana-liz-za-re l'or
 -bi-ta at-tra-ver-so GMAT [[]]
  []
 
 
-Overfull \hbox (129.27126pt too wide) in paragraph at lines 147--149
+Overfull \hbox (129.27126pt too wide) in paragraph at lines 121--123
 []\T1/cmr/m/n/12 ] e "sa-tel-li-te co-mu-ni-ca-tion tool-box" [[], []].
  []
 
-[3 <./immagini e video/orbita.png>]
-<./immagini e video/confronto_propagatori.png, id=96, 655.69969pt x 396.7322pt>
+[2 <./immagini e video/orbita.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 137--145
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--145
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--145
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--145
+
+ []
+
+[3]
+<./immagini e video/confronto_propagatori.png, id=98, 655.69969pt x 396.7322pt>
 
 File: ./immagini e video/confronto_propagatori.png Graphic file (type png)
 <use ./immagini e video/confronto_propagatori.png>
 Package pdftex.def Info: ./immagini e video/confronto_propagatori.png  used on 
-input line 168.
-(pdftex.def)             Requested size: 364.19667pt x 220.35847pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--172
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--172
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--172
-
- []
-
-[4]
-<./immagini e video/grafici_scarti.png, id=103, 808.52063pt x 455.45157pt>
+input line 151.
+(pdftex.def)             Requested size: 218.51521pt x 132.21144pt.
+<./immagini e video/grafici_scarti.png, id=99, 808.52063pt x 455.45157pt>
 File: ./immagini e video/grafici_scarti.png Graphic file (type png)
 <use ./immagini e video/grafici_scarti.png>
 Package pdftex.def Info: ./immagini e video/grafici_scarti.png  used on input l
-ine 186.
-(pdftex.def)             Requested size: 364.19667pt x 205.15979pt.
- [5 <./immagini e video/confronto_propagatori.png>]
+ine 158.
+(pdftex.def)             Requested size: 218.51521pt x 123.0917pt.
+ [4 <./immagini e video/confronto_propagatori.png> <./immagini e video/grafici_
+scarti.png>] [5]
 
-LaTeX Warning: Citation 'RepositoryGitHub' on page 6 undefined on input line 19
+LaTeX Warning: Citation 'RepositoryGitHub' on page 6 undefined on input line 18
 3.
 
-[6 <./immagini e video/grafici_scarti.png>]
+[6]
 
-LaTeX Warning: Empty bibliography on input line 198.
+LaTeX Warning: Empty bibliography on input line 188.
 
 (Report 1.aux)
  ***********
@@ -901,13 +904,16 @@ L3 programming layer <2025-12-24>
 LaTeX Warning: There were undefined references.
 
 
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
 Package rerunfilecheck Warning: File `"Report 1".out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `"Report 1".out':
-(rerunfilecheck)             Before: 9C9E0234CBBD0DFBE2FFB84798D148C2;1877
-(rerunfilecheck)             After:  9676020F79572E97001E8EC10B8382E8;1907.
+(rerunfilecheck)             Before: 9676020F79572E97001E8EC10B8382E8;1907
+(rerunfilecheck)             After:  2F7A5C68AA1B052625B23627FE1633EF;1962.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                "Report 1"
@@ -918,45 +924,36 @@ Package logreq Info: Writing requests to '"Report 1".run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 19382 strings out of 467870
- 337731 string characters out of 5417871
- 1183219 words of memory out of 5000000
- 48022 multiletter control sequences out of 15000+600000
- 642696 words of font info for 72 fonts, out of 8000000 for 9000
+ 19379 strings out of 467870
+ 337708 string characters out of 5417871
+ 1185222 words of memory out of 5000000
+ 48021 multiletter control sequences out of 15000+600000
+ 641870 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,7n,67p,1498b,1821s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 63i,8n,67p,1498b,1821s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{subsection.5.5} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.4} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.3} has been referenced but does not ex
-ist, replaced by a fixed one
+pdfTeX warning (dest): name{subsubsection.5.2.3} has been referenced but does n
+ot exist, replaced by a fixed one
 
  <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsl1
 200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ectt1200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
-c/dpi600\ecso1200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
-appen/ec/dpi600\ecsi1200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljf
-our/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts
-/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Pietro\AppData\Local\MiKTe
-X\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1440.pk> <C:\Users\Pietro\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Pietro\AppDa
-ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Pietr
-o\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\User
-s\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C
-:/Users/Pietro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmm
-i12.pfb><C:/Users/Pietro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmmi8.pfb><C:/Users/Pietro/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmr8.pfb><C:/Users/Pietro/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmsy8.pfb>
-Output written on "Report 1.pdf" (7 pages, 4025355 bytes).
+c/dpi600\ecsi1200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
+appen/ec/dpi600\ecbx1200.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts/pk/ljf
+our/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Pietro\AppData\Local\MiKTeX\fonts
+/pk/ljfour/jknappen/ec/dpi600\ecti1440.pk> <C:\Users\Pietro\AppData\Local\MiKTe
+X\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Pietro\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Pietro\AppDa
+ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\Pietr
+o\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users
+/Pietro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb
+><C:/Users/Pietro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmmi8.pfb><C:/Users/Pietro/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmr8.pfb><C:/Users/Pietro/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmsy8.pfb>
+Output written on "Report 1.pdf" (7 pages, 4010907 bytes).
 PDF statistics:
- 540 PDF objects out of 1000 (max. 8388607)
- 25 named destinations out of 1000 (max. 500000)
+ 499 PDF objects out of 1000 (max. 8388607)
+ 24 named destinations out of 1000 (max. 500000)
  119 words of extra memory for PDF output out of 10000 (max. 10000000)
 
