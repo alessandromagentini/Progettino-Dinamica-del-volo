@@ -109,35 +109,7 @@ Il software specifico è stato scelto attraverso interrogazione dell'AI Claude \
     }
 \end{quote}
 
-La risposta fornita è stata la seguente :
-
-\begin{quote}
-    \itshape  
-    \sffamily 
-    
-    \textbf{MATLAB} \\
-    Pro: conosciuto da tutti, lavoro divisibile per moduli (propagatore, perturbazioni, manovre, plot), codice commentato significa documentazione trasparente, facile mostrare contributo individuale e corrispondenza teoria, implementazione. \\
-    Contro: perturbazioni (J2, drag, SRP) e manovre da implementare a mano, validazione dei risultati interamente a carico nostro.
-
-    \medskip 
-
-    \textbf{GMAT} \\
-    Pro: strumento NASA nativo per questo tipo di missione, perturbazioni, ground track, manovre, phasing già integrati e validati, dà peso professionale al report. \\
-    Contro: curva di apprendimento non banale (interfaccia, scripting proprio, debug difficile), corrispondenza teoria, implementazione difficile da documentare, meno flessibile per visualizzazioni personalizzate.
-
-    \medskip
-
-    \textbf{Entrambi in parallelo (2+2 persone)} \\
-    Pro: confronto diretto tra i due approcci, ognuno lavora con lo strumento preferito. \\
-    Contro: overhead di coordinamento alto per convergere su un unico report coerente, sforzo molto non bilanciato tra i due sottogruppi (chi usa MATLAB avanza molto più velocemente), nessun vantaggio metodologico esplicito richiesto dal prof.
-
-    \medskip
-
-    \textbf{MATLAB principale + GMAT per validazione} \\
-    Pro: carico limitato su GMAT (solo run di confronto su propagazione e manovre chiave), risultati validati da riferimento esterno, diventa naturalmente la sezione sulle discrepanze teoria, simulazione richiesta dalla metodologia. \\
-    Contro: richiede che almeno uno impari GMAT a sufficienza per configurare e interpretare i run, tempi da coordinare con il resto del gruppo.
-\end{quote}
-Analizzata la situazione abbiamo scelto di utilizzare MATLAB come software principale per l'analisi dell'orbita mentre GMAT è stato utilizzato come confronto e validazione dei dati ottenuti. 
+Analizzata la situazione abbiamo scelto di utilizzare MATLAB come software principale per l'analisi dell'orbita mentre GMAT è stato utilizzato come confronto e validazione dei dati ottenuti. In quanto ci averebbe permesso applicare quanto appreso a lezione.  
 
 \begin{figure}[htbp]
     \centering
@@ -148,6 +120,11 @@ Analizzata la situazione abbiamo scelto di utilizzare MATLAB come software princ
 \section{Analisi del problema e Implementazione codice}
 Il primo passaggio dello studio è stato analizzare l'orbita attraverso GMAT \parencite{DocumentazioneGMAT} in modo tale da avere una base sulla quale verificare i dati ricavati successivamente. Una volta ottenuto questo primo riscontro siamo passati ad implementare il codice MATLAB, codice in grado di descrivere e rappresentare l'orbita richiesta. Per analizzare i risultati sono stati utilizzati i toll specifici Matlab "aerospace toolbox" \cite{AerospaceBlockset,AerospaceToolbox} e "satellite comunication toolbox" \cite{SatelliteCommunication,CommunicationToolbox}. %Alla fine possiamo mettere tutta la lista dei toolbox utilizzati
 All'interno del codice MATLAB sono state implementate diverse funzioni: una per il calcolo dei parametri orbitali, una per la propagazione, una per i plot delle orbite e una per il plot dei risultati (compresi quelli ottenuti da GMAT). Il propagatore scritto da noi, a partire dall'intervallo temporale definito inizialmente, calcola l'orbita seguendo l'ordine t - $M_e$ - xi - TA - r. Questa metodologia però, nonostante fornisca risultati corretti, non permette una visualizzazione dell'orbita nel sistema ECI, ma soltanto nel sistema NEU (North East Up) in MATLAB lla (Latitude Longitude Altitude) \cite{MappingToolbox}, dunque la visualizzazione dell'orbita è possibile soltanto da un punto di vista fisso con la rotazione terrestre. Per ottenere l'orbita nel sistema ECI, quindi, ci siamo appoggiati alle functions del Satellite Comunication Toolbox \cite{SatelliteCommunication} affiancato al Aerospace Toolbox \cite{AerospaceToolbox}, la prima usa la function \texttt{satellite}, che propaga l'orbita, e \texttt{satelliteScenarioViewer} che la visualizza nella maniera da noi desiderata; mentre il modello implementato dall'Aerospace Toolbox esegue un codice simulink \cite{Simulink,DSPSystemToolbox} in cui viene utilizzato il blocco del toolbox \texttt{Orbit Propagator}, che permette anche la considerazione di effetti perturbativi in quanto si basa sulla risoluzione per via numerica (integrazione).
+
+\subsection{Plot dell'orbita} % inserire ECI o ICRF
+
+\subsection{Risultati campionamento}
+All'interno del codice il campionamento viene fatto a partire dei risultati ottenuti. Se l'istante temporale è già stato calcolato il risultato viene solo salvato, altrimenti il codice ricava il valore tramite interpolazione. Nella tabella di seguito sono riportati i risultati % QUALI e da descrive!!
 
 
 \section{Osservazioni}
@@ -165,11 +142,23 @@ precessione secolare del nodo (RAAN), esso causa sull'inclinazione esclusivament
 Al contrario, il Propagatore Custom (linea verde) produce un output costante (linea piatta). Questo accade perché il modello è limitato al problema dei due corpi kepleriano, che assume una distribuzione di massa terrestre puntiforme o perfettamente sferica. In questo scenario ideale, gli elementi orbitali rimangono costanti (integrali del moto), rendendo il propagatore inadatto per analisi di missione realistiche e veritiere.\\
 \\
 Infine, il comportamento dell'Argomento del Perigeo (AoP) nel grafico suggerisce un'orbita a bassa eccentricità: la rapida stabilizzazione del valore nei modelli complessi evidenzia come le perturbazioni agiscano immediatamente sulla geometria dell'orbita, fenomeno totalmente ignorato dalla semplificazione kepleriana.\\
+
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{confronto_propagatori.png}
-    \caption{Confronto propagatori} 
-    \label{fig:confronto propagatori}
+    % Prima immagine
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{confronto_propagatori.png}
+        \caption{Confronto propagatori}
+        \label{fig:confronto propagatori}
+    \end{minipage}
+    \hfill 
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{grafici_scarti.png}
+        \caption{Grafici scarti}
+        \label{fig:confronto degli scarti}
+    \end{minipage}
 \end{figure}
 
 \subsection{Analisi scarti}
@@ -192,13 +181,6 @@ I grafici a destra sono fondamentali per capire la gravità dell'errore in relaz
     Entità dello scostamento: L'errore percentuale è estremamente basso in termini relativi (tra lo 0.03% e lo 0.09%).
 
     Confronto R vs V: Lo scostamento percentuale della velocità cresce con una pendenza leggermente maggiore rispetto a quello della posizione. Questo suggerisce che l'approssimazione kepleriana fallisce più rapidamente nel predire l'energia cinetica del satellite rispetto alla sua coordinata spaziale.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.8\textwidth]{rafici_scarti.png}
-    \caption{Grafici scarti} 
-    \label{fig:confronto degli scarti}
-\end{figure}
 
 \newpage
 \section{Organizzazione del gruppo}
