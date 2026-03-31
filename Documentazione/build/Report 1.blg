@@ -1,15 +1,15 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'build/Report 1.blg'
-[105] biber-MSWIN64:342> INFO - === 
-[153] Biber.pm:421> INFO - Reading 'build/Report 1.bcf'
-[256] Biber.pm:1002> INFO - Found 11 citekeys in bib section 0
-[267] Biber.pm:4487> INFO - Processing section 0
-[277] Biber.pm:4678> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
-[338] bibtex.pm:1713> INFO - LaTeX decoding ...
-[346] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
-[376] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
-[376] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[376] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'it-IT'
-[376] Biber.pm:4313> INFO - No sort tailoring available for locale 'it-IT'
-[385] bbl.pm:676> INFO - Writing 'build/Report 1.bbl' with encoding 'UTF-8'
-[388] bbl.pm:779> INFO - Output to build/Report 1.bbl
+[100] biber-MSWIN64:342> INFO - === 
+[137] Biber.pm:421> INFO - Reading 'build/Report 1.bcf'
+[228] Biber.pm:1002> INFO - Found 11 citekeys in bib section 0
+[238] Biber.pm:4487> INFO - Processing section 0
+[247] Biber.pm:4678> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
+[295] bibtex.pm:1713> INFO - LaTeX decoding ...
+[303] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
+[330] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[330] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[330] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'it-IT'
+[330] Biber.pm:4313> INFO - No sort tailoring available for locale 'it-IT'
+[338] bbl.pm:676> INFO - Writing 'build/Report 1.bbl' with encoding 'UTF-8'
+[341] bbl.pm:779> INFO - Output to build/Report 1.bbl
