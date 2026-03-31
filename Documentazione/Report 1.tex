@@ -18,15 +18,18 @@
 \usepackage[style=numeric, backend=biber]{biblatex}
 \addbibresource{bibliografia.bib}
 
+\usepackage[
+    colorlinks=true,   % Attiva i colori per i link
+    linkcolor=black,    % Colore dei link interni (indice)
+    citecolor=blue,     % Colore delle citazioni (bibliografia)
+    urlcolor=blue,      % Colore degli URL
+    pdfpagemode=UseNone,
+    breaklinks=true
+]{hyperref}
 \usepackage{xurl} % Gestione URL lunghi
-\usepackage[colorlinks=true,linkcolor=black,citecolor=blue,
-urlcolor=blue,pdfpagemode=UseNone]{hyperref}
 
 % Comandi personalizzati
 \newcommand{\hr}{\rule{\linewidth}{0.5mm}}
-
-% BIBLIOGRAFIA
-\addbibresource{bibliografia.bib}
 
 % --- INIZIO DOCUMENTO ---
 \begin{document}
