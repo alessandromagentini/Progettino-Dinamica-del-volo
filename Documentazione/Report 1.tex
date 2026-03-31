@@ -103,7 +103,7 @@ Il software specifico è stato scelto attraverso interrogazione dell'AI Claude \
     }
 \end{quote}
 
-La risposta fornita è stata la seguende :
+La risposta fornita è stata la seguente :
 
 \begin{quote}
     \itshape  
@@ -151,12 +151,14 @@ In seguito, l'implementazione del codice ha richiesto una lunga correzione causa
 \section{Analisi dei Risultati}
 
 \subsection{Confronto Propagatori}
-\subsubsection{i}
-Il confronto tra i propagatori mostra una notevole aderenza tra i dati GMAT e MATLAB aerospace, entrambi infatti includono perturbazioni orbitali come J2, Luna, Sole e Giove. Al contrario il propagatore custom (linea verde) presenta una linea piatta in quanto è basato su un sistema a due corpi Kepleriano. \\
-\subsubsection{RAAN}
-Aerospace Toolbox e GMAT mostrano la precessione del nodo, la quale varia da 35\degree a 33,5\degree, dimostrazione dell'effetto della perturbazione J2 su un'orbita prograda. 
-\subsubsection{AoP}
-GMAT e Aerospace Toolbox presentano entrambi un comportamento\\
+Il confronto tra i propagatori mostra una notevole congruenza tra i dati di GMAT e MATLAB Aerospace Toolbox. Nello specifico ciò è dovuto al fatto che entrambi i software adottano modelli ad alta fedeltà che includono perturbazioni gravitazionali (come J2) e gli effetti di terzo corpo (luna e sole).\\
+\\
+Il principale colpevole delle discrepanze osservate è l'effetto $J_2$, derivante dallo schiacciamento polare della Terra, che non si approssima ad una sfera ma è uno sferoide oblato. È fondamentale precisare che, sebbene $J_2$ sia il responsabile della 
+precessione secolare del nodo (RAAN), esso causa sull'inclinazione esclusivamente delle variazioni periodiche (oscillazioni). e non una deriva netta nel breve termine. La precessione del nodo osservata, che decresce da 35\degree a circa 33.5\degree in 12 ore, è la prova dell'integrazione di tale perturbazione su un'orbita prograda.\\
+\\
+Al contrario, il Propagatore Custom (linea verde) produce un output costante (linea piatta). Questo accade perché il modello è limitato al problema dei due corpi kepleriano, che assume una distribuzione di massa terrestre puntiforme o perfettamente sferica. In questo scenario ideale, gli elementi orbitali rimangono costanti (integrali del moto), rendendo il propagatore inadatto per analisi di missione realistiche e veritiere.\\
+\\
+Infine, il comportamento dell'Argomento del Perigeo (AoP) nel grafico suggerisce un'orbita a bassa eccentricità: la rapida stabilizzazione del valore nei modelli complessi evidenzia come le perturbazioni agiscano immediatamente sulla geometria dell'orbita, fenomeno totalmente ignorato dalla semplificazione kepleriana.\\
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{confronto propagatori.png}
