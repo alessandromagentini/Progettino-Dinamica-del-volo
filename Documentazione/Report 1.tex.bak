@@ -6,6 +6,9 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
+\graphicspath{ {./immagini e video/} }
+\usepackage[style=authoryear, backend=biber]{biblatex}
+\usepackage[colorlinks=true, urlcolor=blue]{hyperref}
 
 \usepackage[utf8]{inputenc}
 \usepackage{enumitem}
@@ -16,8 +19,11 @@
 \usepackage{geometry}
 \geometry{margin=2.5cm}
 
-% Comando per la linea orizzontale nella copertina
+
 \newcommand{\hr}{\rule{\linewidth}{0.5mm}}
+
+% BIBLIOGRAFIA
+\addbibresource{bibliografia.bib}
 
 % --- INIZIO DOCUMENTO ---
 \begin{document}
@@ -55,12 +61,12 @@
     
     \vspace{2cm}
  
-    \includegraphics[width=0.8\textwidth]{"orbita"} 
+    \includegraphics[width=0.8\textwidth]{"foto copertina"} 
     
     \vfill 
    
     
-    {\raggedright % Inizia un blocco allineato a sinistra
+    {\raggedright 
     \noindent
     \begin{minipage}{0.55\textwidth}
         \begin{flushleft} \large
@@ -76,7 +82,7 @@
 
     \noindent
     {\large \today}
-\par} % Chiude il blocco raggedright
+\par}
 \end{titlepage}
 
 \newpage
@@ -88,11 +94,11 @@
 \section{Introduzione}
 Il primo progettino relativo al corso di Dinamica del Volo, anno accademico 2025/2026, richiede ad un gruppo di massimo quattro studenti di disegnare una missione di intercettazione di un asteroide posizionato su di un' orbita con inclinazione relativa rispetto al piano equatoriale terrestre.
 \section{Scelta Software specifico}
-Il software specifico è stato scelto attraverso interrogazione dell'AI Claude e Gemini. Il prompt utilizzato è il seguente, riportato in forma integrale:  
+Il software specifico è stato scelto attraverso interrogazione dell'AI Claude \parencite{Claude} e Gemini \parencite{Gemini}. Il prompt utilizzato è il seguente, riportato in forma integrale:  
 
 \begin{quote}
-    \itshape % Rende il font corsivo
-    \textsf{ % Rende il font Sans Serif r
+    \itshape 
+    \textsf{ 
         ``Devo svolgere un progetto universitario per il corso di Dinamica del Volo Aerospaziale in un gruppo di 4 persone. L'obiettivo è disegnare una missione di intercettazione di un asteroide su orbita inclinata rispetto al piano equatoriale terrestre. I contenuti richiesti includono: parametri orbitali, posizione del satellite ogni 3 ore, plot 3D in sistema ECI, analisi delle perturbazioni, ground track, manovre orbitali e phasing. La metodologia richiede analisi teorica, motivazione degli strumenti usati, rilevazione delle discrepanze tra teoria e simulazione, e identificazione del contributo di ogni membro. Il professore propone come alternative MATLAB o GMAT. Analizza pro e contro di entrambi rispetto a questo specifico progetto, valuta se convenga usarli entrambi in parallelo o in modo complementare. ''
     }
 \end{quote}
@@ -100,8 +106,8 @@ Il software specifico è stato scelto attraverso interrogazione dell'AI Claude e
 La risposta fornita è stata la seguende :
 
 \begin{quote}
-    \itshape  % Attiva il corsivo per lo stile citazione
-    \sffamily % Attiva il font Sans Serif in modo corretto per testi lunghi
+    \itshape  
+    \sffamily 
     
     \textbf{MATLAB} \\
     Pro: conosciuto da tutti, lavoro divisibile per moduli (propagatore, perturbazioni, manovre, plot), codice commentato significa documentazione trasparente, facile mostrare contributo individuale e corrispondenza teoria, implementazione. \\
@@ -134,38 +140,39 @@ Analizzata la situazione abbiamo scelto di utilizzare MATLAB come software princ
     \label{fig:mio_grafico}
 \end{figure}
 \section{Analisi del problema e Implementazione codice}
-Il primo passaggio dello studio è stato analizzare l'orbita attraverso GMAT in modo tale da avere una base sulla quale verificare i dati ricavati successivamente. Una volta ottenuto questo primo riscontro siamo passati ad implementare il codice MATLAB, codice in grado di descrivere e rappresentare l'orbita richiesta. Per analizzare i risultati sono stati utilizzati i toll specifici Matlab "aerospace toolbox" e "satellite comunication toolbox". %Alla fine possiamo mettere tutta la lista dei toolbox utilizzati
-All'interno del codice MATLAB sono state implementate diverse funzioni: una per il calcolo dei parametri orbitali, una per la propagazione, una per i plot delle orbite e una per il plot dei risultati (compresi quelli ottenuti da GMAT). Il propagatore scritto da noi, a partire dall'intervallo temporale definito inizialmente, calcola l'orbita seguendo l'ordine t - $M_e$ - xi - TA - r. Questa metodologia però, nonostante fornisca risultati corretti, non permette una visualizzazione dell'orbita nel sistema ECI, ma soltanto nel sistema NEU (North East Up) in MATLAB lla (Latitude Longitude Altitude), dunque la visualizzazione dell'orbita è possibile soltanto da un punto di vista fisso con la rotazione terrestre. Per ottenere l'orbita nel sistema ECI, quindi, ci siamo appoggiati alle functions del Satellite Comunication Toolbox affiancato al Aerospace Toolbox, la prima usa la function \texttt{satellite}, che propaga l'orbita, e \texttt{satelliteScenarioViewer} che la visualizza nella maniera da noi desiderata; mentre il modello implementato dall'Aerospace Toolbox esegue un codice simulink in cui viene utilizzato il blocco del toolbox \texttt{Orbit Propagator}, che permette anche la considerazione di effetti perturbativi in quanto si basa sulla risoluzione per via numerica (integrazione).
+Il primo passaggio dello studio è stato analizzare l'orbita attraverso GMAT \parencite{DocumentazioneGMAT} in modo tale da avere una base sulla quale verificare i dati ricavati successivamente. Una volta ottenuto questo primo riscontro siamo passati ad implementare il codice MATLAB, codice in grado di descrivere e rappresentare l'orbita richiesta. Per analizzare i risultati sono stati utilizzati i toll specifici Matlab "aerospace toolbox" \cite{AerospaceBlockset,AerospaceToolbox} e "satellite comunication toolbox" \cite{SatelliteCommunication,CommunicationToolbox}. %Alla fine possiamo mettere tutta la lista dei toolbox utilizzati
+All'interno del codice MATLAB sono state implementate diverse funzioni: una per il calcolo dei parametri orbitali, una per la propagazione, una per i plot delle orbite e una per il plot dei risultati (compresi quelli ottenuti da GMAT). Il propagatore scritto da noi, a partire dall'intervallo temporale definito inizialmente, calcola l'orbita seguendo l'ordine t - $M_e$ - xi - TA - r. Questa metodologia però, nonostante fornisca risultati corretti, non permette una visualizzazione dell'orbita nel sistema ECI, ma soltanto nel sistema NEU (North East Up) in MATLAB lla (Latitude Longitude Altitude) \cite{MappingToolbox}, dunque la visualizzazione dell'orbita è possibile soltanto da un punto di vista fisso con la rotazione terrestre. Per ottenere l'orbita nel sistema ECI, quindi, ci siamo appoggiati alle functions del Satellite Comunication Toolbox cite{SatelliteCommunication} affiancato al Aerospace Toolbox \cite{AerospaceToolbox}, la prima usa la function \texttt{satellite}, che propaga l'orbita, e \texttt{satelliteScenarioViewer} che la visualizza nella maniera da noi desiderata; mentre il modello implementato dall'Aerospace Toolbox esegue un codice simulink \cite{Simulink,DSPSystemToolbox} in cui viene utilizzato il blocco del toolbox \texttt{Orbit Propagator}, che permette anche la considerazione di effetti perturbativi in quanto si basa sulla risoluzione per via numerica (integrazione).
 
 
 \section{Osservazioni}
-Il lavoro svolto non è stato privo di difficoltà ed errori. La scelta di utilizzare un numero notevole di programmi e le loro estensioni ha inizialmente rallentato i lavori % e la collaborazione tra i membri.
-In seguito, l'implementazione del codice ha richiesto una lunga correzione causata da un errore nella scrittura originale del propagatore. Grazie ad un controllo incrociato tra GMAT e MATLAB, abbiamo notato come la True Anomaly di partenza in MATLAB non corrispondesse a quella risultata da GMAT, il quale presentava un valore di partenza di 189.499\degree. Infatti, avevamo assunto la posizione iniziale al perigeo invece di quella che doveva essere ricavata a partire dai dati iniziali, ovvero 189.499\degree.  Per risolvere tale incoerenza è stato necessario rivedere il codice, ovviando anche ad un ulteriore incoerenza dei tempi in quanto la struttura del codice di basava .  
+Il lavoro svolto non è stato privo di difficoltà ed errori. La scelta di utilizzare un numero notevole di programmi e le loro estensioni ha inizialmente rallentato i lavori.
+In seguito, l'implementazione del codice ha richiesto una lunga correzione causata da un errore nella scrittura originale del propagatore. Grazie ad un controllo incrociato tra GMAT e MATLAB, abbiamo notato come la True Anomaly di partenza in MATLAB non corrispondesse a quella risultata da GMAT, il quale presentava un valore di partenza di 189.499\degree. Infatti, avevamo assunto la posizione iniziale al perigeo invece di quella che doveva essere ricavata a partire dai dati iniziali, ovvero 189.499\degree.  Per risolvere tale incoerenza è stato necessario rivedere il codice, ovviando anche ad un ulteriore incoerenza dei tempi in quanto la struttura del codice di basava sull'assunzione errata.  
 
 \section{Analisi dei Risultati}
-inclinazione e raan 
+
+\subsection{Confronto Propagatori}
+\subsubsection{i}
+Il confronto tra i propagatori mostra una notevole aderenza tra i dati GMAT e MATLAB aerospace, entrambi infatti includono perturbazioni orbitali come J2, Luna, Sole e Giove. Al contrario il propagatore custom (linea verde) presenta una linea piatta in quanto è basato su un sistema a due corpi Kepleriano. \\
+\subsubsection{RAAN}
+Aerospace Toolbox e GMAT mostrano la precessione del nodo, la quale varia da 35\degree a 33,5\degree, dimostrazione dell'effetto della perturbazione J2 su un'orbita prograda. 
+\subsubsection{AoP}
+GMAT e Aerospace Toolbox presentano entrambi un comportamento\\
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{confronto propagatori.png}
+    \caption{Confronto propagatori} 
+    \label{fig:confronto propagatori}
+\end{figure}
+
 
 \section{Organizzazione del gruppo}
-Il lavoro del gruppo è stato organizzato attorno alla piattaforma GitHub, scelta che abbiamo preferito rispetto ad una più tradizionale e diffusa cartella condivisa su un drive online, in quanto permette di gestire meglio e di tenere traccia di tutte le modifiche ai codici, inoltre non presenta limiti in quanto a spazio di archiviazione. \'E stata creata una repository alla quale tutti i componenti del gruppo hanno avuto accesso permettendo di collaborare, e si è optato per lavorare tutti su una sola branch visto che complicare la struttura della repository non avrebbe portato ad alcun vantaggio aggiuntivo. 
+Il lavoro del gruppo è stato organizzato attorno alla piattaforma GitHub, scelta che abbiamo preferito rispetto ad una più tradizionale e diffusa cartella condivisa su un drive online, in quanto permette di gestire meglio e di tenere traccia di tutte le modifiche ai codici, inoltre non presenta limiti in quanto a spazio di archiviazione. \'E stata creata una repository \cite{RepositoryGitHub} alla quale tutti i componenti del gruppo hanno avuto accesso permettendo di collaborare, e si è optato per lavorare tutti su una sola branch visto che complicare la struttura della repository non avrebbe portato ad alcun vantaggio aggiuntivo. 
 I file sono stati gestititi in due cartelle separate: per i codici (sia GMAT che MATLAB) è stata creata l'apposita cartella \textsl{Codici}, mentre il codice LaTeX e le immagini sono stati inseriti nella cartella \textsl{Documentazione}.
 In questa prima fase del progetto i componenti del gruppo Alessandro Magentini e Filippo Michielan si sono dedicati alla parte di programmazione software, in particolare all'implementazione prima GMAT e poi MATLAB dell'orbita, mentre Ippolito Luigi e Guglielmini Pietro hanno svolto l'analisi dati e la stesura del report in LaTeX. Il gruppo ha lavorato in maniera sincrona  con incontri in presenza e su piattaforme online come google meet e discord, ma anche asincrona sui programmi specifici. 
-\section{sitografia}
-GMAT
-\begin{itemize} [leftmargin=10pt, rightmargin=5pt]
-\item[-]\texttt{GMAT} https://etd.gsfc.nasa.gov/capabilities/capabilities-listing/general-mission-analysis-tool-gmat/;
-\end{itemize}
-tool e estensioni MATLAB utilizzati:
-\begin{itemize} [leftmargin=10pt,rightmargin=5pt]
-    \item[-] \texttt{Aerospace Blockset} https://it.mathworks.com/help/releases/R2025b/aeroblks/index.html;
-    \item[-] \texttt{Aerospace Toolbox} https://it.mathworks.com/help/releases/R2025b/aerotbx/index.html;
-    \item[-] \texttt{DSP System Toolbox}  https://it.mathworks.com/help/releases/R2025b/dsp/index.html;
-    \item[-] \texttt{Ephemeris data for aerospace Toolbox} https://it.mathworks.com/matlabcentral/fileexchange/46671-ephemeris-data-for-aerospace-toolbox;
-    \item[-] \texttt{Mapping Toolbox} mathworks.com/help/releases/R2025b/map/index.html;
-    \item[-] \texttt{Satellite Communication} Toolbox https://it.mathworks.com/help/releases/R2025b/satcom/index.html;
-    \item[-] \texttt{Singla Processing Toolbox} mathworks.com/help/releases/R2025b/signal/index.html;
-    \item[-]\texttt{Communication Toolbox} https://it.mathworks.com/help/releases/R2025b/comm/index.html;
-    
-    
-\end{itemize}
 
+% link GitHub
+https://github.com/alessandromagentini/Progettino-Dinamica-del-volo
+ 
+\newpage
+\printbibliography
 \end{document}

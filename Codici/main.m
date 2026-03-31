@@ -8,7 +8,7 @@ groundtrack3_flag        = 0;      % per geoplot 3D della ground track
 groundtrack2_flag        = 0;      % per geoplot 2D della ground track
 plot_eci_flag            = 0;      % per plot (non globe) in ECI
 satellite_tb_flag        = 0;      % per utilizzo satellite communication toolbox
-simulink_flag            = 1;      % per plot del modello simulink
+simulink_flag            = 0;      % per plot del modello simulink
 analisi_risultati_flag   = 1;      % per verifica dei risulati
 
 %% Dati iniziali
@@ -18,7 +18,7 @@ v0_vec = [4.126512186315761, -3.956371322777358, -0.490613661500991];           
 mu_terra = 398600.4418;                                                           %[km^3/s^2]
 
 start_time   = datetime(2026, 3, 26, 18, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
-stop_time    = datetime(2026, 3, 27,  6, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
+stop_time    = datetime(2026, 3, 27, 6, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
 mission_duration = seconds(stop_time - start_time);                               %[s]
 delta_t_sat_sample = 15 * 60;                                                     %[s]
 
@@ -40,7 +40,7 @@ res.sat_orbit = sat_orbit;
 
 %2) Satellite Communications Toolbox
 if satellite_tb_flag == 1
-    deltat_sample = 1;        %[s]
+    deltat_sample = 60;        %[s]
     sc_sat_tb = satelliteScenario(start_time,stop_time,deltat_sample);
     sat_orbit_sat_tb = satellite(sc_sat_tb,sat_param.a,sat_param.e,sat_param.i,sat_param.raan,sat_param.omega,0);
 
@@ -59,7 +59,7 @@ posData_icrf  = simOut.yout{1}.Values;
 velData_icrf  = simOut.yout{2}.Values;
 timeData      = simOut.yout{3}.Values;
 
-sc_aero_tb = satelliteScenario(start_time, stop_time, 1);
+sc_aero_tb = satelliteScenario(start_time, stop_time, 600);
 sat_orbit_aero_tb = satellite(sc_aero_tb, posData_icrf, velData_icrf, "CoordinateFrame", "ecef");
 
 res.aerotb_res = struct("pos_eci",posData_icrf, "vel_eci",velData_icrf, "time",timeData);

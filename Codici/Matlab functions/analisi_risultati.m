@@ -46,8 +46,8 @@ if exist("Kep_param.csv","file")
 end
 
 % Calcolo degli scarti tra toolbox e custom
-delta_pos = sqrt(sum((cr + tbr_interp).^2, 2));
-delta_vel = sqrt(sum((cv + tbv_interp).^2, 2));
+delta_pos = sqrt(sum((cr - tbr_interp).^2, 2));
+delta_vel = sqrt(sum((cv - tbv_interp).^2, 2));
 
 scartor_percentuale = (delta_pos ./ norm(tbr_interp)) * 100;
 scartov_percentuale = (delta_vel ./ norm(tbv_interp)) * 100;

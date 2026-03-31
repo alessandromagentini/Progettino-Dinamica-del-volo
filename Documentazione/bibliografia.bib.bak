@@ -1,0 +1,67 @@
+@misc{RepositoryGitHub,
+   title = {Repository GitHub},
+   author = {Gugliemini, Pietro and Ippolito, Luigi and Magentini, Alessandro and Michielan, Filippo},
+   url = {https://github.com/alessandromagentini/Progettino-Dinamica-del-volo.git}
+}
+
+@misc{DocumentazioneGMAT,
+   title = {Documentazione GMAT},
+   url = {https://etd.gsfc.nasa.gov/capabilities/capabilities-listing/general-mission-analysis-tool-gmat/}
+}
+
+@misc{AerospaceBlockset, 
+   title = {Aerospace Blockset},
+   url = {https://it.mathworks.com/help/releases/R2025b/aeroblks/index.html}
+}
+
+@misc{AerospaceToolbox,
+   title = {Aerospace Toolbox},
+   url = {https://it.mathworks.com/help/releases/R2025b/aerotbx/index.html}
+}
+
+@misc{DSPSystemToolbox,
+   title = {DSP System Toolbox},
+   url = {https://it.mathworks.com/help/releases/R2025b/dsp/index.html}
+}
+
+@misc{MappingToolbox,
+   title = {Mapping Toolbox},
+   url = {https://it.mathworks.com/help/releases/R2025b/map/index.html}
+}
+
+@misc{SatelliteCommunication,
+   title = {Satellite Communication},
+   url = {https://it.mathworks.com/help/releases/R2025b/satcom/index.html}
+}
+
+@misc{SignalProcessingToolbox,
+   title = {Signal Processing Toolbox},
+   url = {https://it.mathworks.com/help/releases/R2025b/signal/index.html}
+}
+
+@misc{CommunicationToolbox,
+   title = {Communication Toolbox},
+   url = {https://it.mathworks.com/help/releases/R2025b/comm/index.html}
+}
+
+@misc{OrbitPropagatorBlock,
+   title = {Example of orbit propagator block use},
+   url = {https://it.mathworks.com/help/releases/R2025b/aeroblks/mission-analysis-with-the-orbit-propagator-block.html}
+}
+
+@misc{Simulink,
+	title = {Simulink},
+    url = {https://it.mathworks.com/help/releases/R2025b/simulink/index.html?searchPort=62546}
+}
+
+@misc{Claude,
+	title = {Claude AI},
+	author = {Anthropic},
+	url = {https://claude.ai/new}
+}
+@misc{Gemini,
+	title = {Gemini AI},
+	author = {Google},
+	url = {https://gemini.google.com/app}
+}
+
