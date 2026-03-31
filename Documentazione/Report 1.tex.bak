@@ -118,11 +118,14 @@ Analizzata la situazione abbiamo scelto di utilizzare MATLAB come software princ
     \label{fig:mio_grafico}
 \end{figure}
 \section{Analisi del problema e Implementazione codice}
+\label{sec:codice}
 Il primo passaggio dello studio è stato analizzare l'orbita attraverso GMAT \parencite{DocumentazioneGMAT} in modo tale da avere una base sulla quale verificare i dati ricavati successivamente. Una volta ottenuto questo primo riscontro siamo passati ad implementare il codice MATLAB, codice in grado di descrivere e rappresentare l'orbita richiesta. Per analizzare i risultati sono stati utilizzati i toll specifici Matlab "aerospace toolbox" \cite{AerospaceBlockset,AerospaceToolbox} e "satellite comunication toolbox" \cite{SatelliteCommunication,CommunicationToolbox}. %Alla fine possiamo mettere tutta la lista dei toolbox utilizzati
 All'interno del codice MATLAB sono state implementate diverse funzioni: una per il calcolo dei parametri orbitali, una per la propagazione, una per i plot delle orbite e una per il plot dei risultati (compresi quelli ottenuti da GMAT). Il propagatore scritto da noi, a partire dall'intervallo temporale definito inizialmente, calcola l'orbita seguendo l'ordine t - $M_e$ - xi - TA - r. Questa metodologia però, nonostante fornisca risultati corretti, non permette una visualizzazione dell'orbita nel sistema ECI, ma soltanto nel sistema NEU (North East Up) in MATLAB lla (Latitude Longitude Altitude) \cite{MappingToolbox}, dunque la visualizzazione dell'orbita è possibile soltanto da un punto di vista fisso con la rotazione terrestre. Per ottenere l'orbita nel sistema ECI, quindi, ci siamo appoggiati alle functions del Satellite Comunication Toolbox \cite{SatelliteCommunication} affiancato al Aerospace Toolbox \cite{AerospaceToolbox}, la prima usa la function \texttt{satellite}, che propaga l'orbita, e \texttt{satelliteScenarioViewer} che la visualizza nella maniera da noi desiderata; mentre il modello implementato dall'Aerospace Toolbox esegue un codice simulink \cite{Simulink,DSPSystemToolbox} in cui viene utilizzato il blocco del toolbox \texttt{Orbit Propagator}, che permette anche la considerazione di effetti perturbativi in quanto si basa sulla risoluzione per via numerica (integrazione).
 
-\subsection{Plot dell'orbita} 
-In 
+\subsection{Plot dell'orbita} %Aggiungere richiamo alle figure orbite
+In copertina abbiamo deciso di inserire il plot ottenuto su MATLAB, a partire dai risultati del nostro propagatore e che ci è stato utile per validare visivamente la correttezza del nostro codice, ma che ai fini del progetto risulta di bassa utilità. Per questo motivo nelle figure XXX abbiamo riportato il plot dell'orbita propagata (con perturbazioni) con GMAT e il Toolbox \cite{AerospaceToolbox}. Per ragioni di semplicità tecnica soltanto il plot di GMAT è in sistema di riferimento ECI. Mentre quello del Toolbox ha come uniche impostazioni di base i sistemi di riferimento ECEF o ICRF; dunque, dal momento che il nostro periodo di osservazione è breve, abbiamo deciso di presentare il plot in ICRF, ed effettivamente anche i due plot sono visivamente quasi indistinguibili.
+
+%INSERIRE IMMAGINI PLOT A CONFRONTO
 
 \subsection{Risultati campionamento}
 All'interno del codice il campionamento viene fatto a partire dei risultati ottenuti. Se l'istante temporale è già stato calcolato il risultato viene solo salvato, altrimenti il codice ricava il valore tramite interpolazione. Nella tabella di seguito sono riportati i risultati 
@@ -151,16 +154,14 @@ Il lavoro svolto non è stato privo di difficoltà ed errori. La scelta di utili
 In seguito, l'implementazione del codice ha richiesto una lunga correzione causata da un errore nella scrittura originale del propagatore. Grazie ad un controllo incrociato tra GMAT e MATLAB, abbiamo notato come la True Anomaly di partenza in MATLAB non corrispondesse a quella risultata da GMAT, il quale presentava un valore di partenza di 189.499\degree. Infatti, avevamo assunto la posizione iniziale al perigeo invece di quella che doveva essere ricavata a partire dai dati iniziali, ovvero 189.499\degree.  Per risolvere tale incoerenza è stato necessario rivedere il codice, ovviando anche ad un ulteriore incoerenza dei tempi in quanto la struttura del codice di basava sull'assunzione errata.  
 
 \section{Analisi dei Risultati}
+Nella sezione seguente verrà analizzato da un punto di vista prevalentemente qualitativo i grafici ottenuti dalle simulazioni, quindi si procederà a mettere in evidenza le limitazioni del calcolo dell'orbita seguendo il modello kepleriano mettendolo a confronto con i risultati ottenuti con le altre due metodologie già discusse in Sezione \ref{sec:codice} e nel corso del documento. Un'analisi più accurata dell'andamento delle simulazioni con le perturbazioni implementate verrà fatta, come da consegna, nel secondo report del progetto.
 
 \subsection{Confronto Propagatori}
-Il confronto tra i propagatori mostra una notevole congruenza tra i dati di GMAT e MATLAB Aerospace Toolbox. Nello specifico ciò è dovuto al fatto che entrambi i software adottano modelli ad alta fedeltà che includono perturbazioni gravitazionali (come J2) e gli effetti di terzo corpo (luna e sole).\\
-\\
-Il principale colpevole delle discrepanze osservate è l'effetto $J_2$, derivante dallo schiacciamento polare della Terra, che non si approssima ad una sfera ma è uno sferoide oblato. È fondamentale precisare che, sebbene $J_2$ sia il responsabile della 
-precessione secolare del nodo (RAAN), esso causa sull'inclinazione esclusivamente delle variazioni periodiche (oscillazioni). e non una deriva netta nel breve termine. La precessione del nodo osservata, che decresce da 35\degree a circa 33.5\degree in 12 ore, è la prova dell'integrazione di tale perturbazione su un'orbita prograda.\\
-\\
-Al contrario, il Propagatore Custom (linea verde) produce un output costante (linea piatta). Questo accade perché il modello è limitato al problema dei due corpi kepleriano, che assume una distribuzione di massa terrestre puntiforme o perfettamente sferica. In questo scenario ideale, gli elementi orbitali rimangono costanti (integrali del moto), rendendo il propagatore inadatto per analisi di missione realistiche e veritiere.\\
-\\
-Infine, il comportamento dell'Argomento del Perigeo (AoP) nel grafico suggerisce un'orbita a bassa eccentricità: la rapida stabilizzazione del valore nei modelli complessi evidenzia come le perturbazioni agiscano immediatamente sulla geometria dell'orbita, fenomeno totalmente ignorato dalla semplificazione kepleriana.\\
+Dal confronto tra i propagatori si può notare prima di tutto una notevole congruenza tra dati GMAT e MATLAB Aerospace Toolbox. Nello specifico ciò si deve al fatto che entrambi i software adottano modelli avanzati che includono perturbazioni dell'orbita, sopratutto quelle gravitazionali, come J2, e gli effetti di terzo corpo (Luna e Sole).
+
+In secondo luogo viene alla luce la discrepanza osservabile nei grafici tra i modelli avanzati, precedentemente nominati, e quello del propagatore custom (linea verde). Essa è principalmente derivata dall'effetto J2, non incluso nel propagatore custom che, essendo basato sul problema dei due corpi kepleriano, invece di considerare l’effettiva forma della Terra come sferoide oblato và ad adottare un’approssimazione piuttosto semplicistica considerando il corpo come puntiforme . È fondamentale però precisare che, sebbene J2 sia responsabile della precessione secolare del nodo (RAAN), esso causa solamente variazioni periodiche (oscillazioni) dell’inclinazione, e non una deriva netta nel breve termine. La precessione del nodo, che decresce da 35\degree a circa 33.5\degree in 12 ore, è la prova dell'integrazione di tale perturbazione su un'orbita prograda per i modelli avanzati e allo stesso tempo dell’assenza di questo fattore nel modello custom, che infatti mostra una linea piatta. Essendo questo uno scenario ideale, gli elementi orbitali rimangono costanti, rendendo il propagatore inadatto per analisi di missione realistiche e veritiere.
+
+Osservando il comportamento dell'Argomento del Perigeo (AoP) invece si può subito intuire la bassa eccentricità dell’orbita e si nota che la geometria è influenzata immediatamente dalle perturbazioni giungendo però rapidamente ad una stabilizzazione del valore nei modelli complessi, fenomeno totalmente ignorato dalla semplificazione kepleriana.
 
 \begin{figure}[htbp]
     \centering
@@ -182,20 +183,17 @@ Infine, il comportamento dell'Argomento del Perigeo (AoP) nel grafico suggerisce
 
 \newpage
 \subsection{Analisi scarti}
-I seguenti grafici rappresentano l'analisi degli scarti (residui) tra il propagatore ad alta fedeltà di MATLAB (pressochè identico a quello GMAT che per questo abbiamo deciso di tralsciare) e il modello semplificato (kepleriano). Essi quantificano l'errore accumulato in termini di posizione (r) e velocità (v).
-     \subsubsection{Analisi della Deriva}
-     Tutti i grafici mostrano, come ci si può aspettare, un trend di crescita lineare (rappresentato dalla linea tratteggiata verde), con lo scostamento che passa in sole 12 ore da circa 450 km a oltre 850 km e lo scarto sulla velocità da circa 0.3 km/s a 0.55 km/s   (media). Ciò è dovuto alla "degradazione" del modello kepleriano, che, non includendo le perturbazioni, provoca uno sfasamento: il satellite "reale" si trova fisicamente in un punto dello spazio sempre più lontano da quello previsto dal modello semplice.
+Proponiamo ora un'analisi degli scarti (residui) tra il propagatore di MATLAB e il modello kepleriano semplificato. Essi quantificano l'errore accumulato in termini di posizione (r) e velocità (v).
 
-     \subsubsection{Componente Oscillatoria}
-     Le curve solide, in rosso per i valori assoluti e in blu per i percentuali, presentano un'oscillazione sinusoidale molto marcata con 8 cicli completi in 12 ore. Questo indica un periodo orbitale di circa 1.5 ore (90 minuti), tipico di un satellite in Low Earth Orbit (LEO). Le oscillazioni indicano che lo scarto non cresce in modo uniforme e l'errore massimo si verifica in determinati punti dell'orbita (probabilmente vicino alle zone di massimo schiacciamento equatoriale), mentre si riduce leggermente quando il satellite attraversa zone dove l'approssimazione sferica è meno errata.
+\subsubsection{Analisi della Deriva}
+Tutti i grafici mostrano, come preventivabile, un trend di crescita lineare %forse è piccolo l'intervallo temporale per dire che la crescita è lineare
+(rappresentato dalla linea tratteggiata verde), con lo scostamento che passa in sole 12 ore da circa 450 km a oltre 850 km e lo scarto sulla velocità da circa 0.3 km/s a 0.55 km/s (media). Questo andamento trova spiegazione nell’imprecisione crescente del modello kepleriano, che subisce una "degradazione" dovuta alla non inclusione delle perturbazioni. Concretamente tutto ciò provoca uno sfasamento tra la posizione prevista dal modello semplice e quella che effettivamente il satellite "reale" dovrebbe occupare fisicamente.
 
-3. Analisi degli Scostamenti Percentuali
+\subsubsection{Componente Oscillatoria}
+Nei grafici proposti possiamo osservare curve solide, in rosso per i valori assoluti e in blu per i percentuali. L’andamento è oscillatorio con una sinusoide molto marcata. Le oscillazioni indicano una crescita dello scarto non uniforme, con l'errore massimo che si verifica in determinati punti dell'orbita (probabilmente vicino alle zone di massimo schiacciamento equatoriale), mentre si manifesta una leggera riduzione quando il satellite attraversa zone dove l'approssimazione sferica è più accettabile.
 
-I grafici a destra sono fondamentali per capire la gravità dell'errore in relazione alle grandezze totali:
-
-    Entità dello scostamento: L'errore percentuale è estremamente basso in termini relativi (tra lo 0.03% e lo 0.09%).
-
-    Confronto R vs V: Lo scostamento percentuale della velocità cresce con una pendenza leggermente maggiore rispetto a quello della posizione. Questo suggerisce che l'approssimazione kepleriana fallisce più rapidamente nel predire l'energia cinetica del satellite rispetto alla sua coordinata spaziale.
+\subsubsection{Analisi degli Scostamenti Percentuali}
+L’entità dello scostamento percentuale è fondamentale per valutare la precisione o eventualmente la gravità dell'errore in relazione alle grandezze totali, ad esempio nel nostro caso possiamo notare come l'errore sia estremamente basso in termini relativi (tra lo 0.03\% e lo 0.09\%). Osserviamo anche che curiosamente gli scostamenti percentuali della velocità  e della posizione non crescono di pari passo ma il primo cresce con una pendenza leggermente maggiore del secondo. Ciò dimostra che l'approssimazione kepleriana fallisce più rapidamente nel predire l'energia cinetica del satellite rispetto alla sua coordinata spaziale.
 
 \newpage
 \section{Organizzazione del gruppo}
