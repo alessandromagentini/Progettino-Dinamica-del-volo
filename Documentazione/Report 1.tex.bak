@@ -19,7 +19,7 @@
 \addbibresource{bibliografia.bib}
 
 \usepackage{xurl} % Gestione URL lunghi
-\usepackage[hidelinks, pdfpagemode=UseNone, breaklinks]{hyperref} % Link cliccabili ma neri
+\usepackage[colorlinks=true,linkcolor=black,citecolor=blue,urlcolor=blue,pdfpagemode=UseNone{hyperref}
 
 % Comandi personalizzati
 \newcommand{\hr}{\rule{\linewidth}{0.5mm}}
@@ -39,7 +39,7 @@
     \hfill
     \begin{minipage}{0.55\textwidth}
         \centering
-        {\Large \textbf{Università degli Studi di Padova}} \\
+        {\Large \textbf{Università_degli_Studi_di Padova}} \\
         \vspace{0.3cm}
         {\large Corso di Laurea in Ingegneria Aerospaziale} \\
         \vspace{0.3cm}
@@ -48,7 +48,7 @@
     \hfill
     \begin{minipage}{0.20\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{Logo Università Padova} 
+        \includegraphics[width=\textwidth]{Logo_Università_Padova} 
     \end{minipage}
 
     \vspace{1cm}
@@ -163,7 +163,7 @@ Al contrario, il Propagatore Custom (linea verde) produce un output costante (li
 Infine, il comportamento dell'Argomento del Perigeo (AoP) nel grafico suggerisce un'orbita a bassa eccentricità: la rapida stabilizzazione del valore nei modelli complessi evidenzia come le perturbazioni agiscano immediatamente sulla geometria dell'orbita, fenomeno totalmente ignorato dalla semplificazione kepleriana.\\
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{confronto propagatori.png}
+    \includegraphics[width=0.8\textwidth]{confronto_propagatori.png}
     \caption{Confronto propagatori} 
     \label{fig:confronto propagatori}
 \end{figure}

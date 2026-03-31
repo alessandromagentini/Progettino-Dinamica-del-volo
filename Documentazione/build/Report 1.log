@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.3.30)  31 MAR 2026 10:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.3.30)  31 MAR 2026 11:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -545,7 +545,7 @@ File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 4066.
+Package hyperref Info: Option `colorlinks' set `true' on input line 4066.
 Package hyperref Info: Hyper figures OFF on input line 4195.
 Package hyperref Info: Link nesting OFF on input line 4200.
 Package hyperref Info: Hyper index ON on input line 4203.
@@ -572,7 +572,7 @@ Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
 Package hyperref Info: backreferencing OFF on input line 6093.
-Package hyperref Info: Link coloring OFF on input line 6098.
+Package hyperref Info: Link coloring ON on input line 6096.
 Package hyperref Info: Link coloring with OCG OFF on input line 6103.
 Package hyperref Info: PDF/A mode OFF on input line 6108.
 \Hy@abspage=\count439
@@ -610,35 +610,35 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 t 1.aux)
 \openout1 = `"Report 1.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Info: Redefining \it@ocap on input line 31.
-LaTeX Info: Redefining \it@ccap on input line 31.
-LaTeX Info: Redefining \celsius on input line 31.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Info: Redefining \it@ocap on input line 32.
+LaTeX Info: Redefining \it@ccap on input line 32.
+LaTeX Info: Redefining \celsius on input line 32.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 32.
 
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 31.
-Package gensymb Info: Using \Omega for \ohm on input line 31.
+LaTeX Info: Redefining \ohm on input line 32.
+Package gensymb Info: Using \Omega for \ohm on input line 32.
 
 Package gensymb Warning: Not defining \micro.
 
@@ -719,9 +719,19 @@ Package biblatex Info: ... file '"Report 1".bbl' found.
 
 (C:\Users\aless\Desktop\Progettino-Dinamica-del-volo\Documentazione\build\Repor
 t 1.bbl)
-Package biblatex Info: Reference section=0 on input line 31.
-Package biblatex Info: Reference segment=0 on input line 31.
-Package hyperref Info: Link coloring OFF on input line 31.
+Package biblatex Info: Reference section=0 on input line 32.
+Package biblatex Info: Reference segment=0 on input line 32.
+
+(C:\Users\aless\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
+
+(C:\Users\aless\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+(C:\Users\aless\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+)
+Package hyperref Info: Link coloring ON on input line 32.
 
 (C:\Users\aless\Desktop\Progettino-Dinamica-del-volo\Documentazione\build\Repor
 t 1.out)
@@ -730,42 +740,42 @@ t 1.out)
 \@outlinefile=\write4
 \openout4 = `"Report 1.out"'.
 
-<./immagini e video/immagine dii.jpg, id=31, 200.75pt x 200.75pt>
-File: ./immagini e video/immagine dii.jpg Graphic file (type jpg)
-<use ./immagini e video/immagine dii.jpg>
-Package pdftex.def Info: ./immagini e video/immagine dii.jpg  used on input lin
-e 37.
+<./immagini e video/immagine_dii.jpg, id=31, 200.75pt x 200.75pt>
+File: ./immagini e video/immagine_dii.jpg Graphic file (type jpg)
+<use ./immagini e video/immagine_dii.jpg>
+Package pdftex.def Info: ./immagini e video/immagine_dii.jpg  used on input lin
+e 38.
 (pdftex.def)             Requested size: 91.04742pt x 91.05038pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 38.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 39.
 
 
 (C:\Users\aless\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 38.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 39.
 
 
 (C:\Users\aless\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<./immagini e video/Logo Università Padova.png, id=32, 1204.5pt x 1204.5pt>
-File: ./immagini e video/Logo Università Padova.png Graphic file (type png)
-<use ./immagini e video/Logo Università Padova.png>
-Package pdftex.def Info: ./immagini e video/Logo Università Padova.png  used o
-n input line 51.
+<./immagini e video/Logo_Università_Padova.png, id=32, 1204.5pt x 1204.5pt>
+File: ./immagini e video/Logo_Università_Padova.png Graphic file (type png)
+<use ./immagini e video/Logo_Università_Padova.png>
+Package pdftex.def Info: ./immagini e video/Logo_Università_Padova.png  used o
+n input line 52.
 (pdftex.def)             Requested size: 91.04742pt x 91.032pt.
-<./immagini e video/foto copertina.png, id=34, 817.55438pt x 511.9125pt>
-File: ./immagini e video/foto copertina.png Graphic file (type png)
-<use ./immagini e video/foto copertina.png>
-Package pdftex.def Info: ./immagini e video/foto copertina.png  used on input l
-ine 66.
+<./immagini e video/foto_copertina.png, id=34, 817.55438pt x 511.9125pt>
+File: ./immagini e video/foto_copertina.png Graphic file (type png)
+<use ./immagini e video/foto_copertina.png>
+Package pdftex.def Info: ./immagini e video/foto_copertina.png  used on input l
+ine 67.
 (pdftex.def)             Requested size: 364.19667pt x 228.0464pt.
 
 [1
 
 {C:/Users/aless/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./immagini e
- video/immagine dii.jpg> <./immagini e video/Logo Università Padova.png> <./im
-magini e video/foto copertina.png>]
+ video/immagine_dii.jpg> <./immagini e video/Logo_Università_Padova.png> <./im
+magini e video/foto_copertina.png>]
 (C:\Users\aless\Desktop\Progettino-Dinamica-del-volo\Documentazione\build\Repor
 t 1.toc)
 \tf@toc=\write5
@@ -776,38 +786,38 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.92 \newpage
+l.93 \newpage
               [1] [2]
 <./immagini e video/orbita.png, id=70, 998.9822pt x 536.0025pt>
 File: ./immagini e video/orbita.png Graphic file (type png)
 <use ./immagini e video/orbita.png>
-Package pdftex.def Info: ./immagini e video/orbita.png  used on input line 140.
+Package pdftex.def Info: ./immagini e video/orbita.png  used on input line 141.
 
 (pdftex.def)             Requested size: 364.19667pt x 195.40619pt.
  [3 <./immagini e video/orbita.png>]
-<./immagini e video/confronto propagatori.png, id=98, 655.69969pt x 396.7322pt>
+<./immagini e video/confronto_propagatori.png, id=98, 655.69969pt x 396.7322pt>
 
-File: ./immagini e video/confronto propagatori.png Graphic file (type png)
-<use ./immagini e video/confronto propagatori.png>
-Package pdftex.def Info: ./immagini e video/confronto propagatori.png  used on 
-input line 166.
+File: ./immagini e video/confronto_propagatori.png Graphic file (type png)
+<use ./immagini e video/confronto_propagatori.png>
+Package pdftex.def Info: ./immagini e video/confronto_propagatori.png  used on 
+input line 167.
 (pdftex.def)             Requested size: 364.19667pt x 220.35847pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--170
+Underfull \hbox (badness 10000) in paragraph at lines 157--171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--170
+Underfull \hbox (badness 10000) in paragraph at lines 157--171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--170
+Underfull \hbox (badness 10000) in paragraph at lines 157--171
 
  []
 
-[4] [5 <./immagini e video/confronto propagatori.png>] [6]
+[4] [5 <./immagini e video/confronto_propagatori.png>] [6]
 (C:\Users\aless\Desktop\Progettino-Dinamica-del-volo\Documentazione\build\Repor
 t 1.aux)
  ***********
@@ -821,10 +831,10 @@ Package logreq Info: Writing requests to '"Report 1".run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 19359 strings out of 467871
- 338689 string characters out of 5418376
- 1196612 words of memory out of 5000000
- 47997 multiletter control sequences out of 15000+600000
+ 19431 strings out of 467871
+ 340153 string characters out of 5418376
+ 1197700 words of memory out of 5000000
+ 48062 multiletter control sequences out of 15000+600000
  643371 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,7n,67p,1498b,1821s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -848,7 +858,7 @@ onts/cm/cmmi8.pfb><C:/Users/aless/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmr8.pfb><C:/Users/aless/AppData/Local/Programs/MiKTeX/fonts/ty
 pe1/public/amsfonts/cm/cmsy8.pfb>
 Output written on "C:\Users\aless\Desktop\Progettino-Dinamica-del-volo\Document
-azione\build\Report 1.pdf" (7 pages, 4000731 bytes).
+azione\build\Report 1.pdf" (7 pages, 4000977 bytes).
 PDF statistics:
  607 PDF objects out of 1000 (max. 8388607)
  29 named destinations out of 1000 (max. 500000)

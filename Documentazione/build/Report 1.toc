@@ -6,4 +6,4 @@
 \contentsline {section}{\numberline {4}Osservazioni}{4}{section.4}%
 \contentsline {section}{\numberline {5}Analisi dei Risultati}{4}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Confronto Propagatori}{4}{subsection.5.1}%
-\contentsline {section}{\numberline {6}Organizzazione del gruppo}{4}{section.6}%
+\contentsline {section}{\numberline {6}Organizzazione del gruppo}{5}{section.6}%

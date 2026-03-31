@@ -19,7 +19,8 @@
 \addbibresource{bibliografia.bib}
 
 \usepackage{xurl} % Gestione URL lunghi
-\usepackage[hidelinks, pdfpagemode=UseNone, breaklinks]{hyperref} % Link cliccabili ma neri
+\usepackage[colorlinks=true,linkcolor=black,citecolor=blue,
+urlcolor=blue,pdfpagemode=UseNone]{hyperref}
 
 % Comandi personalizzati
 \newcommand{\hr}{\rule{\linewidth}{0.5mm}}
@@ -34,7 +35,7 @@
     
     \begin{minipage}{0.20\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{immagine dii}
+        \includegraphics[width=\textwidth]{immagine_dii}
     \end{minipage}
     \hfill
     \begin{minipage}{0.55\textwidth}
@@ -48,7 +49,7 @@
     \hfill
     \begin{minipage}{0.20\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{Logo Università Padova} 
+        \includegraphics[width=\textwidth]{Logo_Università_Padova} 
     \end{minipage}
 
     \vspace{1cm}
@@ -63,7 +64,7 @@
     
     \vspace{2cm}
  
-    \includegraphics[width=0.8\textwidth]{"foto copertina"} 
+    \includegraphics[width=0.8\textwidth]{foto_copertina} 
     
     \vfill 
    
@@ -163,12 +164,12 @@ Al contrario, il Propagatore Custom (linea verde) produce un output costante (li
 Infine, il comportamento dell'Argomento del Perigeo (AoP) nel grafico suggerisce un'orbita a bassa eccentricità: la rapida stabilizzazione del valore nei modelli complessi evidenzia come le perturbazioni agiscano immediatamente sulla geometria dell'orbita, fenomeno totalmente ignorato dalla semplificazione kepleriana.\\
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{confronto propagatori.png}
+    \includegraphics[width=0.8\textwidth]{confronto_propagatori.png}
     \caption{Confronto propagatori} 
     \label{fig:confronto propagatori}
 \end{figure}
 
-
+\newpage
 \section{Organizzazione del gruppo}
 Il lavoro del gruppo è stato organizzato attorno alla piattaforma GitHub, scelta che abbiamo preferito rispetto ad una più tradizionale e diffusa cartella condivisa su un drive online, in quanto permette di gestire meglio e di tenere traccia di tutte le modifiche ai codici, inoltre non presenta limiti in quanto a spazio di archiviazione. \'E stata creata una repository \cite{RepositoryGitHub} alla quale tutti i componenti del gruppo hanno avuto accesso permettendo di collaborare, e si è optato per lavorare tutti su una sola branch visto che complicare la struttura della repository non avrebbe portato ad alcun vantaggio aggiuntivo. 
 I file sono stati gestititi in due cartelle separate: per i codici (sia GMAT che MATLAB) è stata creata l'apposita cartella \textsl{Codici}, mentre il codice LaTeX e le immagini sono stati inseriti nella cartella \textsl{Documentazione}.
