@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.3.30)  31 MAR 2026 11:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.3.30)  31 MAR 2026 16:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -743,7 +743,7 @@ t 1.out)
 \@outlinefile=\write4
 \openout4 = `"Report 1.out"'.
 
-<./immagini e video/immagine_dii.jpg, id=31, 200.75pt x 200.75pt>
+<./immagini e video/immagine_dii.jpg, id=47, 200.75pt x 200.75pt>
 File: ./immagini e video/immagine_dii.jpg Graphic file (type jpg)
 <use ./immagini e video/immagine_dii.jpg>
 Package pdftex.def Info: ./immagini e video/immagine_dii.jpg  used on input lin
@@ -761,13 +761,13 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
 (C:\Users\aless\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<./immagini e video/Logo_Università_Padova.png, id=32, 1204.5pt x 1204.5pt>
+<./immagini e video/Logo_Università_Padova.png, id=48, 1204.5pt x 1204.5pt>
 File: ./immagini e video/Logo_Università_Padova.png Graphic file (type png)
 <use ./immagini e video/Logo_Università_Padova.png>
 Package pdftex.def Info: ./immagini e video/Logo_Università_Padova.png  used o
 n input line 55.
 (pdftex.def)             Requested size: 91.04742pt x 91.032pt.
-<./immagini e video/foto_copertina.png, id=34, 817.55438pt x 511.9125pt>
+<./immagini e video/foto_copertina.png, id=50, 817.55438pt x 511.9125pt>
 File: ./immagini e video/foto_copertina.png Graphic file (type png)
 <use ./immagini e video/foto_copertina.png>
 Package pdftex.def Info: ./immagini e video/foto_copertina.png  used on input l
@@ -790,37 +790,49 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.96 \newpage
-              [1] [2]
-<./immagini e video/orbita.png, id=70, 998.9822pt x 536.0025pt>
+              [1]
+<./immagini e video/orbita.png, id=82, 998.9822pt x 536.0025pt>
 File: ./immagini e video/orbita.png Graphic file (type png)
 <use ./immagini e video/orbita.png>
-Package pdftex.def Info: ./immagini e video/orbita.png  used on input line 144.
+Package pdftex.def Info: ./immagini e video/orbita.png  used on input line 116.
 
 (pdftex.def)             Requested size: 364.19667pt x 195.40619pt.
- [3 <./immagini e video/orbita.png>]
-<./immagini e video/confronto_propagatori.png, id=98, 655.69969pt x 396.7322pt>
+ [2 <./immagini e video/orbita.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 132--140
 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 132--140
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 132--140
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 132--140
+
+ []
+
+[3]
+<./immagini e video/confronto_propagatori.png, id=119, 655.69969pt x 396.7322pt
+>
 File: ./immagini e video/confronto_propagatori.png Graphic file (type png)
 <use ./immagini e video/confronto_propagatori.png>
 Package pdftex.def Info: ./immagini e video/confronto_propagatori.png  used on 
-input line 170.
-(pdftex.def)             Requested size: 364.19667pt x 220.35847pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 160--174
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 160--174
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 160--174
-
- []
-
-[4] [5 <./immagini e video/confronto_propagatori.png>] [6]
+input line 146.
+(pdftex.def)             Requested size: 218.51521pt x 132.21144pt.
+<./immagini e video/grafici_scarti.png, id=120, 808.52063pt x 455.45157pt>
+File: ./immagini e video/grafici_scarti.png Graphic file (type png)
+<use ./immagini e video/grafici_scarti.png>
+Package pdftex.def Info: ./immagini e video/grafici_scarti.png  used on input l
+ine 153.
+(pdftex.def)             Requested size: 218.51521pt x 123.0917pt.
+ [4 <./immagini e video/confronto_propagatori.png> <./immagini e video/grafici_
+scarti.png>] [5] [6] [7]
 (C:\Users\aless\Desktop\Progettino-Dinamica-del-volo\Documentazione\build\Repor
 t 1.aux)
  ***********
@@ -828,42 +840,41 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
  ***********
 Package rerunfilecheck Info: File `"Report 1".out' has not changed.
-(rerunfilecheck)             Checksum: 2D7B004129356D2B18A37037F62A0EF5;1156.
+(rerunfilecheck)             Checksum: 2E1894C8DB5FCD3DD5C4A7CF915D299B;1811.
 Package logreq Info: Writing requests to '"Report 1".run.xml'.
 \openout1 = `"Report 1.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 19430 strings out of 467871
- 340139 string characters out of 5418376
- 1197414 words of memory out of 5000000
- 48061 multiletter control sequences out of 15000+600000
- 643371 words of font info for 73 fonts, out of 8000000 for 9000
+ 19448 strings out of 467871
+ 340652 string characters out of 5418376
+ 1197450 words of memory out of 5000000
+ 48074 multiletter control sequences out of 15000+600000
+ 642545 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,7n,67p,1498b,1821s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 63i,8n,67p,1498b,1821s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\aless\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc
 1200.pk> <C:\Users\aless\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecti1200.pk> <C:\Users\aless\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
 /dpi600\ecsl1200.pk> <C:\Users\aless\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
 pen/ec/dpi600\ectt1200.pk> <C:\Users\aless\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecso1200.pk> <C:\Users\aless\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecsi1200.pk> <C:\Users\aless\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\aless\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\aless\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1440.pk> <C:\Users\aless\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\aless\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\
-aless\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\
-Users\aless\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk
-><C:/Users/aless/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mmi12.pfb><C:/Users/aless/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmmi8.pfb><C:/Users/aless/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmr8.pfb><C:/Users/aless/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmsy8.pfb>
+/jknappen/ec/dpi600\ecsi1200.pk> <C:\Users\aless\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\aless\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\aless\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1440.pk> <C:\Users\aless\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\aless\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\aless\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\
+aless\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/U
+sers/aless/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.
+pfb><C:/Users/aless/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmmi8.pfb><C:/Users/aless/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmr8.pfb><C:/Users/aless/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmsy8.pfb>
 Output written on "C:\Users\aless\Desktop\Progettino-Dinamica-del-volo\Document
-azione\build\Report 1.pdf" (7 pages, 4000977 bytes).
+azione\build\Report 1.pdf" (8 pages, 4038745 bytes).
 PDF statistics:
- 607 PDF objects out of 1000 (max. 8388607)
- 29 named destinations out of 1000 (max. 500000)
- 82 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 600 PDF objects out of 1000 (max. 8388607)
+ 35 named destinations out of 1000 (max. 500000)
+ 119 words of extra memory for PDF output out of 10000 (max. 10000000)
 
