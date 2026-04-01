@@ -9,9 +9,9 @@ aero_toolbox = res.aerotb_res;
 
 start_time = custom_data.t_date(1);
 
-cr = custom_data.r_eci; 
-cv = custom_data.v_eci;
-ct = custom_data.t;     
+cr = custom_data.r_icrf; 
+cv = custom_data.v_icrf;
+ct = custom_data.t - custom_data.t(1);     
 
 tbr = aero_toolbox.pos_eci.Data(3:end,:); % i primi step dell'integratore hanno passo troppo vicino a 0
 tbv = aero_toolbox.vel_eci.Data(3:end,:); 
@@ -38,21 +38,23 @@ if exist("Kep_param.csv","file")
     i_gmat = i_gmat(1:idx_gmat_end);
     raan_gmat = raan_gmat(1:idx_gmat_end);
     aop_gmat = aop_gmat(1:idx_gmat_end);
+    % Associo i valori trami
 
     i_gmat_interp        = interp1(t_gmat,i_gmat,ct,"spline");
     raan_gmat_interp     = interp1(t_gmat,raan_gmat,ct,"spline");
-    aop_gmat_interp      = interp1(t_gmat,aop_gmat,ct,"spline")
+    aop_gmat_interp      = interp1(t_gmat,aop_gmat,ct,"spline");
 end
 
 % Calcolo degli scarti tra toolbox e custom
-delta_pos = sqrt(sum((cr + tbr_interp).^2, 2));
-delta_vel = sqrt(sum((cv + tbv_interp).^2, 2));
+delta_pos = sqrt(sum((cr - tbr_interp).^2, 2));
+delta_vel = sqrt(sum((cv - tbv_interp).^2, 2));
 
 scartor_percentuale = (delta_pos ./ norm(tbr_interp)) * 100;
 scartov_percentuale = (delta_vel ./ norm(tbv_interp)) * 100;
 
 % Andamento dei parametri orbitali toolbox
-i = zeros(length(tbr_interp),1); raan  = zeros(length(tbr_interp),1); T = zeros(length(tbr_interp),1);
+i = zeros(length(tbr_interp),1); raan  = zeros(length(tbr_interp),1);
+T = zeros(length(tbr_interp),1); omega = zeros(length(tbr_interp),1);
 for idx = 1:length(tbr_interp)
     param = get_parametri_orbitali(tbr_interp(idx,:)/1000,tbv_interp(idx,:)/1000, mu_terra);
     i(idx) = param.i;
@@ -121,7 +123,7 @@ plot(ct/3600,i,'LineWidth', 1.5, 'Color', "b") %toolbox
 hold on
 plot(ct/3600, ones(length(i),1)*sat_param.i,'LineWidth', 1.5, 'Color',"g") %Custom
 hold on
-plot(ct/3600, i_gmat_interp,'LineWidth', 1.5, 'Color',[1, 0.5, 0])  %GMAT
+% plot(ct/3600, i_gmat_interp,'LineWidth', 1.5, 'Color',[1, 0.5, 0])  %GMAT
 grid on
 ylabel('i [deg]')
 xlabel('Tempo [ore]')
@@ -134,7 +136,7 @@ plot(ct/3600,raan,'LineWidth', 1.5, 'Color', "b") %toolbox
 hold on
 plot(ct/3600,ones(length(i),1)*sat_param.raan,'LineWidth', 1.5, 'Color', "g") %Custom
 hold on
-plot(ct/3600, raan_gmat_interp,'LineWidth', 1.5, 'Color',[1, 0.5, 0])  %GMAT
+% plot(ct/3600, raan_gmat_interp,'LineWidth', 1.5, 'Color',[1, 0.5, 0])  %GMAT
 grid on
 ylabel('raan [deg]')
 xlabel('Tempo [ore]')
@@ -142,15 +144,15 @@ legend("Aerospace toolbox", "Propagatore custom","GMAT")
 title('andamento raan')
 
 % Argomento di perigeo
-subplot(3,1,2)
+subplot(3,1,3)
 plot(ct/3600,omega,'LineWidth', 1.5, 'Color', "b") %toolbox
 hold on
 plot(ct/3600,ones(length(i),1)*sat_param.omega,'LineWidth', 1.5, 'Color', "g") %Custom
 hold on
-plot(ct/3600, aop_gmat_interp,'LineWidth', 1.5, 'Color',[1, 0.5, 0])  %GMAT
+% plot(ct/3600, aop_gmat_interp,'LineWidth', 1.5, 'Color',[1, 0.5, 0])  %GMAT
 grid on
 ylabel('AoP [deg]')
 xlabel('Tempo [ore]')
 legend("Aerospace toolbox", "Propagatore custom","GMAT")
-title('andamento raan')
+title('andamento AoP')
 

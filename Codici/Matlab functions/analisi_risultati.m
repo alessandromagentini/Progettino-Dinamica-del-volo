@@ -13,8 +13,8 @@ cr = custom_data.r_eci;
 cv = custom_data.v_eci;
 ct = custom_data.t - custom_data.t(1);     
 
-tbr = aero_toolbox.pos_eci.Data(3:end,:); % i primi step dell'integratore hanno passo troppo vicino a 0
-tbv = aero_toolbox.vel_eci.Data(3:end,:); 
+tbr = aero_toolbox.pos_icrf.Data(3:end,:); % i primi step dell'integratore hanno passo troppo vicino a 0
+tbv = aero_toolbox.vel_icrf.Data(3:end,:); 
 tbt = seconds(datetime(aero_toolbox.time.Data(3:end,:)) - start_time);
 
 tbr_interp = interp1(tbt, tbr, ct, "spline");

@@ -49,9 +49,14 @@
    url = {https://it.mathworks.com/help/releases/R2025b/aeroblks/mission-analysis-with-the-orbit-propagator-block.html}
 }
 
+@misc{MappingToolbox,
+   title = {Mapping Toolbox},
+   url = {https://it.mathworks.com/help/releases/R2025b/map/index.html?searchPort=59548}
+}
+
 @misc{Simulink,
-	title = {Simulink},
-    url = {https://it.mathworks.com/help/releases/R2025b/simulink/index.html?searchPort=62546}
+	title = {Example of orbit propagator block use},
+   url = {https://it.mathworks.com/help/releases/R2025b/aeroblks/mission-analysis-with-the-orbit-propagator-block.html}
 }
 
 @misc{Claude,

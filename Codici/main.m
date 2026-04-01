@@ -18,7 +18,7 @@ v0_vec = [4.126512186315761, -3.956371322777358, -0.490613661500991];           
 mu_terra = 398600.4418;                                                           %[km^3/s^2]
 
 start_time   = datetime(2026, 3, 26, 18, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
-stop_time    = datetime(2026, 3, 26, 24, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
+stop_time    = datetime(2026, 3, 27,  6, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
 mission_duration = seconds(stop_time - start_time);                               %[s]
 delta_t_sat_sample = 30 * 60;                                                     %[s]
 
@@ -42,7 +42,7 @@ res.sat_orbit = sat_orbit;
 if satellite_tb_flag == 1
     deltat_sample = 60;        %[s]
     sc_sat_tb = satelliteScenario(start_time,stop_time,deltat_sample);
-    sat_orbit_sat_tb = satellite(sc_sat_tb,sat_param.a,sat_param.e,sat_param.i,sat_param.raan,sat_param.omega,0);
+    sat_orbit_sat_tb = satellite(sc_sat_tb,sat_param.a,sat_param.e,sat_param.i,sat_param.raan,sat_param.omega,sat_param.TA0);
 
     % PLOT
     v = satelliteScenarioViewer(sc_sat_tb);
@@ -59,8 +59,8 @@ posData_icrf  = simOut.yout{1}.Values;
 velData_icrf  = simOut.yout{2}.Values;
 timeData      = simOut.yout{3}.Values;
 
-sc_aero_tb = satelliteScenario(start_time, stop_time, 600);
-sat_orbit_aero_tb = satellite(sc_aero_tb, posData_icrf, velData_icrf, "CoordinateFrame", "ecef");
+sc_aero_tb = satelliteScenario(start_time, stop_time, 60);
+sat_orbit_aero_tb = satellite(sc_aero_tb, posData_icrf, velData_icrf);
 
 %% Salvo i saples richiesti                                                  
 samples_date = (start_time:seconds(delta_t_sat_sample):stop_time)';
@@ -77,7 +77,7 @@ for k = 1:n_samples
     end
 end
 
-res.aerotb_res = struct("pos_eci",posData_icrf, "vel_eci",velData_icrf, "time",timeData);
+res.aerotb_res = struct("pos_icrf",posData_icrf, "vel_icrf",velData_icrf, "time",timeData);
 
 if simulink_flag == 1 % PLOT
     % groundTrack(sat_orbit_aero_tb);
