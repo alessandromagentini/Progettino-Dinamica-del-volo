@@ -47,3 +47,5 @@ con inclinazione relativa rispetto al piano equatoriale terrestre.
 | Ippolito Luigi |
 | Magentini Alessandro|
 | Michielan Filippo|# Progettino-Dinamica-del-volo
+
+[Report 1](https://github.com/alessandromagentini/Progettino-Dinamica-del-volo/blob/main/Documentazione/Report%201.pdf)

@@ -8,7 +8,7 @@ groundtrack3_flag        = 0;      % per geoplot 3D della ground track
 groundtrack2_flag        = 0;      % per geoplot 2D della ground track
 plot_eci_flag            = 0;      % per plot (non globe) in ECI
 satellite_tb_flag        = 0;      % per utilizzo satellite communication toolbox
-simulink_flag            = 1;      % per plot del modello simulink
+simulink_flag            = 0;      % per plot del modello simulink
 analisi_risultati_flag   = 1;      % per verifica dei risulati
 
 %% Dati iniziali

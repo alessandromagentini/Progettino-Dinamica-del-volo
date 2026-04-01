@@ -19,16 +19,15 @@
 \addbibresource{bibliografia.bib}
 
 \usepackage[
-    colorlinks=true,   % Attiva i colori per i link
-    linkcolor=black,    % Colore dei link interni (indice)
-    citecolor=blue,     % Colore delle citazioni (bibliografia)
-    urlcolor=blue,      % Colore degli URL
+    colorlinks=true,   
+    linkcolor=black,    
+    citecolor=blue,     
+    urlcolor=blue, 
     pdfpagemode=UseNone,
     breaklinks=true
 ]{hyperref}
-\usepackage{xurl} % Gestione URL lunghi
+\usepackage{xurl} 
 
-% Comandi personalizzati
 \newcommand{\hr}{\rule{\linewidth}{0.5mm}}
 
 % --- INIZIO DOCUMENTO ---
@@ -67,7 +66,7 @@
     
     \vspace{2cm}
  
-    \includegraphics[width=0.8\textwidth]{foto_copertina} 
+    \includegraphics[width=0.8\textwidth]{plot eci3h.png} 
     \label{fig:immagine_compertina}
     
     \vfill 
@@ -110,7 +109,7 @@ Il software specifico è stato scelto attraverso interrogazione dell'AI Claude \
     }
 \end{quote}
 
-Analizzata la situazione abbiamo scelto di utilizzare MATLAB come software principale per l'analisi dell'orbita mentre GMAT è stato utilizzato come confronto e validazione dei dati ottenuti. In quanto ci averebbe permesso applicare quanto appreso a lezione.  
+Analizzata la situazione abbiamo scelto di utilizzare MATLAB come software principale per l'analisi dell'orbita mentre GMAT è stato utilizzato come confronto e validazione dei dati ottenuti, in quanto questa soluzione ci ha permesso di applicare quanto appreso a lezione.  
 
 \section{Analisi del problema e Implementazione codice}
 \label{sec:codice}
@@ -118,24 +117,56 @@ Il primo passaggio dello studio è stato analizzare l'orbita attraverso GMAT \pa
 All'interno del codice MATLAB sono state implementate diverse funzioni: una per il calcolo dei parametri orbitali, una per la propagazione, una per i plot delle orbite e una per il plot dei risultati (compresi quelli ottenuti da GMAT). Il propagatore scritto da noi, a partire dall'intervallo temporale definito inizialmente, calcola l'orbita seguendo l'ordine t - $M_e$ - E (\texttt{xi}) - TA - r. Questa metodologia però, nonostante fornisca risultati corretti, non permette una visualizzazione dell'orbita nel sistema ECI, ma soltanto in un sistema fisso con la rotazione terrestre (richiede la conversione delle coordinate in latitudine,longitudine e altezza \cite{MappingToolbox}). Per ottenere l'orbita nel sistema ECI, quindi, ci siamo appoggiati alle functions del Satellite Comunication Toolbox \cite{SatelliteCommunication} affiancato al Aerospace Toolbox \cite{AerospaceToolbox}, la prima usa la function \texttt{satellite}, che propaga l'orbita, e \texttt{satelliteScenarioViewer} che la visualizza nella maniera da noi desiderata; mentre il modello implementato dall'Aerospace Toolbox esegue un codice simulink \cite{Simulink,DSPSystemToolbox} in cui viene utilizzato il blocco del toolbox \texttt{Orbit Propagator}\cite{AerospaceBlockset}, che permette anche la considerazione di effetti perturbativi in quanto si basa sulla risoluzione per via numerica (integrazione), ma che restituisce i risultati soltanto in sistema di riferimento ICRF o ECEF (\texttt{fixed-frame}).
 Per la guida all'utilizzo del codice si veda la Sezione \ref{sec:utilizzoCodice} dell'appendice.
 
+\section{Risultati}
+\subsection{Parametri orbitali}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|l|c|}
+\hline
+\textbf{Parametro} & \textbf{Simbolo} & \textbf{Valore} & \textbf{Unità} \\ \hline
+\hline
+\multicolumn{4}{|c|}{\textbf{Geometria dell'Orbita}} \\ \hline
+Energia Specifica & $E$ & -22.1445 & $MJ/kg$ \\ \hline
+Semiasse Maggiore & $a$ & 9.0000e+6 & $m$ \\ \hline
+Perigeo& $r_p$ & 7.6500e+6 & $m$ \\ \hline
+Apogeo & $r_a$ & 1.0350e+7 & $m$ \\ \hline
+Eccentricità & $e$ & 0.1500 &  - \\ \hline
+Periodo Orbitale & $T$ & 8497.2 & $s$ \\ \hline
+\hline
+\multicolumn{4}{|c|}{\textbf{Parametri Angolari}} \\ \hline
+Inclinazione & $i$ & 5.00 & $deg$ \\ \hline
+RAAN & $\Omega$ & 35.00 & $deg$ \\ \hline
+Arg. del Perigeo & $\omega$ & 6.9874e-05 & $deg$ \\ \hline
+\hline
+\multicolumn{4}{|c|}{\textbf{Altri valori iniziali}} \\ \hline
+Tempo dal perigeo iniziale  & $t_0$ & -4026.9 & $s$ \\ \hline
+Anomalia Vera iniziale & $\theta_0$ & 189.4999 & $deg$ \\ \hline
+Anomalia Eccentrica iniz. & $E_0$ & -171.8278 & $deg$ \\ \hline
+Anomalia Media iniz. & $M_0$ & -170.6061 & $deg$ \\ \hline
+\end{tabular}
+
+\caption{Parametri orbitali del satellite con unità di misura}
+\end{table}
+
 \subsection{Plot dell'orbita} 
 \label{sec:sezioneOrbita}
-In copertina abbiamo deciso di inserire il plot ottenuto su MATLAB, a partire dai risultati del nostro propagatore e che ci è stato utile per validare visivamente la correttezza del nostro codice, ma che ai fini del progetto risulta di bassa utilità. Per questo motivo nelle figure \ref{fig:plotGMAT} e \ref{fig:plotTB} abbiamo riportato il plot dell'orbita propagata (con perturbazioni) con GMAT e il Toolbox \cite{AerospaceToolbox}. Per ragioni di semplicità tecnica soltanto il plot di GMAT è in sistema di riferimento ECI. Mentre quello del Toolbox ha come uniche impostazioni di base i sistemi di riferimento ECEF o ICRF; dunque, dal momento che il nostro periodo di osservazione è breve, abbiamo deciso di presentare il plot in ICRF, ed effettivamente anche i due plot sono visivamente quasi indistinguibili.
+In copertina abbiamo deciso di inserire il plot ottenuto su MATLAB a partire dai risultati del nostro propagatore e che ci è stato utile per validare visivamente la correttezza del nostro codice, ma che ai fini del progetto risulta di bassa utilità. Per questo motivo nelle figure \ref{fig:plotGMAT} e \ref{fig:plotTB} abbiamo riportato il plot dell'orbita propagata (con perturbazioni) con GMAT e il Toolbox \cite{AerospaceToolbox}. Per ragioni di semplicità tecnica soltanto il plot di GMAT è in sistema di riferimento ECI. Mentre quello del Toolbox ha come uniche impostazioni di base i sistemi di riferimento ECEF o ICRF; dunque, dal momento che il nostro periodo di osservazione è breve, abbiamo deciso di presentare il plot in ICRF, ed effettivamente anche i due plot sono visivamente quasi indistinguibili.
 
 \begin{figure}[htbp]
     \centering
     \begin{minipage}{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{confronto_propagatori.png}
-        \caption{Confronto propagatori}
-        \label{fig:plotGMAT}
+        \includegraphics[width=\textwidth]{orbita.png}
+        \caption{Orbita GMAT (ECI)}
+        \label{fig:orbitaGMAT}
     \end{minipage}
     \hfill 
     \begin{minipage}{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{grafici_scarti.png}
-        \caption{Grafici scarti}
-        \label{fig:plotTB}
+        \includegraphics[width=\textwidth]{orbita_toolbox.png}
+        \caption{Orbita MATLAB (ICRF)}
+        \label{fig:orbitaMATLAB}
     \end{minipage}
 \end{figure}
 
@@ -160,7 +191,7 @@ All'interno del codice il campionamento viene fatto a partire dei risultati otte
 \end{tabular}
 \end{table}
 
-Come verrò anche evidenziato in Sezione \ref{sec:analisiScarti}, il propagatore custom già su un periodo di osservazione breve inizia a discostarsi dai modelli più accurati, nonostante ciò però, il campionamento ci ha permesso di sviluppare a livello di codice un metodo affidabile di salvataggio dei dati.
+Come verrà anche evidenziato in Sezione \ref{sec:analisiScarti}, il propagatore custom già su un periodo di osservazione breve inizia a discostarsi dai modelli più accurati, nonostante ciò però, il campionamento ci ha permesso di sviluppare a livello di codice un metodo affidabile di salvataggio dei dati.
 
 \section{Osservazioni}
 Il lavoro svolto non è stato privo di difficoltà ed errori. La scelta di utilizzare un numero notevole di programmi e le loro estensioni ha inizialmente rallentato i lavori.
@@ -177,36 +208,35 @@ In secondo luogo viene alla luce la discrepanza osservabile nei grafici tra i mo
 
 Osservando il comportamento dell'Argomento del Perigeo (AoP) invece si può subito intuire la bassa eccentricità dell’orbita e si nota che la geometria è influenzata immediatamente dalle perturbazioni giungendo però rapidamente ad una stabilizzazione del valore nei modelli complessi, fenomeno totalmente ignorato dalla semplificazione kepleriana.
 
+\subsection{Analisi scarti}
+\label{sec:analisiScarti}
+Proponiamo ora un'analisi degli scarti (residui) tra il propagatore di MATLAB e il modello kepleriano semplificato. Essi quantificano l'errore accumulato in termini di posizione (r) e velocità (v).
+
+\subsubsection{Analisi della Deriva}
+Tutti i grafici mostrano, come preventivabile, che gli scarti tra i due modelli seguono un trend simile ad una crescita lineare nel tempo (rappresentato dalla linea tratteggiata verde), con lo scostamento che passa in sole 12 ore da circa 450 km a oltre 850 km e lo scarto sulla velocità da circa 0.3 km/s a 0.55 km/s (media). Questo andamento trova spiegazione nell’imprecisione crescente del modello kepleriano, che subisce una "degradazione" dovuta alla non inclusione delle perturbazioni. Concretamente tutto ciò provoca uno sfasamento tra la posizione prevista dal modello semplice e quella che effettivamente il satellite "reale" dovrebbe occupare fisicamente. 
+
+\subsubsection{Componente Oscillatoria}
+Nei grafici proposti possiamo osservare curve solide, in rosso per i valori assoluti e in blu per i percentuali. L’andamento è oscillatorio con una sinusoide molto marcata. Le oscillazioni indicano una crescita dello scarto non uniforme, con l'errore massimo che si verifica in determinati punti dell'orbita (probabilmente vicino alle zone di massimo schiacciamento equatoriale), mentre si manifesta una leggera riduzione quando il satellite attraversa zone dove l'approssimazione sferica è più accettabile.
+
+\subsubsection{Analisi degli Scostamenti Percentuali}
+L’entità dello scostamento percentuale è fondamentale per valutare la precisione o eventualmente la gravità dell'errore in relazione alle grandezze totali, ad esempio nel nostro caso possiamo notare come l'errore sia estremamente basso in termini relativi (tra lo 0.03\% e lo 0.09\%). Osserviamo anche che curiosamente gli scostamenti percentuali della velocità e della posizione non crescono di pari passo ma il primo cresce con una pendenza leggermente maggiore del secondo.
+
 \begin{figure}[htbp]
     \centering
     \begin{minipage}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{confronto_propagatori.png}
         \caption{Confronto propagatori}
-        \label{fig:confronto propagatori}
+        \label{fig:plotGMAT}
     \end{minipage}
     \hfill 
     \begin{minipage}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{grafici_scarti.png}
         \caption{Grafici scarti}
-        \label{fig:confronto degli scarti}
+        \label{fig:plotTB}
     \end{minipage}
 \end{figure}
-
-\subsection{Analisi scarti}
-\label{sec:analisiScarti}
-Proponiamo ora un'analisi degli scarti (residui) tra il propagatore di MATLAB e il modello kepleriano semplificato. Essi quantificano l'errore accumulato in termini di posizione (r) e velocità (v).
-
-\subsubsection{Analisi della Deriva}
-Tutti i grafici mostrano, come preventivabile, un trend di crescita lineare %forse è piccolo l'intervallo temporale per dire che la crescita è lineare
-(rappresentato dalla linea tratteggiata verde), con lo scostamento che passa in sole 12 ore da circa 450 km a oltre 850 km e lo scarto sulla velocità da circa 0.3 km/s a 0.55 km/s (media). Questo andamento trova spiegazione nell’imprecisione crescente del modello kepleriano, che subisce una "degradazione" dovuta alla non inclusione delle perturbazioni. Concretamente tutto ciò provoca uno sfasamento tra la posizione prevista dal modello semplice e quella che effettivamente il satellite "reale" dovrebbe occupare fisicamente. 
-
-\subsubsection{Componente Oscillatoria}
-Nei grafici proposti possiamo osservare curve solide, in rosso per i valori assoluti e in blu per i percentuali. L’andamento è oscillatorio con una sinusoide molto marcata. Le oscillazioni indicano una crescita dello scarto non uniforme, con l'errore massimo che si verifica in determinati punti dell'orbita (probabilmente vicino alle zone di massimo schiacciamento equatoriale), mentre si manifesta una leggera riduzione quando il satellite attraversa zone dove l'approssimazione sferica è più accettabile.
-
-\subsubsection{Analisi degli Scostamenti Percentuali}
-L’entità dello scostamento percentuale è fondamentale per valutare la precisione o eventualmente la gravità dell'errore in relazione alle grandezze totali, ad esempio nel nostro caso possiamo notare come l'errore sia estremamente basso in termini relativi (tra lo 0.03\% e lo 0.09\%). Osserviamo anche che curiosamente gli scostamenti percentuali della velocità  e della posizione non crescono di pari passo ma il primo cresce con una pendenza leggermente maggiore del secondo. % Ciò dimostra che l'approssimazione kepleriana fallisce più rapidamente nel predire ""l'energia cinetica"" del satellite rispetto alla sua coordinata spaziale. (Forse non correttissimo, probabilmente il moduo della velocità non è troppo errato, in fondo non ci sono perdite di energia, è sbagliata la direzione del vettore velcità, che deriva dal fatto che il custom dopo una certa ha una posizione errata)
 
 \section{Organizzazione del gruppo}
 Il lavoro del gruppo è stato organizzato attorno alla piattaforma GitHub, scelta che abbiamo preferito rispetto ad una più tradizionale e diffusa cartella condivisa su un drive online, in quanto permette di gestire meglio e di tenere traccia di tutte le modifiche ai codici, inoltre non presenta limiti in quanto a spazio di archiviazione. \'E stata creata una repository \cite{RepositoryGitHub} alla quale tutti i componenti del gruppo hanno avuto accesso permettendo di collaborare, e si è optato per lavorare tutti su una sola branch visto che complicare la struttura della repository non avrebbe portato ad alcun vantaggio aggiuntivo. 
@@ -230,7 +260,7 @@ Attivando queste variabili (valore $1$), è possibile eseguire le seguenti opera
     \item \texttt{analisi\_risultati\_flag}: permette di stampare i grafici relativi all'analisi discussa nella sezione \ref{sec:analisiRis} (in particolare le figure \ref{fig:confronto propagatori} e \ref{fig:confronto degli scarti}).
 \end{itemize}
 
-Successivamente alle righe di definizione delle costati e dei dati iniziali, è possibile definire l'intervallo temporale di durata della simulazione, andando a modificare le variabili \texttt{start\_time} e \texttt{stop\_time}, con le date desiderate (da inserire nella forma "anno,mese,giorno,ora,minuti,secondi"); e infine l'intervallo temporale per il campionamento.\\
+Successivamente alle righe di definizione delle costati e dei dati iniziali, è possibile definire l'intervallo temporale di durata della simulazione, andando a modificare le variabili \texttt{start\_time} e \texttt{stop\_time}, con le date desiderate (da inserire nella forma "anno,mese,giorno,ora,minuti,secondi"); e infine, modificando la variabile \texttt{delta\_t\_sat\_sample}, la frequenza di campionamento.\\
 \\
 Una volta avviato il codice a terminale verranno stampati aggiornamenti sullo stato dell'esecuzione.
 I parametri orbitali in caso di necessità sono facilmente reperibili chiamando a terminale lo struct \texttt{sat\_param} all'interno del quale sono salvati (ovvero digitando solo "sat\_param", oppure aprendo lo struct dal worksapce). 
