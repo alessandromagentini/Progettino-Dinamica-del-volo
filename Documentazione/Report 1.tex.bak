@@ -58,7 +58,7 @@
     
     \hrule 
     \vspace{0.6cm}
-    {\Huge \bfseries Progettino Dinamica del Volo} \\
+    {\Huge \bfseries Progettino Dinamica del Volo Aerospaziale} \\
     \vspace{0.4cm}
     {\large Prima Parte: Descrizione Orbita}
     \vspace{0.6cm}
@@ -98,18 +98,18 @@
 % --- CONTENUTO ---
 
 \section{Introduzione}
-Il primo progettino relativo al corso di Dinamica del Volo, anno accademico 2025/2026, richiede ad un gruppo di massimo quattro studenti di disegnare una missione di intercettazione di un asteroide posizionato su di un' orbita con inclinazione relativa rispetto al piano equatoriale terrestre.
+Il primo progettino relativo al corso di Dinamica del Volo Aerospaziale, anno accademico 2025/2026, richiede ad un gruppo di massimo quattro studenti di disegnare una missione di intercettazione di un asteroide posizionato su di un'orbita con inclinazione relativa rispetto al piano equatoriale terrestre.
 \section{Scelta Software specifico}
 Il software specifico è stato scelto attraverso interrogazione dell'AI Claude \parencite{Claude} e Gemini \parencite{Gemini}. Il prompt utilizzato è il seguente, riportato in forma integrale:  
 
 \begin{quote}
     \itshape 
     \textsf{ 
-        ``Devo svolgere un progetto universitario per il corso di Dinamica del Volo Aerospaziale in un gruppo di 4 persone. L'obiettivo è disegnare una missione di intercettazione di un asteroide su orbita inclinata rispetto al piano equatoriale terrestre. I contenuti richiesti includono: parametri orbitali, posizione del satellite ogni 3 ore, plot 3D in sistema ECI, analisi delle perturbazioni, ground track, manovre orbitali e phasing. La metodologia richiede analisi teorica, motivazione degli strumenti usati, rilevazione delle discrepanze tra teoria e simulazione, e identificazione del contributo di ogni membro. Il professore propone come alternative MATLAB o GMAT. Analizza pro e contro di entrambi rispetto a questo specifico progetto, valuta se convenga usarli entrambi in parallelo o in modo complementare. ''
+        ``Devo svolgere un progetto universitario per il corso di Dinamica del Volo Aerospaziale in un gruppo di 4 persone. L'obiettivo è disegnare una missione di intercettazione di un asteroide su orbita inclinata rispetto al piano equatoriale terrestre. I contenuti richiesti includono: parametri orbitali, posizione del satellite ogni 3 ore, plot 3D in sistema ECI, analisi delle perturbazioni, ground track, manovre e phasing orbitali. La metodologia richiede analisi teorica, motivazione degli strumenti usati, rilevazione delle discrepanze tra teoria e simulazione, e identificazione del contributo di ogni membro. Il professore propone come alternative MATLAB o GMAT. Analizza pro e contro di entrambi i programmi rispetto a questo specifico progetto, valuta se convenga usarli entrambi in parallelo o in modo complementare. ''
     }
 \end{quote}
 
-Analizzata la situazione abbiamo scelto di utilizzare MATLAB come software principale per l'analisi dell'orbita mentre GMAT è stato utilizzato come confronto e validazione dei dati ottenuti, in quanto questa soluzione ci ha permesso di applicare quanto appreso a lezione.  
+Analizzate le risposte del dei chatbot, abbiamo scelto di utilizzare MATLAB come software principale per l'analisi dell'orbita, mentre GMAT è stato utilizzato come confronto e validazione dei dati ottenuti, in quanto questa soluzione ci ha permesso di applicare quanto appreso a lezione e di avere uno strumento di validazione dei risultati.  
 
 \section{Analisi del problema e Implementazione codice}
 \label{sec:codice}
@@ -171,7 +171,7 @@ In copertina abbiamo deciso di inserire il plot ottenuto su MATLAB a partire dai
 \end{figure}
 
 \subsection{Risultati campionamento}
-All'interno del codice il campionamento viene fatto a partire dei risultati ottenuti. Se l'istante temporale è già stato calcolato il risultato viene solo salvato, altrimenti il codice ricava il valore tramite interpolazione. Nella tabella di seguito sono riportati i risultati 
+All'interno del codice il campionamento viene fatto a partire dai risultati ottenuti. Se l'istante temporale è già stato calcolato il risultato viene solo salvato, altrimenti il codice ricava il valore tramite interpolazione. Nella tabella di seguito sono riportati i risultati 
 
 \begin{table}[h]
 \centering
@@ -190,6 +190,8 @@ All'interno del codice il campionamento viene fatto a partire dei risultati otte
 21:00 & 5.01e6 & -7.20e6 & -7.67e5 & 5.44e6 & -6.75e6 & -7.57e5 \\ \hline
 \end{tabular}
 \end{table}
+
+Con il fine di avere anche un riscontro visivo, i punti di campionamento sono stati aggiunti al plot riportato in figura \ref{fig:immagine_compertina} in copertina.
 
 Come verrà anche evidenziato in Sezione \ref{sec:analisiScarti}, il propagatore custom già su un periodo di osservazione breve inizia a discostarsi dai modelli più accurati, nonostante ciò però, il campionamento ci ha permesso di sviluppare a livello di codice un metodo affidabile di salvataggio dei dati.
 
@@ -227,14 +229,14 @@ L’entità dello scostamento percentuale è fondamentale per valutare la precis
         \centering
         \includegraphics[width=\textwidth]{confronto_propagatori.png}
         \caption{Confronto propagatori}
-        \label{fig:plotGMAT}
+        \label{fig:confrontoProp}
     \end{minipage}
     \hfill 
     \begin{minipage}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{grafici_scarti.png}
         \caption{Grafici scarti}
-        \label{fig:plotTB}
+        \label{fig:graficiScarti}
     \end{minipage}
 \end{figure}
 
@@ -257,7 +259,7 @@ Attivando queste variabili (valore $1$), è possibile eseguire le seguenti opera
     \item \texttt{plot\_eci\_flag}: genera il plot dell'orbita nel sistema di riferimento ECI (come mostrato, ad esempio, nella figura \ref{fig:immagine_compertina} in copertina).
     \item \texttt{satellite\_tb\_flag}: abilita i calcoli e la visualizzazione dell'orbita sfruttando il \textit{Satellite Toolbox} \cite{SatelliteCommunication}.
     \item \texttt{simulink\_flag}: attiva il plot dei dati ottenuti dal propagatore implementato in \textit{Simulink} (il cui modello è facilmente accessibile per modificare i parametri di propagazione).
-    \item \texttt{analisi\_risultati\_flag}: permette di stampare i grafici relativi all'analisi discussa nella sezione \ref{sec:analisiRis} (in particolare le figure \ref{fig:confronto propagatori} e \ref{fig:confronto degli scarti}).
+    \item \texttt{analisi\_risultati\_flag}: permette di stampare i grafici relativi all'analisi discussa nella sezione \ref{sec:analisiRis} (in particolare le figure \ref{fig:confrontoProp} e \ref{fig:graficiScarti}).
 \end{itemize}
 
 Successivamente alle righe di definizione delle costati e dei dati iniziali, è possibile definire l'intervallo temporale di durata della simulazione, andando a modificare le variabili \texttt{start\_time} e \texttt{stop\_time}, con le date desiderate (da inserire nella forma "anno,mese,giorno,ora,minuti,secondi"); e infine, modificando la variabile \texttt{delta\_t\_sat\_sample}, la frequenza di campionamento.\\
