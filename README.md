@@ -14,7 +14,7 @@ con inclinazione relativa rispetto al piano equatoriale terrestre.
 
 ## Contenuti
 
-###[Report 1](https://github.com/alessandromagentini/Progettino-Dinamica-del-volo/blob/main/Documentazione/Report%201.pdf)
+### [Report 1](https://github.com/alessandromagentini/Progettino-Dinamica-del-volo/blob/main/Documentazione/Report%201.pdf)
 - Parametri orbitali
 - Posizione del satellite ogni 3 ore
 - Disegno dell'orbita in 3 dimensioni (sistema ECI)
