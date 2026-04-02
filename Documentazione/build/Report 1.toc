@@ -1,0 +1,17 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {section}{\numberline {1}Introduzione}{2}{section.1}%
+\contentsline {section}{\numberline {2}Scelta Software specifico}{2}{section.2}%
+\contentsline {section}{\numberline {3}Analisi del problema e Implementazione codice}{2}{section.3}%
+\contentsline {section}{\numberline {4}Risultati}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Parametri orbitali}{3}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Plot dell'orbita}{3}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Risultati campionamento}{3}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Osservazioni}{4}{section.5}%
+\contentsline {section}{\numberline {6}Analisi dei Risultati}{5}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Confronto Propagatori}{5}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Analisi scarti}{5}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Analisi della Deriva}{5}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Analisi degli Scostamenti Percentuali}{6}{subsubsection.6.2.2}%
+\contentsline {section}{\numberline {7}Organizzazione del gruppo}{6}{section.7}%
+\contentsline {section}{\numberline {A}Utilizzo del codice MATLAB}{7}{appendix.Alph1}%

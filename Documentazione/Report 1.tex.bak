@@ -127,23 +127,23 @@ Per la guida all'utilizzo del codice si veda la Sezione \ref{sec:utilizzoCodice}
 \textbf{Parametro} & \textbf{Simbolo} & \textbf{Valore} & \textbf{Unità} \\ \hline
 \hline
 \multicolumn{4}{|c|}{\textbf{Geometria dell'Orbita}} \\ \hline
-Energia Specifica & $E$ & -22.1445 & $MJ/kg$ \\ \hline
-Semiasse Maggiore & $a$ & 9.0000e+6 & $m$ \\ \hline
-Perigeo& $r_p$ & 7.6500e+6 & $m$ \\ \hline
-Apogeo & $r_a$ & 1.0350e+7 & $m$ \\ \hline
+Energia Specifica & $E$ & -22.1445 & $km^2/s^2$ \\ \hline
+Semiasse Maggiore & $a$ & 9000.0 & $km$ \\ \hline
+Perigeo& $r_p$ & 7650.0 & $km$ \\ \hline
+Apogeo & $r_a$ & 10350.0 & $km$ \\ \hline
 Eccentricità & $e$ & 0.1500 &  - \\ \hline
 Periodo Orbitale & $T$ & 8497.2 & $s$ \\ \hline
 \hline
 \multicolumn{4}{|c|}{\textbf{Parametri Angolari}} \\ \hline
 Inclinazione & $i$ & 5.00 & $deg$ \\ \hline
 RAAN & $\Omega$ & 35.00 & $deg$ \\ \hline
-Arg. del Perigeo & $\omega$ & 6.9874e-05 & $deg$ \\ \hline
+Arg. del Perigeo & $\omega$ & 6.9874e-5 & $deg$ \\ \hline
 \hline
 \multicolumn{4}{|c|}{\textbf{Altri valori iniziali}} \\ \hline
 Tempo dal perigeo iniziale  & $t_0$ & -4026.9 & $s$ \\ \hline
 Anomalia Vera iniziale & $\theta_0$ & 189.4999 & $deg$ \\ \hline
-Anomalia Eccentrica iniz. & $E_0$ & -171.8278 & $deg$ \\ \hline
-Anomalia Media iniz. & $M_0$ & -170.6061 & $deg$ \\ \hline
+% Anomalia Eccentrica iniz. & $E_0$ & -171.8278 & $deg$ \\ \hline
+% Anomalia Media iniz. & $M_0$ & -170.6061 & $deg$ \\ \hline
 \end{tabular}
 
 \caption{Parametri orbitali del satellite con unità di misura}
@@ -151,7 +151,7 @@ Anomalia Media iniz. & $M_0$ & -170.6061 & $deg$ \\ \hline
 
 \subsection{Plot dell'orbita} 
 \label{sec:sezioneOrbita}
-In copertina abbiamo deciso di inserire il plot ottenuto su MATLAB a partire dai risultati del nostro propagatore, è stato utile per validare visivamente la correttezza del nostro codice, ma che ai fini del progetto risulta di bassa utilità. Per questo motivo nelle figure \ref{fig:orbitaGMAT} e \ref{fig:orbitaMATLAB} abbiamo riportato il plot dell'orbita propagata (con perturbazioni) con GMAT e il Toolbox \cite{AerospaceToolbox}. Per ragioni di semplicità tecnica soltanto il plot di GMAT è in sistema di riferimento ECI mentre quello del Toolbox ha come uniche impostazioni di base i sistemi di riferimento ECEF o ICRF; dunque, dal momento che il nostro periodo di osservazione è breve, abbiamo deciso di presentare il plot in ICRF, ed effettivamente anche i due plot sono visivamente quasi indistinguibili.
+In copertina abbiamo deciso di inserire il plot ottenuto su MATLAB a partire dai risultati del nostro propagatore, è stato utile per validare visivamente la correttezza del nostro codice, ma che ai fini del progetto risulta di bassa utilità. Per questo motivo nelle figure \ref{fig:orbitaGMAT} e \ref{fig:orbitaMATLAB} abbiamo riportato il plot dell'orbita propagata (con perturbazioni) con GMAT e il Toolbox \cite{AerospaceToolbox}. Per ragioni di semplicità tecnica soltanto il plot di GMAT è in sistema di riferimento ECI mentre quello del Toolbox ha come uniche impostazioni di base i sistemi di riferimento ECEF o ICRF; dunque, dal momento che il nostro periodo di osservazione è breve, abbiamo deciso di presentare il plot in ICRF, ed effettivamente i due plot sono visivamente quasi indistinguibili.
 
 \begin{figure}[htbp]
     \centering
@@ -171,7 +171,7 @@ In copertina abbiamo deciso di inserire il plot ottenuto su MATLAB a partire dai
 \end{figure}
 
 \subsection{Risultati campionamento}
-All'interno del codice il campionamento viene fatto a partire dai risultati ottenuti. Se l'istante temporale è già stato calcolato il risultato viene solo salvato, altrimenti il codice ricava il valore tramite interpolazione. Nella tabella di seguito sono riportati i risultati 
+All'interno del codice il campionamento viene fatto a partire dai risultati ottenuti. Se l'istante temporale è già stato calcolato il risultato viene solo salvato, altrimenti il codice ricava il valore tramite interpolazione. Nella tabella di seguito sono riportati i risultati in metri. 
 
 \begin{table}[h]
 \centering
@@ -264,7 +264,7 @@ Attivando queste variabili (valore $1$), è possibile eseguire le seguenti opera
 Successivamente alle righe di definizione delle costati e dei dati iniziali, è possibile definire l'intervallo temporale di durata della simulazione, andando a modificare le variabili \texttt{start\_time} e \texttt{stop\_time}, con le date desiderate (da inserire nella forma "anno,mese,giorno,ora,minuti,secondi"); e infine, modificando la variabile \texttt{delta\_t\_sat\_sample}, la frequenza di campionamento.\\
 \\
 Una volta avviato il codice a terminale verranno stampati aggiornamenti sullo stato dell'esecuzione.
-I parametri orbitali in caso di necessità sono facilmente reperibili chiamando a terminale lo struct \texttt{sat\_param} all'interno del quale sono salvati (ovvero digitando solo "sat\_param", oppure aprendo lo struct dal worksapce). 
+I parametri orbitali, in caso di necessità, sono facilmente reperibili chiamando a terminale  lo struct \texttt{sat\_param}, all'interno del quale sono salvati, oppure aprendo lo struct dal worksapce). 
 
 
  

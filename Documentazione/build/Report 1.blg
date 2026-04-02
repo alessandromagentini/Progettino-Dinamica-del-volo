@@ -1,0 +1,17 @@
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is 'build/Report 1.blg'
+[82] biber-MSWIN64:342> INFO - === 
+[120] Biber.pm:421> INFO - Reading 'build/Report 1.bcf'
+[202] Biber.pm:1002> INFO - Found 11 citekeys in bib section 0
+[211] Biber.pm:4487> INFO - Processing section 0
+[219] Biber.pm:4678> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
+[275] bibtex.pm:1713> INFO - LaTeX decoding ...
+[280] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
+[303] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[303] UCollate.pm:68> INFO - Overriding locale 'it-IT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[303] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'it-IT'
+[303] Biber.pm:4313> INFO - No sort tailoring available for locale 'it-IT'
+[310] bbl.pm:676> INFO - Writing 'build/Report 1.bbl' with encoding 'UTF-8'
+[313] bbl.pm:779> INFO - Output to build/Report 1.bbl
+[313] Biber.pm:132> WARN - Duplicate entry key: 'MappingToolbox' in file 'bibliografia.bib', skipping ...
+[313] Biber.pm:134> INFO - WARNINGS: 1

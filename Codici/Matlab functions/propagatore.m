@@ -26,18 +26,20 @@ n = round(seconds(stopTime - startTime)/dt);
 % n = round(T/dt) + 1;  % numero intervalli dt su un periodo T dell'orbita
 
 %% Inizializzazione
-xi        = zeros(n+1,1); xi(1) = xi0;
-TA        = zeros(n+1,1); TA(1) = TA0;
-r_kepl    = zeros(n+1,3);         
-v_kepl    = zeros(n+1,3);
-t         = zeros(n+1,1);
-fpa       = zeros(n+1,1);
-v_ort     = zeros(n+1,1);
-v_rad     = zeros(n+1,1);
-M_e       = zeros(n+1,1); M_e(1) = M_e0;
+xi          = zeros(n+1,1); xi(1) = xi0;
+TA          = zeros(n+1,1); TA(1) = TA0;
+r_kepl      = zeros(n+1,1);         
+v_kepl      = zeros(n+1,1);
+t           = zeros(n+1,1);
+fpa         = zeros(n+1,1);
+v_ort       = zeros(n+1,1);
+v_rad       = zeros(n+1,1);
+M_e         = zeros(n+1,1); M_e(1) = M_e0;
 
-r_eci    = zeros(n+1,3);
-v_eci    = zeros(n+1,3);
+r_kepl_vec  = zeros(n+1,3);
+v_kepl_vec  = zeros(n+1,3);
+r_eci       = zeros(n+1,3);
+v_eci       = zeros(n+1,3);
 
 %% Risolutore:
 % t -> M_e -> xi -> TA
@@ -45,7 +47,7 @@ for idx = 1:(n+1)                         %eventualmente si porebbe mettere un p
     t(idx) = t0 + (idx * dt - dt);                                         % tempo trascorso in [s]
     M_e(idx) = 2*pi/T * t(idx);                                            % Anomalia media
     xi(idx) = KeplerE(M_e(idx),e);                                         % Anomalia Eccentrica
-    TA(idx) = TA_fun(xi(idx));                                             % Calcolo True Anomaly                                          % conversione in [deg]
+    TA(idx) = TA_fun(xi(idx));                                             % Calcolo True Anomaly                          
     r_kepl(idx)  = r_fun(TA(idx));                                         % Calcolo del raggio in [m]
     fpa(idx) = atan((e*sin(TA(idx)))/(1 + e*cos(TA(idx))));                % Flight path angle
     
@@ -53,14 +55,19 @@ for idx = 1:(n+1)                         %eventualmente si porebbe mettere un p
     v_rad(idx)  = mu/h * e * sin(TA(idx));                                 % Velocità radiale
     v_kepl(idx) = norm([v_ort(idx) v_rad(idx)]);                           % Velocità risultante
 
-    %% Conversione in ECI:
-    %% DA FARE?) scrivere la nostra funzione
     if TA(idx) < 0
         TA(idx) = 2*pi + TA(idx);
     end
+
+    %% Conversione in ECI:
     [rt, vt] = keplerian2ijk(a, e, i, raan, omega, rad2deg(TA(idx))); %funzione dell'aerospace toolbox temporanea/per verificare
     r_eci(idx,:) = rt';
     v_eci(idx,:) = vt';
+
+    % % custom
+    % r_kepl_vec(idx,:) = [r_kepl(idx)*cos(TA(idx)); r_kepl(idx)*sin(TA(idx)); 0];
+    % v_kepl_vec(idx,:) = (mu/h) * [-sin(TA(idx)); e + cos(TA(idx)); 0];
+    % [r_eci(idx,:), v_eci(idx,:)] = perifocale2ECI((r_kepl_vec(idx,:)*1000)',(v_kepl_vec(idx,:)*1000)',i,raan,omega);
 end
 t_date = (startTime:seconds(dt):stopTime)';                                % date istanti temporali 
 
