@@ -2,10 +2,9 @@ function [] = plotter(sat_param,sat_orbit,groundtrack3_flag, grundtrack2_flag,pl
 
 R_terra = 6378e3;                                                          %[m]
 start_time = sat_orbit.t_date(1); stop_time = sat_orbit.t_date(end);
-dt = sat_orbit.dt;
 
 % PLOT
-t_utc = start_time:seconds(dt):stop_time;
+t_utc = sat_orbit.t_date;
 lla = eci2lla(sat_orbit.r_eci, datevec(t_utc));
 lat = lla(:,1);
 lon = lla(:,2);

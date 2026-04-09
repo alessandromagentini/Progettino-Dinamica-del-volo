@@ -4,12 +4,13 @@ clear;clc;close all
 addpath("Matlab functions")
 
 % Flags
-groundtrack3_flag        = 0;      % per geoplot 3D della ground track
-groundtrack2_flag        = 1;      % per geoplot 2D della ground track
-plot_eci_flag            = 1;      % per plot (non globe) in ECI
-satellite_tb_flag        = 0;      % per utilizzo satellite communication toolbox
-simulink_flag            = 1;      % per plot del modello simulink
-analisi_risultati_flag   = 1;      % per verifica dei risulati
+groundtrack3_flag        = 0;          % per geoplot 3D della ground track
+groundtrack2_flag        = 0;          % per plot (non globe) in ECI
+plot_eci_flag            = 1;          % per plot in ECI
+satellite_tb_flag        = 0;          % per utilizzo satellite communication toolbox
+simulink_flag            = 0;          % per plot del modello simulink
+analisi_risultati_flag   = 1;          % per verifica dei risulati
+modello_propagatore   = "numerical";   % "keplerian" o "numerical"--> per scegliere il metodo di propagazione (numerical contiene perturbazioni)
 
 %% Dati iniziali
 r0_vec = [-7368.038574853538, -7231.584293256432, -148.523707822187];             %[Km]
@@ -31,7 +32,7 @@ fprintf(" completato!\n")
 %1) Custom
 dt = 1;                                                                           %[s]
 fprintf("Propagazione dell'orbita con function custom...")
-[sat_orbit] = propagatore(sat_param,dt,delta_t_sat_sample,start_time,stop_time); 
+[sat_orbit] = propagatore(sat_param,dt,delta_t_sat_sample,start_time,stop_time,modello_propagatore); 
 fprintf(" completato!\n")
 if groundtrack3_flag == 1 || groundtrack2_flag == 1 || plot_eci_flag == 1  % PLOT
     plotter(sat_param,sat_orbit,groundtrack3_flag,groundtrack2_flag,plot_eci_flag)

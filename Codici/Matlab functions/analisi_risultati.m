@@ -23,7 +23,7 @@ tbv_interp = interp1(tbt, tbv, ct, "spline");
 %% Estrazione dati GMAT
 addpath("..\Codici\GMAT")
 if exist("Kep_param.csv","file")
-    gmat_data = readtable("Kep_param.csv");%#ok
+    gmat_data = readtable("Kep_param.csv");
     t_gmat    = gmat_data.SAT_ElapsedSecs;
     e_gmat    = gmat_data.SAT_Earth_ECC;
     RA_gmat   = gmat_data.SAT_EarthICRF_RA;
@@ -47,10 +47,8 @@ end
 
 % Calcolo degli scarti tra toolbox e custom
 delta_pos = sqrt(sum((cr - tbr_interp).^2, 2));
-delta_vel = sqrt(sum((cv - tbv_interp).^2, 2));
 
 scartor_percentuale = (delta_pos ./ norm(tbr_interp)) * 100;
-scartov_percentuale = (delta_vel ./ norm(tbv_interp)) * 100;
 
 % Andamento dei parametri orbitali toolbox
 i = zeros(length(tbr_interp),1); raan  = zeros(length(tbr_interp),1);
@@ -69,13 +67,13 @@ end
 figure('Name', 'Confronto Propagatori', 'NumberTitle', 'off')
 % Subplot 1: Scarto Assoluto posizione
 subplot(2,2,1)
-plot(ct/3600, delta_pos/1000, 'LineWidth', 1.5, 'Color', "r")
+plot(ct/3600, delta_pos, 'LineWidth', 1.5, 'Color', "r")
 hold on
-pr = polyfit(ct, delta_pos/1000, 1); 
+pr = polyfit(ct, delta_pos, 1); 
 r_reg = polyval(pr, ct);
 plot(ct/3600, r_reg, 'g--', 'LineWidth', 2)
 grid on
-ylabel('Scostamento Posizione [km]')
+ylabel('Scostamento Posizione [m]')
 xlabel('Tempo [ore]')
 title('Differenza Assoluta')
 
@@ -91,29 +89,17 @@ ylabel('Scostamento [%]')
 xlabel('Tempo [ore]')
 title('Scostamento r Percentuale')
 
-% Subplot 3: Scarto Assoluto velocità
-subplot(2,2,3)
-plot(ct/3600, delta_vel/1000, 'LineWidth', 1.5, 'Color', "r")
+% Subplot: Scarto componenti
+subplot(2,2,[3,4])
+plot(ct/3600, abs(cr(:,1) - tbr_interp(:,1)),'LineWidth', 1.5)
 hold on
-pv = polyfit(ct, delta_vel/1000, 1); 
-v_reg = polyval(pv, ct);
-plot(ct/3600, v_reg, 'g--', 'LineWidth', 2)
+plot(ct/3600, abs(cr(:,2) - tbr_interp(:,2)), 'LineWidth', 1.5)
+plot(ct/3600, abs(cr(:,3) - tbr_interp(:,3)), 'LineWidth', 1.5)
 grid on
-ylabel('Scostamento Velocità [km/s]')
+ylabel('Scarto [m]')
 xlabel('Tempo [ore]')
-title('Differenza Assoluta')
-
-% Subplot 4: Scarto Percentuale velocità
-subplot(2,2,4)
-plot(ct/3600, scartov_percentuale, 'LineWidth', 1.5, 'Color', "b")
-hold on
-percv = polyfit(ct, scartov_percentuale, 1); 
-v_perc_reg = polyval(percv, ct);
-plot(ct/3600, v_perc_reg, 'g--', 'LineWidth', 2)
-grid on
-ylabel('Scostamento [%]')
-xlabel('Tempo [ore]')
-title('Scostamento v Percentuale')
+legend('X','Y','Z')
+title('Scarto per componente')
 
 % Plot parametri orbitali
 figure('Name','Andamento parametri orbitali','NumberTitle', 'off')
@@ -121,7 +107,7 @@ figure('Name','Andamento parametri orbitali','NumberTitle', 'off')
 subplot(3,1,1)
 plot(ct/3600,i,'LineWidth', 1.5, 'Color', "b") %toolbox
 hold on
-plot(ct/3600, ones(length(i),1)*sat_param.i,'LineWidth', 1.5, 'Color',"g") %Custom
+plot(ct/3600, custom_data.i,'LineWidth', 1.5, 'Color',"g") %Custom
 hold on
 plot(ct/3600, i_gmat_interp,'LineWidth', 1.5, 'Color',[1, 0.5, 0])  %GMAT
 grid on
@@ -134,7 +120,7 @@ title('andamento inclinazione')
 subplot(3,1,2)
 plot(ct/3600,raan,'LineWidth', 1.5, 'Color', "b") %toolbox
 hold on
-plot(ct/3600,ones(length(i),1)*sat_param.raan,'LineWidth', 1.5, 'Color', "g") %Custom
+plot(ct/3600,custom_data.raan,'LineWidth', 1.5, 'Color', "g") %Custom
 hold on
 plot(ct/3600, raan_gmat_interp,'LineWidth', 1.5, 'Color',[1, 0.5, 0])  %GMAT
 grid on
@@ -147,7 +133,7 @@ title('andamento raan')
 subplot(3,1,3)
 plot(ct/3600,omega,'LineWidth', 1.5, 'Color', "b") %toolbox
 hold on
-plot(ct/3600,ones(length(i),1)*sat_param.omega,'LineWidth', 1.5, 'Color', "g") %Custom
+plot(ct/3600,custom_data.omega,'LineWidth', 1.5, 'Color', "g") %Custom
 hold on
 plot(ct/3600, aop_gmat_interp,'LineWidth', 1.5, 'Color',[1, 0.5, 0])  %GMAT
 grid on

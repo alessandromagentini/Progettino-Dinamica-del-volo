@@ -7,8 +7,8 @@ function [obj_param] = get_parametri_orbitali(r,v, mu)
 %   e orientativi dell'orbita.
 %
 %   INPUT:
-%       r        - Vettore posizione nel sistema ECI [1x3] o [3x1]  [km]
-%       v        - Vettore velocità nel sistema ECI [1x3] o [3x1]   [km/s]
+%       r        - Vettore posizione nel sistema ECI [1x3]          [km]
+%       v        - Vettore velocità nel sistema ECI [1x3]           [km/s]
 %       mu       - Parametro gravitazionale standard del corpo      [km^3/s^2]
 %
 %   OUTPUT:
