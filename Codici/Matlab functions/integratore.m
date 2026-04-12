@@ -18,6 +18,7 @@ a_J2 = -3/2 * J2 * mu_terra * RT^2 / norm(r)^5 * ...   % Perturbazione J2
        [X*(1 - 5*Z^2/norm(r)^2);
         Y*(1 - 5*Z^2/norm(r)^2);
         Z*(3 - 5*Z^2/norm(r)^2)];
+
 dvdt = g + a_J2;
 dydt = [drdt; dvdt];
 
