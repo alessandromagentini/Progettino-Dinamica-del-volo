@@ -23,7 +23,9 @@ tbv_interp = interp1(tbt, tbv, ct, "spline");
 %% Estrazione dati GMAT
 addpath("..\Codici\GMAT")
 if exist("Kep_param.csv","file")
+    warning('off', 'all')
     gmat_data = readtable("Kep_param.csv");
+    warning('on', 'all')
     t_gmat    = gmat_data.SAT_ElapsedSecs;
     e_gmat    = gmat_data.SAT_Earth_ECC;
     RA_gmat   = gmat_data.SAT_EarthICRF_RA;

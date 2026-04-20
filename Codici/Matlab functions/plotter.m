@@ -25,7 +25,7 @@ if plot_eci == 1
     hold on; grid on; axis equal;
     
     % Rappresentazione della Terra (Sfera)
-    [x_s, y_s, z_s] = sphere(50);
+    [x_s, y_s, z_s] = sphere(30);
     surf(x_s*R_terra, y_s*R_terra, z_s*R_terra, ...
          'FaceColor', [0.3 0.5 1], 'EdgeColor', 'none', 'FaceAlpha', 0.2);
     

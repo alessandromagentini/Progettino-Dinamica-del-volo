@@ -48,6 +48,12 @@ if satellite_tb_flag == 1
 
     % PLOT
     v = satelliteScenarioViewer(sc_sat_tb);
+
+    %% Altri comandi del toolbox
+% states 
+% groundStation
+% groudTrack(sat_orbit_aero_tb, "LeadTime",1800, "Trail time",....)
+%accesInterval
 end
 
 %3) Simulink model with aerospace toolbox

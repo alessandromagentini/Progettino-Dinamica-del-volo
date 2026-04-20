@@ -8,8 +8,8 @@ RT = 6371e3;        % raggio Terra [m]
 mu_terra = 3.986004418e14;  %[m^3/s^2]
 
 % Organizzazione dati input
-r = y(1:3);                  % XYZ
-drdt = y(4:6);               % XYZ
+r = y(1:3);          % XYZ
+drdt = y(4:6);       % XYZ
 
 % Calcoli
 g = -mu_terra / norm(r)^3 * r;

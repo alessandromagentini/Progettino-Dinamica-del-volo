@@ -70,3 +70,7 @@
 	url = {https://gemini.google.com/app}
 }
 
+@misc{HohmannTransfer,
+	title = {Hohmann Transfer matworks example},
+	url = {https://it.mathworks.com/help/releases/R2025b/aeroblks/hohmann-transfer-with-the-spacecraft-dynamics-block.html}
+}
