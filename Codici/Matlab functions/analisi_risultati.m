@@ -1,4 +1,4 @@
-function [] = analisi_risultati(sat_param,res)
+function [] = analisi_risultati(res)
 % Function per l'analisi e plot dei risultati
 
 mu_terra = 398600.4418;   
@@ -21,7 +21,6 @@ tbr_interp = interp1(tbt, tbr, ct, "spline");
 tbv_interp = interp1(tbt, tbv, ct, "spline");
 
 %% Estrazione dati GMAT
-addpath("..\Codici\GMAT")
 if exist("Kep_param.csv","file")
     warning('off', 'all')
     gmat_data = readtable("Kep_param.csv");

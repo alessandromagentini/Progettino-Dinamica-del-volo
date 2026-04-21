@@ -1,4 +1,4 @@
-function [orbit_polar] = propagatore(orbit_param, dt, t_sample, startTime, stopTime, type)
+function [orbit_polar] = propagatore(orbit_param, dt, t_sample, startTime, stopTime, type, flags)
 % Funzione che calcola l'orbita a partire dai parametri orbitali nel
 % sistema perifocale e poi restituisce l'orbita in ECI
 
@@ -17,6 +17,9 @@ M_e0      = deg2rad(orbit_param.M_e0);
 t0        = orbit_param.t0;
 r0        = orbit_param.r0_vec;
 v0        = orbit_param.v0_vec;
+
+J2 = 1.08263*1e-3;
+RT = 6371*1e3; %[m]
 
 %% Funzioni
 % r
@@ -82,15 +85,16 @@ elseif type == "numerical"
     tol = 1e-13;
     max_step = 600;  %[s]
     t_span = [0, seconds(stopTime - startTime)];
+    data = struct("orbit_param",orbit_param,"r0",r0,"v0",v0,"startTime",startTime,"t_span",t_span,"mu",mu*1e9,"J2",J2,"raggio_terra",RT, "flags",flags);
 
     int_opt = get_integration_opt(tol,max_step); % aggiungere function per manovra
-    [t, yout] = ode45(@(t,y) integratore(t,y), t_span, [r0; v0], int_opt);
+    [t, yout] = ode45(@(t,y) integratore(t,y,data), t_span, [r0; v0], int_opt);
     r_eci = yout(:, 1:3);
     v_eci = yout(:, 4:6);
 
     t_date = startTime + seconds(t); % date istanti temporali 
 
-    % Ricalcolo dei parametri orbitali per vederne l'andamento
+    % Ricostruisco i parametri orbitali per vederne l'andamento
     i      = zeros(length(t),1);
     raan   = zeros(length(t),1);
     omega  = zeros(length(t),1);

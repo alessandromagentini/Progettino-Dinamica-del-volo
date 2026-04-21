@@ -1,7 +1,7 @@
 clear;clc;close all
 
 % Aggiungo il path della cartella delle funciton
-addpath("Matlab functions")
+addpath(genpath(pwd))
 
 % Flags
 groundtrack3_flag        = 0;          % per geoplot 3D della ground track
@@ -11,6 +11,9 @@ satellite_tb_flag        = 0;          % per utilizzo satellite communication to
 simulink_flag            = 0;          % per plot del modello simulink
 analisi_risultati_flag   = 1;          % per verifica dei risulati
 modello_propagatore   = "numerical";   % "keplerian" o "numerical"--> per scegliere il metodo di propagazione (numerical contiene perturbazioni)
+flags_perturbazioni.J2_flag    = 1;
+flags_perturbazioni.moon_flag  = 1;
+flags_perturbazioni.sun_flag   = 0;
 
 %% Dati iniziali
 r0_vec = [-7368.038574853538, -7231.584293256432, -148.523707822187];             %[Km]
@@ -33,7 +36,7 @@ fprintf(" completato!\n")
 %1) Custom
 dt = 1;                                                                           %[s]
 fprintf("Propagazione dell'orbita con function custom...")
-[sat_orbit] = propagatore(sat_param,dt,delta_t_sat_sample,start_time,stop_time,modello_propagatore); 
+[sat_orbit] = propagatore(sat_param,dt,delta_t_sat_sample,start_time,stop_time,modello_propagatore, flags_perturbazioni); 
 fprintf(" completato!\n")
 if groundtrack3_flag == 1 || groundtrack2_flag == 1 || plot_eci_flag == 1  % PLOT
     plotter(sat_param,sat_orbit,groundtrack3_flag,groundtrack2_flag,plot_eci_flag)
@@ -50,10 +53,10 @@ if satellite_tb_flag == 1
     v = satelliteScenarioViewer(sc_sat_tb);
 
     %% Altri comandi del toolbox
-% states 
-% groundStation
-% groudTrack(sat_orbit_aero_tb, "LeadTime",1800, "Trail time",....)
-%accesInterval
+    % states 
+    % groundStation
+    % groudTrack(sat_orbit_aero_tb, "LeadTime",1800, "Trail time",....)
+    %accesInterval
 end
 
 %3) Simulink model with aerospace toolbox
@@ -93,5 +96,5 @@ if simulink_flag == 1 % PLOT
 end
 
 if analisi_risultati_flag == 1
-    analisi_risultati(sat_param,res)
+    analisi_risultati(res)
 end
