@@ -1,6 +1,31 @@
-function [orbit_polar] = propagatore(orbit_param, dt, t_sample, startTime, stopTime, type, flags)
-% Funzione che calcola l'orbita a partire dai parametri orbitali nel
-% sistema perifocale e poi restituisce l'orbita in ECI
+function [orbit_polar] = propagatore(orbit_param, dt, t_sample, startTime, stopTime, flags)
+%   Questa funzione propaga l'orbita di un satellite a partire dai parametri
+%   orbitali iniziali. Supporta sia una propagazione analitica (Kepleriana) 
+%   sia una propagazione numerica (ODE45) che include perturbazioni J2 
+%   ed effetti di terzo corpo (Sole/Luna).
+%
+%   INPUT:
+%       orbit_param : Struct contenente i parametri orbitali e costanti:
+%                     .a, .e, .i, .raan, .omega, .TA0 [deg], .mu, .T, .h_vec,
+%                     .M_e0 [deg], .xi0 [deg], .t0, .r0_vec, .v0_vec
+%       dt          : Passo temporale fisso per il modello kepleriano [s]
+%       t_sample    : Passo di campionamento per i dati di output filtrati [s]
+%       startTime   : Datetime di inizio simulazione
+%       stopTime    : Datetime di fine simulazione
+%       flags       : Struct di controllo:
+%                     flags utilizzate:
+%                         .modello_propagatore : "keplerian" o "numerical"
+%                         .moon_flag           : 1 attiva perturbazione Luna
+%                         .sun_flag            : 1 attiva perturbazione Sole
+%
+%   OUTPUT:
+%   orbit_polar : Struct contenente i risultati della propagazione:
+%                .r_eci, .v_eci    : Posizione e velocità in ECI [m, m/s]
+%                .t_date           : Vettore datetime degli istanti calcolati
+%                .samples          : Struct con posizione campionata a t_sample
+%                .i, .raan, .omega : Evoluzione dei parametri (se numerico)
+%                .r_kepl, .v_kepl  : pos e vel in perifocale (solo kepleriano)
+%                .TA, .M_e, .xi    : Anomalie (Vera, Media, Eccentrica) [deg]
 
 %% Preparazione variabili
 a         = orbit_param.a;
@@ -48,6 +73,7 @@ v_eci       = zeros(n+1,3);
 
 %% Risolutore:
 % 1) Kepleriano 
+type = flags.modello_propagatore;
 if type == "keplerian"   % t -> M_e -> xi -> TA
     for idx = 1:(n+1)                         %eventualmente si porebbe mettere un parfor
         t(idx) = t0 + (idx * dt - dt);                                         % tempo trascorso in [s]
@@ -85,8 +111,23 @@ elseif type == "numerical"
     tol = 1e-13;
     max_step = 600;  %[s]
     t_span = [0, seconds(stopTime - startTime)];
-    data = struct("orbit_param",orbit_param,"r0",r0,"v0",v0,"startTime",startTime,"t_span",t_span,"mu",mu*1e9,"J2",J2,"raggio_terra",RT, "flags",flags);
+    
+    % Anticipo creando una tabella per gli effetti di terzo corpo (poi andrà interpolata)
+    if flags.moon_flag == 1
+        TB.moon_table = get_thirdBody_table(startTime,t_span(2), 5400, "Moon"); % 16 valori/giorno
+    else
+        TB.moon_table = NaN;
+    end
 
+    if flags.sun_flag == 1
+        TB.sun_table = get_thirdBody_table(startTime,t_span(2), 10800, "Sun"); % 8 valore/giorno
+    else
+        TB.sun_table = NaN;
+    end
+    data = struct("orbit_param",orbit_param,"r0",r0,"v0",v0,"startTime",startTime,"t_span",t_span, ...
+        "mu",mu*1e9,"J2",J2,"raggio_terra",RT, "TB",TB, "flags",flags);
+
+    % INTEGRAZIONE
     int_opt = get_integration_opt(tol,max_step); % aggiungere function per manovra
     [t, yout] = ode45(@(t,y) integratore(t,y,data), t_span, [r0; v0], int_opt);
     r_eci = yout(:, 1:3);

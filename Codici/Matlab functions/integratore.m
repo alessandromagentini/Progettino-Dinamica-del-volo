@@ -1,5 +1,5 @@
 function [dydt,data] = integratore(t,y, data)
-% Integratore per ode45, per propagazione orbita con perturbazione J2. 
+% Integratore per ode45, per propagazione orbita con perturbazione J2 e terzo corpo. 
 % I calcoli vengono fatti già nel sistema ECI
 
 % Setup costanti
@@ -10,6 +10,7 @@ mu = data.mu;                % [m^3/s^2]
 J2_flag = data.flags.J2_flag;
 moon_flag = data.flags.moon_flag;
 sun_flag = data.flags.sun_flag;
+TB = data.TB;
 
 % Organizzazione dati input
 r = y(1:3);          % XYZ
@@ -30,13 +31,13 @@ else
 end
 
 if moon_flag == 1
-    a_tb_moon = third_body(r,t,data,"Moon");  % Perturbazione di terzo corpo (Luna)
+    a_tb_moon = third_body(r,t,TB.moon_table);  % Perturbazione di terzo corpo (Luna)
 else
     a_tb_moon = 0;
 end
 
 if sun_flag == 1
-    a_tb_sun = third_body(r,t,data,"Sun");  % Perturbazione di terzo corpo (Sole)
+    a_tb_sun = third_body(r,t,TB.sun_table);  % Perturbazione di terzo corpo (Sole)
 else
     a_tb_sun = 0;
 end

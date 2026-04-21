@@ -1,5 +1,23 @@
 function [] = analisi_risultati(res)
-% Function per l'analisi e plot dei risultati
+%   Analizza i risultati della simulazione orbitale eseguendo
+%   un confronto tra tre sorgenti di dati: il propagatore custom, l'Aerospace
+%   Toolbox di MATLAB e i dati di riferimento esportati da GMAT. 
+%   Vengono calcolati gli errori di posizione (assoluti e percentuali) e 
+%   l'evoluzione temporale dei parametri orbitali.
+%
+%   INPUT:
+%       res : Struct contenente i risultati delle simulazioni in matlab:
+%             .sat_orbit : Output del propagatore custom 
+%             .aerotb_res: Output dell'Aerospace Toolbox 
+%
+%   REQUISITI:
+%       - La funzione cerca il file 'Kep_param.csv' nella cartella di lavoro
+%         per il confronto con GMAT.
+%
+%   OUTPUT VISIVI:
+%       - Figura 1: Analisi degli scarti di posizione (norma, componente e trend).
+%       - Figura 2: Evoluzione dei parametri orbitali (i, RAAN, AoP) confrontati
+%                   tra Toolbox, Custom e GMAT.
 
 mu_terra = 398600.4418;   
 

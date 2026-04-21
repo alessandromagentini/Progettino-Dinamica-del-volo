@@ -1,11 +1,13 @@
-function [] = plotter(sat_param,sat_orbit,groundtrack3_flag, grundtrack2_flag,plot_eci)
+function [] = plotter(sat_param,sat_orbit,groundtrack3_flag, grundtrack2_flag,plot_eci,animation_flag)
+
+
+plot_samples = 1; % per attivare/disattivare il plot dei samples
 
 R_terra = 6378e3;                                                          %[m]
 start_time = sat_orbit.t_date(1); stop_time = sat_orbit.t_date(end);
-dt = sat_orbit.dt;
 
 % PLOT
-t_utc = start_time:seconds(dt):stop_time;
+t_utc = sat_orbit.t_date;
 lla = eci2lla(sat_orbit.r_eci, datevec(t_utc));
 lat = lla(:,1);
 lon = lla(:,2);
@@ -26,7 +28,7 @@ if plot_eci == 1
     hold on; grid on; axis equal;
     
     % Rappresentazione della Terra (Sfera)
-    [x_s, y_s, z_s] = sphere(50);
+    [x_s, y_s, z_s] = sphere(30);
     surf(x_s*R_terra, y_s*R_terra, z_s*R_terra, ...
          'FaceColor', [0.3 0.5 1], 'EdgeColor', 'none', 'FaceAlpha', 0.2);
     
@@ -49,16 +51,18 @@ if plot_eci == 1
     'Color', [1 0.5 0], 'FontWeight', 'bold', 'FontSize', 10);
 
     % Plot samples
-    plot3(sat_orbit.samples.position(:,1), sat_orbit.samples.position(:,2), sat_orbit.samples.position(:,3), ...
-        'ro', 'MarkerSize', 5, 'MarkerFaceColor', 'r', 'DisplayName', 'Samples (3h)');
-    r_samp = sat_orbit.samples.position;
-    t_samp_date = sat_orbit.samples.date; 
-    for k = 1:size(r_samp, 1) % marker temporale dei samples
-        label_text = sprintf('  #%d (%s)', k, datestr(t_samp_date(k), 'HH:MM'));
-        text(r_samp(k,1) + 200, r_samp(k,2) + 200, r_samp(k,3), label_text, ...
-            'FontSize', 8, ...
-            'Color', 'k', ...
-            'FontWeight', 'bold');
+    if plot_samples == 1
+        plot3(sat_orbit.samples.position(:,1), sat_orbit.samples.position(:,2), sat_orbit.samples.position(:,3), ...
+            'ro', 'MarkerSize', 5, 'MarkerFaceColor', 'r', 'DisplayName', 'Samples (3h)');
+        r_samp = sat_orbit.samples.position;
+        t_samp_date = sat_orbit.samples.date;
+        for k = 1:size(r_samp, 1) % marker temporale dei samples
+            label_text = sprintf('  #%d (%s)', k, datestr(t_samp_date(k), 'HH:MM'));
+            text(r_samp(k,1) + 200, r_samp(k,2) + 200, r_samp(k,3), label_text, ...
+                'FontSize', 8, ...
+                'Color', 'k', ...
+                'FontWeight', 'bold');
+        end
     end
 
     % --- AGGIUNTA VERSORI ASSI ECI ---
@@ -80,4 +84,20 @@ if plot_eci == 1
     title(['Orbita ECI dal ', datestr(start_time), ' al ', datestr(stop_time)]);
     view(135, 30); % Vista angolata 
     hold off
+end
+
+if animation_flag == 1
+    animation_duration = 10; %[s]
+    figure()
+    [x_s, y_s, z_s] = sphere(30);         % Rappresentazione della Terra (Sfera)
+    surf(x_s*R_terra, y_s*R_terra, z_s*R_terra, ...
+         'FaceColor', [0.3 0.5 1], 'EdgeColor', 'none', 'FaceAlpha', 0.2);
+    frame = 0:0.02:animation_duration;
+    r_frame = interp1(sat_orbit.t, sat_orbit.r_eci, (sat_orbit.t(end)/animation_duration)*frame , "spline");
+    for frame = 0:0.02:animation_duration;
+        plot3(r_frame(1),r_frame(2), r_frame(3),"ro", "MarkerFaceColor", "r","MarkerSize", 1);
+        axis equal
+        drawnow
+        pause(0.02)
+    end
 end

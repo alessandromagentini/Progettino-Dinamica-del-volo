@@ -1,4 +1,15 @@
-function [] = plotter(sat_param,sat_orbit,groundtrack3_flag, grundtrack2_flag,plot_eci)
+function [] = plotter(sat_param,sat_orbit,flags)
+% Function per i vari plot (e animazione) dei risultati, escusi i plot
+% riguradanti il confronto tra i propagatori
+
+%configurazione plot ECI custom
+detailed_plot = 1; % per attivare/disattivare il plot dei samples
+
+% flags per plot
+groundtrack3_flag = flags.groundtrack3_flag;
+grundtrack2_flag  = flags.grundtrack2_flag;
+plot_eci          = flags.plot_eci;
+animation_flag    = flags.animation_flag;
 
 R_terra = 6378e3;                                                          %[m]
 start_time = sat_orbit.t_date(1); stop_time = sat_orbit.t_date(end);
@@ -8,7 +19,7 @@ t_utc = sat_orbit.t_date;
 lla = eci2lla(sat_orbit.r_eci, datevec(t_utc));
 lat = lla(:,1);
 lon = lla(:,2);
-alt = lla(:,3);
+% alt = lla(:,3);
 if groundtrack3_flag == 1
     fig = uifigure;
     globe = geoglobe(fig);
@@ -33,31 +44,34 @@ if plot_eci == 1
     plot3(sat_orbit.r_eci(:,1), sat_orbit.r_eci(:,2), sat_orbit.r_eci(:,3), ...
           'Color', [0 0.4470 0.7410], 'LineWidth', 2);
 
-    % Plot parametri orbitali
-    e_dir = sat_param.e_vec / sat_param.e;
-    r_peri_vec = e_dir * (sat_param.rp); 
-    r_apo_vec  = -e_dir * (sat_param.ra);
-    % Marker per Pericentro (Magenta) e Apocentro (Arancione)
-    plot3(r_peri_vec(1), r_peri_vec(2), r_peri_vec(3), 'p', 'MarkerSize', 10, ...
-        'MarkerFaceColor', 'm', 'MarkerEdgeColor', 'm');
-    text(r_peri_vec(1), r_peri_vec(2), r_peri_vec(3), '  R_p', ...
-    'Color', 'm', 'FontWeight', 'bold', 'FontSize', 10);
-    plot3(r_apo_vec(1), r_apo_vec(2), r_apo_vec(3), 'p', 'MarkerSize', 10, ...
-        'MarkerFaceColor', [1 0.5 0], 'MarkerEdgeColor', [1 0.5 0]);
-    text(r_apo_vec(1), r_apo_vec(2), r_apo_vec(3), '  R_a', ...
-    'Color', [1 0.5 0], 'FontWeight', 'bold', 'FontSize', 10);
-
     % Plot samples
-    plot3(sat_orbit.samples.position(:,1), sat_orbit.samples.position(:,2), sat_orbit.samples.position(:,3), ...
-        'ro', 'MarkerSize', 5, 'MarkerFaceColor', 'r', 'DisplayName', 'Samples (3h)');
-    r_samp = sat_orbit.samples.position;
-    t_samp_date = sat_orbit.samples.date; 
-    for k = 1:size(r_samp, 1) % marker temporale dei samples
-        label_text = sprintf('  #%d (%s)', k, datestr(t_samp_date(k), 'HH:MM'));
-        text(r_samp(k,1) + 200, r_samp(k,2) + 200, r_samp(k,3), label_text, ...
-            'FontSize', 8, ...
-            'Color', 'k', ...
-            'FontWeight', 'bold');
+    if detailed_plot == 1
+
+        % Plot parametri orbitali
+        e_dir = sat_param.e_vec / sat_param.e;
+        r_peri_vec = e_dir * (sat_param.rp);
+        r_apo_vec  = -e_dir * (sat_param.ra);
+        % Marker per Pericentro (Magenta) e Apocentro (Arancione)
+        plot3(r_peri_vec(1), r_peri_vec(2), r_peri_vec(3), 'p', 'MarkerSize', 10, ...
+            'MarkerFaceColor', 'm', 'MarkerEdgeColor', 'm');
+        text(r_peri_vec(1), r_peri_vec(2), r_peri_vec(3), '  R_p', ...
+            'Color', 'm', 'FontWeight', 'bold', 'FontSize', 10);
+        plot3(r_apo_vec(1), r_apo_vec(2), r_apo_vec(3), 'p', 'MarkerSize', 10, ...
+            'MarkerFaceColor', [1 0.5 0], 'MarkerEdgeColor', [1 0.5 0]);
+        text(r_apo_vec(1), r_apo_vec(2), r_apo_vec(3), '  R_a', ...
+            'Color', [1 0.5 0], 'FontWeight', 'bold', 'FontSize', 10);
+
+        plot3(sat_orbit.samples.position(:,1), sat_orbit.samples.position(:,2), sat_orbit.samples.position(:,3), ...
+            'ro', 'MarkerSize', 5, 'MarkerFaceColor', 'r', 'DisplayName', 'Samples (3h)');
+        r_samp = sat_orbit.samples.position;
+        t_samp_date = sat_orbit.samples.date;
+        for k = 1:size(r_samp, 1) % marker temporale dei samples
+            label_text = sprintf('  #%d (%s)', k, datestr(t_samp_date(k), 'HH:MM'));
+            text(r_samp(k,1) + 200, r_samp(k,2) + 200, r_samp(k,3), label_text, ...
+                'FontSize', 8, ...
+                'Color', 'k', ...
+                'FontWeight', 'bold');
+        end
     end
 
     % --- AGGIUNTA VERSORI ASSI ECI ---
@@ -79,4 +93,23 @@ if plot_eci == 1
     title(['Orbita ECI dal ', datestr(start_time), ' al ', datestr(stop_time)]);
     view(135, 30); % Vista angolata 
     hold off
+end
+
+if animation_flag == 1
+    animation_duration = 10; %[s]
+    figure()
+    [x_s, y_s, z_s] = sphere(30);         % Rappresentazione della Terra (Sfera)
+    surf(x_s*R_terra, y_s*R_terra, z_s*R_terra, ...
+         'FaceColor', [0.3 0.5 1], 'EdgeColor', 'none', 'FaceAlpha', 0.2);
+    axis equal
+    hold on
+    frame = 0:0.02:animation_duration;
+    r_frame = interp1(sat_orbit.t, sat_orbit.r_eci, (sat_orbit.t(end)/animation_duration)*frame , "spline");
+    waitforbuttonpress
+    for frame = 1:length(r_frame)
+        plot3(r_frame(1:frame,1),r_frame(1:frame,2), r_frame(1:frame,3),"r", 'LineWidth', 1);
+        
+        drawnow
+        pause(0.02)
+    end
 end

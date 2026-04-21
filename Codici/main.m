@@ -4,16 +4,17 @@ clear;clc;close all
 addpath(genpath(pwd))
 
 % Flags
-groundtrack3_flag        = 0;          % per geoplot 3D della ground track
-groundtrack2_flag        = 0;          % per geoplot 2D della ground track
-plot_eci_flag            = 0;          % per plot (non globe) in ECI
-satellite_tb_flag        = 0;          % per utilizzo satellite communication toolbox
-simulink_flag            = 0;          % per plot del modello simulink
-analisi_risultati_flag   = 1;          % per verifica dei risulati
-modello_propagatore   = "numerical";   % "keplerian" o "numerical"--> per scegliere il metodo di propagazione (numerical contiene perturbazioni)
-flags_perturbazioni.J2_flag    = 1;
-flags_perturbazioni.moon_flag  = 1;
-flags_perturbazioni.sun_flag   = 0;
+flags.groundtrack3_flag        = 0;          % per geoplot 3D della ground track
+flags.groundtrack2_flag        = 0;          % per geoplot 2D della ground track
+flags.plot_eci_flag            = 0;          % per plot (non globe) in ECI
+flags.animation_flag           = 0;          % per animazione
+flags.satellite_tb_flag        = 0;          % per utilizzo satellite communication toolbox
+flags.simulink_flag            = 0;          % per plot del modello simulink
+flags.analisi_risultati_flag   = 1;          % per plot confronto risultati
+flags.modello_propagatore   = "numerical";   % "keplerian" o "numerical"--> per scegliere il metodo di propagazione (numerical supporta perturbazioni)
+flags.J2_flag    = 1;                        % perturbazione J2
+flags.moon_flag  = 1;                        % perturbazione di terzo corpo (Luna)
+flags.sun_flag   = 1;                        % perturbazione di terzo corpo (Sole)
 
 %% Dati iniziali
 r0_vec = [-7368.038574853538, -7231.584293256432, -148.523707822187];             %[Km]
@@ -21,30 +22,30 @@ v0_vec = [4.126512186315761, -3.956371322777358, -0.490613661500991];           
 
 mu_terra = 398600.4418;                                                           %[km^3/s^2]
 
-start_time   = datetime(2026, 3, 26, 18, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
-stop_time    = datetime(2026, 3, 27,  6, 00, 00);                                 % YYYY-MM-DD-HH-min-sec
+start_time   = datetime(2026, 3, 26,  18, 00, 00);                                % YYYY-MM-DD-HH-min-sec
+stop_time    = datetime(2026, 4, 27,   6, 00, 00);                                % YYYY-MM-DD-HH-min-sec
 mission_duration = seconds(stop_time - start_time);                               %[s]
 delta_t_sat_sample = 30 * 60;                                                     %[s]
 jd_start = juliandate(start_time);
 
-%% Calcolo parametri orbitali
+%% --- Calcolo parametri orbitali --- %%
 fprintf("Calcolo dei parametri orbitali...")
 [sat_param] = get_parametri_orbitali(r0_vec,v0_vec,mu_terra);
 fprintf(" completato!\n")
 
-%% Calcolo orbita 
+%% --- Calcolo orbita --- %%
 %1) Custom
 dt = 1;                                                                           %[s]
 fprintf("Propagazione dell'orbita con function custom...")
-[sat_orbit] = propagatore(sat_param,dt,delta_t_sat_sample,start_time,stop_time,modello_propagatore, flags_perturbazioni); 
+[sat_orbit] = propagatore(sat_param,dt,delta_t_sat_sample,start_time,stop_time, flags); 
 fprintf(" completato!\n")
-if groundtrack3_flag == 1 || groundtrack2_flag == 1 || plot_eci_flag == 1  % PLOT
-    plotter(sat_param,sat_orbit,groundtrack3_flag,groundtrack2_flag,plot_eci_flag)
+if flags.groundtrack3_flag == 1 || flags.groundtrack2_flag == 1 || flags.plot_eci_flag == 1 || flags.animation_flag == 1 % PLOT
+    plotter(sat_param,sat_orbit,flags)
 end
 res.sat_orbit = sat_orbit;
 
 %2) Satellite Communications Toolbox
-if satellite_tb_flag == 1
+if flags.satellite_tb_flag == 1
     deltat_sample = 60;        %[s]
     sc_sat_tb = satelliteScenario(start_time,stop_time,deltat_sample);
     sat_orbit_sat_tb = satellite(sc_sat_tb,sat_param.a,sat_param.e,sat_param.i,sat_param.raan,sat_param.omega,sat_param.TA0);
@@ -56,7 +57,7 @@ if satellite_tb_flag == 1
     % states 
     % groundStation
     % groudTrack(sat_orbit_aero_tb, "LeadTime",1800, "Trail time",....)
-    %accesInterval
+    % accesInterval
 end
 
 %3) Simulink model with aerospace toolbox
@@ -90,11 +91,11 @@ end
 
 res.aerotb_res = struct("pos_icrf",posData_icrf, "vel_icrf",velData_icrf, "time",timeData);
 
-if simulink_flag == 1 % PLOT
+if flags.simulink_flag == 1 % PLOT
     % groundTrack(sat_orbit_aero_tb);
     play(sc_aero_tb);
 end
 
-if analisi_risultati_flag == 1
+if flags.analisi_risultati_flag == 1
     analisi_risultati(res)
 end
